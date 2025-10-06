@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "초보자를 위한 프롬프트 엔지니어링 입문: AI와 효과적으로 소통하는 5가지 핵심 원칙"
-category: 공부
-tags: [프롬프트, 프롬프트 엔지니어링, ChatGPT, AI, LLM]
+category: study
+tags: [prompt-engineering, chatgpt, ai, llm]
 excerpt: "AI에게 원하는 답변을 얻기 위한 명확하고 효과적인 질문 기술, 프롬프트 엔지니어링의 기본 개념과 핵심 원칙을 쉽게 배워보세요."
 ---
 
