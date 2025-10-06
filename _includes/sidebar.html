@@ -55,13 +55,10 @@
       <div>
         <h2 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">태그</h2>
         <div class="flex flex-wrap gap-2">
-          {% assign all_tags = site.tags | sort %}
-          {% for tag in all_tags limit:10 %}
-            {% assign tag_name = tag[0] %}
-            {% assign tag_posts = tag[1] %}
-            <a href="{{ site.baseurl }}/tags/{{ tag_name | slugify }}/" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs rounded-md bg-muted text-foreground hover:bg-primary hover:text-primary-foreground transition-colors no-underline">
-              <span class="text-base">{{ tag_name }}</span>
-              <span class="text-muted-foreground ml-0.5">({{ tag_posts | size }})</span>
+          {% for tag in site.tags limit:10 %}
+            <a href="{{ site.baseurl }}/tags/{{ tag[0] | slugify }}/" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs rounded-md bg-muted text-foreground hover:bg-primary hover:text-primary-foreground transition-colors no-underline">
+              <span class="text-base">{{ tag[0] }}</span>
+              <span class="text-muted-foreground ml-0.5">({{ tag[1] | size }})</span>
             </a>
           {% endfor %}
         </div>
