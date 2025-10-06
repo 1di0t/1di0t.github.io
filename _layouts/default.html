@@ -28,14 +28,14 @@
       <!-- Header -->
       <header class="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div class="container flex items-center justify-between h-16 px-8">
-          <div class="flex items-center gap-4">
+          <div class="flex items-center gap-4 md:ml-0 ml-12">
             {% if page.layout == "default" and page.title == "Home" %}
             <h2 class="text-lg font-semibold">최근 게시글</h2>
             {% elsif page.title %}
             <h2 class="text-lg font-semibold">{{ page.title }}</h2>
             {% endif %}
           </div>
-          <div class="flex items-center gap-2 mr-5">
+          <div class="flex items-center gap-2">
             <button id="search-button" class="p-2 hover:bg-muted rounded-md transition-colors hover-warm" aria-label="검색">
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
