@@ -107,19 +107,17 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Code Copy Button
-  const codeBlocks = document.querySelectorAll('.highlight');
+  const codeBlocks = document.querySelectorAll('.highlighter-rouge');
 
   codeBlocks.forEach((codeBlock) => {
-    // Skip if already wrapped
-    if (codeBlock.parentNode.classList.contains('code-block-wrapper')) {
+    // Skip if copy button already exists
+    if (codeBlock.querySelector('.copy-code-button')) {
       return;
     }
 
-    // Create wrapper
-    const wrapper = document.createElement('div');
-    wrapper.className = 'code-block-wrapper';
-    codeBlock.parentNode.insertBefore(wrapper, codeBlock);
-    wrapper.appendChild(codeBlock);
+    // Find the highlight element
+    const highlightElement = codeBlock.querySelector('.highlight');
+    if (!highlightElement) return;
 
     // Create copy button
     const copyButton = document.createElement('button');
@@ -127,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
     copyButton.textContent = '복사';
 
     copyButton.addEventListener('click', async () => {
-      const code = codeBlock.querySelector('pre').textContent;
+      const code = highlightElement.querySelector('pre').textContent;
 
       try {
         await navigator.clipboard.writeText(code);
@@ -148,7 +146,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    wrapper.appendChild(copyButton);
+    // Append to the highlighter-rouge container
+    codeBlock.appendChild(copyButton);
   });
 
   // Add line numbers to code blocks (if not already present)
