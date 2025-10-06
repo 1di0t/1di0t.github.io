@@ -2,37 +2,65 @@
 layout: default
 ---
 
-<div class="tag-page">
+<div class="tag-page max-w-4xl">
   <header class="mb-8">
-    <h1 class="text-4xl font-bold mb-4">태그: #{{ page.title }}</h1>
-    <p class="text-text-secondary dark:text-dark-text-secondary">
+    <div class="flex items-center gap-2 mb-4">
+      <svg class="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+      </svg>
+      <h1 class="text-4xl font-bold">{{ page.tag }}</h1>
+    </div>
+    <p class="text-muted-foreground">
       총 {{ site.tags[page.tag] | size }}개의 글
     </p>
   </header>
 
   <div class="grid gap-6">
     {% for post in site.tags[page.tag] %}
-    <article class="card hover:shadow-lg transition-shadow">
+    <article class="bg-card rounded-lg border border-border p-6 hover:shadow-lg transition-all hover:border-primary">
       <h2 class="text-2xl font-bold mb-2">
-        <a href="{{ post.url | relative_url }}" class="no-underline hover:text-accent-primary">
+        <a href="{{ post.url | relative_url }}" class="no-underline hover:text-primary text-foreground">
           {{ post.title }}
         </a>
       </h2>
 
-      <div class="post-meta mb-3">
-        <time datetime="{{ post.date | date_to_xmlschema }}">
+      <div class="flex items-center gap-3 text-sm text-muted-foreground mb-3">
+        <time datetime="{{ post.date | date_to_xmlschema }}" class="flex items-center gap-1">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
           {{ post.date | date: "%Y년 %m월 %d일" }}
         </time>
-        · {{ post.content | number_of_words | divided_by: 200 }}분
+        <span class="flex items-center gap-1">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          {{ post.content | number_of_words | divided_by: 200 }}분
+        </span>
         {% if post.category %}
-        · <a href="{{ '/category/' | append: post.category | relative_url }}">{{ post.category }}</a>
+        <span class="inline-flex items-center px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground text-xs">
+          {{ post.category }}
+        </span>
         {% endif %}
       </div>
 
       {% if post.excerpt %}
-      <p class="text-text-secondary dark:text-dark-text-secondary">
+      <p class="text-muted-foreground mb-4 leading-relaxed">
         {{ post.excerpt | strip_html | truncate: 200 }}
       </p>
+      {% endif %}
+
+      {% if post.tags %}
+      <div class="flex flex-wrap gap-2">
+        {% for tag in post.tags %}
+        <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs rounded-md bg-muted text-foreground hover:bg-primary hover:text-primary-foreground transition-colors no-underline">
+          <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+          </svg>
+          {{ tag }}
+        </a>
+        {% endfor %}
+      </div>
       {% endif %}
     </article>
     {% endfor %}
