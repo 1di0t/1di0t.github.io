@@ -1,0 +1,87 @@
+# Site settings
+title: "바보 프로틴의 개발 블로그"
+description: "Python, 딥러닝, 머신러닝을 공부하고 프로젝트를 기록하는 블로그입니다."
+baseurl: ""
+url: "https://1di0t.github.io"
+author:
+  name: "1di0t"
+  email: ""
+  github: "1di0t"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:year/:month/:day/:title/
+
+# Kramdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+  auto_ids: true
+  toc_levels: 1..6
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
+# Pagination
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# Jekyll Archives
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    category: '/category/:name/'
+    tag: '/tags/:name/'
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+  - package-lock.json
+  - tailwind.config.js
+  - postcss.config.js
+  - README.md
+  - BLOG_REQUIREMENTS.md
+
+# Include
+include:
+  - _pages
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-archives
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+  - scope:
+      path: "_pages"
+    values:
+      layout: "page"
+  - scope:
+      path: "assets/images"
+    values:
+      image: true

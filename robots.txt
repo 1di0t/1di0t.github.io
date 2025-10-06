@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://1di0t.github.io/sitemap.xml

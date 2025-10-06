@@ -1,0 +1,94 @@
+---
+layout: default
+---
+
+<article class="post">
+  <!-- Post Header -->
+  <header class="mb-8">
+    <h1 class="text-4xl font-bold mb-4">{{ page.title }}</h1>
+
+    <div class="post-meta flex flex-wrap items-center gap-4 mb-4">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%Y년 %m월 %d일" }}
+      </time>
+
+      {% if page.reading_time %}
+      <span>· 읽는 시간: {{ page.reading_time }}분</span>
+      {% else %}
+      <span>· 읽는 시간: {{ content | number_of_words | divided_by: 200 }}분</span>
+      {% endif %}
+
+      {% if page.category %}
+      <span>·
+        <a href="{{ '/category/' | append: page.category | relative_url }}" class="hover:underline">
+          {{ page.category }}
+        </a>
+      </span>
+      {% endif %}
+    </div>
+
+    <!-- Tags -->
+    {% if page.tags %}
+    <div class="flex flex-wrap gap-2 mb-6">
+      {% for tag in page.tags %}
+      <a href="{{ '/tags/' | append: tag | relative_url }}" class="badge">
+        #{{ tag }}
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  <!-- Table of Contents -->
+  {% if page.toc != false %}
+  <nav class="toc mb-8">
+    <h2 class="text-xl font-bold mb-4">목차</h2>
+    <div id="toc-content"></div>
+  </nav>
+  {% endif %}
+
+  <!-- Post Content -->
+  <div class="prose prose-lg max-w-none dark:prose-invert">
+    {{ content }}
+  </div>
+
+  <!-- Post Navigation -->
+  <nav class="mt-12 pt-8 border-t border-border-subtle dark:border-dark-border-subtle">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {% if page.previous.url %}
+      <a href="{{ page.previous.url | relative_url }}" class="card hover:shadow-lg transition-shadow">
+        <div class="text-sm text-text-secondary dark:text-dark-text-secondary mb-2">← 이전 글</div>
+        <div class="font-semibold">{{ page.previous.title }}</div>
+      </a>
+      {% endif %}
+
+      {% if page.next.url %}
+      <a href="{{ page.next.url | relative_url }}" class="card hover:shadow-lg transition-shadow text-right">
+        <div class="text-sm text-text-secondary dark:text-dark-text-secondary mb-2">다음 글 →</div>
+        <div class="font-semibold">{{ page.next.title }}</div>
+      </a>
+      {% endif %}
+    </div>
+  </nav>
+
+  <!-- Comments (Giscus) -->
+  {% if page.comments %}
+  <div class="mt-12 pt-8 border-t border-border-subtle dark:border-dark-border-subtle">
+    <script src="https://giscus.app/client.js"
+        data-repo="1di0t/1di0t.github.io"
+        data-repo-id="YOUR_REPO_ID"
+        data-category="General"
+        data-category-id="YOUR_CATEGORY_ID"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="ko"
+        crossorigin="anonymous"
+        async>
+    </script>
+  </div>
+  {% endif %}
+</article>

@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<div class="tag-page">
+  <header class="mb-8">
+    <h1 class="text-4xl font-bold mb-4">태그: #{{ page.title }}</h1>
+    <p class="text-text-secondary dark:text-dark-text-secondary">
+      총 {{ site.tags[page.tag] | size }}개의 글
+    </p>
+  </header>
+
+  <div class="grid gap-6">
+    {% for post in site.tags[page.tag] %}
+    <article class="card hover:shadow-lg transition-shadow">
+      <h2 class="text-2xl font-bold mb-2">
+        <a href="{{ post.url | relative_url }}" class="no-underline hover:text-accent-primary">
+          {{ post.title }}
+        </a>
+      </h2>
+
+      <div class="post-meta mb-3">
+        <time datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%Y년 %m월 %d일" }}
+        </time>
+        · {{ post.content | number_of_words | divided_by: 200 }}분
+        {% if post.category %}
+        · <a href="{{ '/category/' | append: post.category | relative_url }}">{{ post.category }}</a>
+        {% endif %}
+      </div>
+
+      {% if post.excerpt %}
+      <p class="text-text-secondary dark:text-dark-text-secondary">
+        {{ post.excerpt | strip_html | truncate: 200 }}
+      </p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</div>

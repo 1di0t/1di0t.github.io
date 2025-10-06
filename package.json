@@ -1,0 +1,17 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Jekyll blog with Tailwind CSS",
+  "scripts": {
+    "dev": "concurrently \"npm run watch:css\" \"bundle exec jekyll serve --livereload\"",
+    "build:css": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/output.css --minify",
+    "watch:css": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/output.css --watch",
+    "build": "npm run build:css && bundle exec jekyll build"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "concurrently": "^8.2.2"
+  }
+}

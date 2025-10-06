@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font faces */
+/* MaruBuri - 본문 폰트 */
+@font-face {
+  font-family: 'MaruBuri';
+  src: url('../fonts/MaruBuri-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MaruBuri';
+  src: url('../fonts/MaruBuri-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MaruBuri';
+  src: url('../fonts/MaruBuri-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MaruBuri';
+  src: url('../fonts/MaruBuri-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MaruBuri';
+  src: url('../fonts/MaruBuri-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* D2Coding - 코드 폰트 */
+@font-face {
+  font-family: 'D2Coding';
+  src: url('../fonts/D2Coding-Ver1.3.2-20180524.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'D2Coding';
+  src: url('../fonts/D2CodingBold-Ver1.3.2-20180524.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base styles */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-sans bg-bg-main text-text-primary;
+  }
+
+  body.dark {
+    @apply bg-dark-bg-main text-dark-text-primary;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+
+  a {
+    @apply text-accent-primary hover:underline;
+  }
+
+  code {
+    @apply font-mono text-sm;
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* Code blocks */
+  .highlight {
+    @apply bg-bg-subtle dark:bg-dark-bg-subtle rounded-lg p-4 my-4 overflow-x-auto;
+  }
+
+  .highlight pre {
+    @apply m-0;
+  }
+
+  /* Copy button for code blocks */
+  .code-block-wrapper {
+    @apply relative;
+  }
+
+  .copy-code-button {
+    @apply absolute top-2 right-2 px-3 py-1 bg-accent-primary text-white rounded hover:bg-opacity-80 transition-opacity;
+  }
+
+  /* Table of Contents */
+  .toc {
+    @apply bg-bg-subtle dark:bg-dark-bg-subtle rounded-lg p-4 mb-6;
+  }
+
+  .toc ul {
+    @apply list-none pl-4;
+  }
+
+  .toc a {
+    @apply text-text-secondary dark:text-dark-text-secondary no-underline hover:text-accent-primary;
+  }
+
+  /* Post meta */
+  .post-meta {
+    @apply text-text-secondary dark:text-dark-text-secondary text-sm;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    @apply fixed left-0 top-0 h-screen w-64 bg-bg-subtle dark:bg-dark-bg-subtle border-r border-border-subtle dark:border-dark-border-subtle overflow-y-auto;
+  }
+
+  /* Main content area */
+  .main-content {
+    @apply ml-64 min-h-screen;
+  }
+
+  /* Category/Tag badges */
+  .badge {
+    @apply inline-block px-3 py-1 rounded-full text-sm bg-accent-secondary text-white mr-2 mb-2;
+  }
+
+  /* Card */
+  .card {
+    @apply bg-bg-subtle dark:bg-dark-bg-subtle rounded-lg p-6 border border-border-subtle dark:border-dark-border-subtle;
+  }
+}
+
+/* Syntax highlighting customization */
+.highlight .c { @apply text-gray-500; } /* Comment */
+.highlight .k { @apply text-accent-primary; } /* Keyword */
+.highlight .s { @apply text-green-600; } /* String */
+.highlight .n { @apply text-text-primary dark:text-dark-text-primary; } /* Name */
+.highlight .o { @apply text-text-secondary; } /* Operator */
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    @apply transform -translate-x-full transition-transform duration-300;
+  }
+
+  .sidebar.open {
+    @apply translate-x-0;
+  }
+
+  .main-content {
+    @apply ml-0;
+  }
+
+  .mobile-menu-button {
+    @apply fixed top-4 left-4 z-50 p-2 bg-accent-primary text-white rounded;
+  }
+}
