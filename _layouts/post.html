@@ -15,15 +15,8 @@ layout: default
         {{ page.date | date: "%Y년 %m월 %d일" }}
       </time>
 
-      <span class="flex items-center gap-1">
-        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-        </svg>
-        {{ content | number_of_words | divided_by: 200 }}분
-      </span>
-
       {% if page.category %}
-      <a href="{{ site.baseurl }}/category/{{ page.category | slugify }}/" class="inline-flex items-center px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground text-xs no-underline hover:bg-opacity-80 transition-opacity">
+      <a href="{{ '/category/' | append: page.category | append: '/' | relative_url }}" class="inline-flex items-center px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground text-xs no-underline hover:bg-opacity-80 transition-opacity">
         {{ page.category }}
       </a>
       {% endif %}
@@ -33,7 +26,7 @@ layout: default
     {% if page.tags %}
     <div class="flex flex-wrap gap-2 mb-6">
       {% for tag in page.tags %}
-      <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs rounded-md bg-muted text-foreground hover:bg-primary hover:text-primary-foreground transition-colors no-underline">
+      <a href="{{ '/tags/' | append: tag | append: '/' | relative_url }}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs rounded-md bg-muted text-foreground hover:bg-primary hover:text-primary-foreground transition-colors no-underline">
         <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
         </svg>
@@ -76,7 +69,8 @@ layout: default
     </div>
   </nav>
 
-  <!-- Comments (Giscus) -->
+  <!-- Comments (Giscus) - Disabled until configured -->
+  {% comment %}
   {% if page.comments %}
   <div class="mt-12 pt-8 border-t border-border">
     <script src="https://giscus.app/client.js"
@@ -96,4 +90,5 @@ layout: default
     </script>
   </div>
   {% endif %}
+  {% endcomment %}
 </article>

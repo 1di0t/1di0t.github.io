@@ -25,7 +25,6 @@ permalink: /blog/
         <time datetime="{{ post.date | date_to_xmlschema }}">
           {{ post.date | date: "%Y년 %m월 %d일" }}
         </time>
-        · {{ post.content | number_of_words | divided_by: 200 }}분
         {% if post.category %}
         · <a href="{{ '/category/' | append: post.category | relative_url }}">{{ post.category }}</a>
         {% endif %}
