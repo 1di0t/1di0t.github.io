@@ -3,13 +3,13 @@ layout: default
 title: Home
 ---
 
-<!-- Posts Grid - exactly like technical-blog -->
-<div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
-  {% for post in site.posts limit:12 %}
+<!-- Posts List -->
+<div class="max-w-4xl mx-auto space-y-6">
+  {% for post in site.posts %}
   <a href="{{ post.url | relative_url }}" class="block group no-underline">
-    <div class="h-full transition-all hover:shadow-lg hover:border-primary bg-card rounded-lg border border-border p-6">
+    <article class="transition-all hover:shadow-lg hover:border-primary bg-card rounded-lg border border-border p-6">
       <!-- Post Header -->
-      <div class="flex items-center gap-2 text-xs text-muted-foreground mb-2">
+      <div class="flex items-center gap-2 text-xs text-muted-foreground mb-3">
         {% if post.category %}
         <span class="inline-flex items-center px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground font-normal">
           {{ post.category }}
@@ -30,31 +30,31 @@ title: Home
       </div>
 
       <!-- Title -->
-      <h3 class="text-xl font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2">
+      <h2 class="text-2xl font-bold text-foreground group-hover:text-primary transition-colors mb-3">
         {{ post.title }}
-      </h3>
+      </h2>
 
       <!-- Excerpt -->
       {% if post.excerpt %}
-      <p class="text-muted-foreground line-clamp-3 leading-relaxed mb-4">
-        {{ post.excerpt | strip_html | truncate: 150 }}
+      <p class="text-muted-foreground leading-relaxed mb-4">
+        {{ post.excerpt | strip_html | truncate: 200 }}
       </p>
       {% endif %}
 
       <!-- Tags -->
       {% if post.tags %}
-      <div class="flex flex-wrap gap-2 mt-auto">
-        {% for tag in post.tags limit:3 %}
-        <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/" class="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors no-underline">
+      <div class="flex flex-wrap gap-2">
+        {% for tag in post.tags %}
+        <span class="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors">
           <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
           </svg>
           {{ tag }}
-        </a>
+        </span>
         {% endfor %}
       </div>
       {% endif %}
-    </div>
+    </article>
   </a>
   {% endfor %}
 </div>
