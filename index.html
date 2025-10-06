@@ -4,7 +4,7 @@ title: Home
 ---
 
 <!-- Posts Grid - exactly like technical-blog -->
-<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-7xl">
+<div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
   {% for post in site.posts limit:12 %}
   <a href="{{ post.url | relative_url }}" class="block group no-underline">
     <div class="h-full transition-all hover:shadow-lg hover:border-primary bg-card rounded-lg border border-border p-6">

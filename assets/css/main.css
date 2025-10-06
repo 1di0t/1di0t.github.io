@@ -296,4 +296,18 @@
   .mobile-menu-button {
     @apply fixed top-4 left-4 z-50 p-2 bg-primary text-primary-foreground rounded;
   }
+
+  /* 모바일에서 헤더와 컨텐츠 패딩 조정 */
+  header .container {
+    @apply px-4;
+  }
+
+  main .container {
+    @apply px-4;
+  }
+
+  /* 그리드 간격 축소 */
+  .grid {
+    @apply gap-4;
+  }
 }
