@@ -30,9 +30,9 @@
         <div class="container flex items-center justify-between h-16 px-5 md:px-8">
           <div class="flex items-center gap-4 md:ml-0 ml-16">
             {% if page.layout == "default" and page.title == "Home" %}
-            <h2 class="text-lg font-semibold">최근 게시글</h2>
+            <h2 class="text-base md:text-lg font-semibold">최근 게시글</h2>
             {% elsif page.title %}
-            <h2 class="text-lg font-semibold">{{ page.title }}</h2>
+            <h2 class="text-sm md:text-lg font-semibold truncate max-w-[200px] md:max-w-none">{{ page.title }}</h2>
             {% endif %}
           </div>
           <div class="flex items-center gap-2">
@@ -54,7 +54,7 @@
       </header>
 
       <!-- Content -->
-      <div class="container px-5 md:px-8 py-8">
+      <div class="container px-4 md:px-8 py-6 md:py-8">
         {{ content }}
       </div>
 

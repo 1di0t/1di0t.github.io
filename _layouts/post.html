@@ -4,8 +4,8 @@ layout: default
 
 <article class="post max-w-4xl mx-auto">
   <!-- Post Header -->
-  <header class="mb-8">
-    <h1 class="text-4xl font-bold mb-4">{{ page.title }}</h1>
+  <header class="mb-6 md:mb-8">
+    <h1 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4">{{ page.title }}</h1>
 
     <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-4">
       <time datetime="{{ page.date | date_to_xmlschema }}" class="flex items-center gap-1">
@@ -39,31 +39,31 @@ layout: default
 
   <!-- Table of Contents -->
   {% if page.toc != false %}
-  <nav class="toc mb-8">
-    <h2 class="text-xl font-bold mb-4">목차</h2>
+  <nav class="toc mb-6 md:mb-8">
+    <h2 class="text-lg md:text-xl font-bold mb-3 md:mb-4">목차</h2>
     <div id="toc-content"></div>
   </nav>
   {% endif %}
 
   <!-- Post Content -->
-  <div class="prose prose-lg max-w-none dark:prose-invert">
+  <div class="prose prose-sm md:prose-lg max-w-none dark:prose-invert">
     {{ content }}
   </div>
 
   <!-- Post Navigation -->
-  <nav class="mt-12 pt-8 border-t border-border">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <nav class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
       {% if page.previous.url %}
-      <a href="{{ page.previous.url | relative_url }}" class="bg-card rounded-lg border border-border p-6 hover:shadow-lg transition-all hover:border-primary no-underline">
-        <div class="text-sm text-muted-foreground mb-2">← 이전 글</div>
-        <div class="font-semibold text-foreground">{{ page.previous.title }}</div>
+      <a href="{{ page.previous.url | relative_url }}" class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary no-underline">
+        <div class="text-xs md:text-sm text-muted-foreground mb-1 md:mb-2">← 이전 글</div>
+        <div class="text-sm md:text-base font-semibold text-foreground">{{ page.previous.title }}</div>
       </a>
       {% endif %}
 
       {% if page.next.url %}
-      <a href="{{ page.next.url | relative_url }}" class="bg-card rounded-lg border border-border p-6 hover:shadow-lg transition-all hover:border-primary text-right no-underline">
-        <div class="text-sm text-muted-foreground mb-2">다음 글 →</div>
-        <div class="font-semibold text-foreground">{{ page.next.title }}</div>
+      <a href="{{ page.next.url | relative_url }}" class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary text-right no-underline">
+        <div class="text-xs md:text-sm text-muted-foreground mb-1 md:mb-2">다음 글 →</div>
+        <div class="text-sm md:text-base font-semibold text-foreground">{{ page.next.title }}</div>
       </a>
       {% endif %}
     </div>

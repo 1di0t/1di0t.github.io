@@ -110,6 +110,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const codeBlocks = document.querySelectorAll('.highlight');
 
   codeBlocks.forEach((codeBlock) => {
+    // Skip if already wrapped
+    if (codeBlock.parentNode.classList.contains('code-block-wrapper')) {
+      return;
+    }
+
     // Create wrapper
     const wrapper = document.createElement('div');
     wrapper.className = 'code-block-wrapper';
