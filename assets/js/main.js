@@ -38,8 +38,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const sidebar = document.querySelector('.sidebar-width');
 
   if (mobileMenuBtn && sidebar) {
-    mobileMenuBtn.addEventListener('click', function() {
-      sidebar.classList.toggle('open');
+    mobileMenuBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      sidebar.classList.toggle('translate-x-0');
+      sidebar.classList.toggle('-translate-x-full');
     });
 
     // Close sidebar when clicking outside
@@ -47,8 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const isClickInsideSidebar = sidebar.contains(event.target);
       const isClickOnMenuBtn = mobileMenuBtn.contains(event.target);
 
-      if (!isClickInsideSidebar && !isClickOnMenuBtn && sidebar.classList.contains('open')) {
-        sidebar.classList.remove('open');
+      if (!isClickInsideSidebar && !isClickOnMenuBtn && sidebar.classList.contains('translate-x-0')) {
+        sidebar.classList.remove('translate-x-0');
+        sidebar.classList.add('-translate-x-full');
       }
     });
   }
