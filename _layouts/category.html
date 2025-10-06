@@ -11,12 +11,12 @@ layout: default
       <h1 class="text-4xl font-bold">{{ page.title }}</h1>
     </div>
     <p class="text-muted-foreground">
-      총 {{ site.categories[page.category] | size }}개의 글
+      총 {{ page.posts | size }}개의 글
     </p>
   </header>
 
   <div class="grid gap-6">
-    {% for post in site.categories[page.category] %}
+    {% for post in page.posts %}
     <article class="bg-card rounded-lg border border-border p-6 hover:shadow-lg transition-all hover:border-primary">
       <h2 class="text-2xl font-bold mb-2">
         <a href="{{ post.url | relative_url }}" class="no-underline hover:text-primary text-foreground">
