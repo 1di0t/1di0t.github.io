@@ -49,6 +49,14 @@ jobs:
         env:
           JEKYLL_ENV: production
 
+      - name: Verify jekyll-archives output
+        run: |
+          echo "Checking for generated category and tag pages..."
+          ls -la _site/category/ || echo "No category directory found"
+          ls -la _site/tags/ || echo "No tags directory found"
+          echo "Content of _site directory:"
+          find _site -type d -name "category" -o -name "tags" | head -20
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
