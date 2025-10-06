@@ -112,14 +112,14 @@
 }
 
 .dark {
-  /* Dark Mode - 은은한 숲속 느낌 */
-  --bg-main: #1F2120;              /* 더 중립적인 어두운 배경 */
-  --text-primary: #EFEAE4;
-  --accent-primary: #E5774A;
-  --text-secondary: #9B9C97;       /* 조금 더 밝은 회색 */
-  --bg-subtle: #2B2D2A;            /* 더 부드러운 서브틀 */
-  --border-subtle: #3F4240;        /* 더 중립적인 보더 */
-  --accent-secondary: #A8B091;
+  /* Dark Mode */
+  --bg-main: #242220;
+  --text-primary: #F0EBE4;
+  --accent-primary: #F28E63;
+  --text-secondary: #9E938B;
+  --bg-subtle: #3A3633;
+  --border-subtle: #504A45;
+  --accent-secondary: #9DA28A;
 
   /* 추가 색상 - 숲속 테마 */
   --forest-deep: #1A2620;          /* 깊은 숲 (덜 녹색) */
