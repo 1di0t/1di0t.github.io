@@ -7,10 +7,8 @@ vendor/
 
 # Node.js
 node_modules/
-package-lock.json
 
-# Tailwind CSS output
-assets/css/output.css
+# Note: package-lock.json and output.css are tracked for GitHub Pages deployment
 
 # Ruby
 Gemfile.lock
