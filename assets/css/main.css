@@ -61,16 +61,16 @@
   font-display: swap;
 }
 
-/* Custom color scheme - exact from technical-blog globals.css */
+/* Custom color scheme - matching user's specifications */
 :root {
   /* Light Mode */
-  --bg-main: #fffbf5;
-  --text-primary: #2d2520;
-  --accent-primary: #ff6b35;
-  --text-secondary: #8b7355;
-  --bg-subtle: #fff4e6;
-  --border-subtle: #f4d9c6;
-  --accent-secondary: #d4a574;
+  --bg-main: #FDFBF7;
+  --text-primary: #1A1A1A;
+  --accent-primary: #E5774A;
+  --text-secondary: #887B74;
+  --bg-subtle: #F9F3EE;
+  --border-subtle: #EAE3DC;
+  --accent-secondary: #7E8569;
 
   /* Tailwind semantic tokens */
   --background: var(--bg-main);
@@ -96,14 +96,14 @@
 }
 
 .dark {
-  /* Dark Mode */
-  --bg-main: #0f1419;
-  --text-primary: #e6edf3;
-  --accent-primary: #ff8c5a;
-  --text-secondary: #8b949e;
-  --bg-subtle: #1c2128;
-  --border-subtle: #30363d;
-  --accent-secondary: #3fb950;
+  /* Dark Mode - Forest theme */
+  --bg-main: #2A2E24;
+  --text-primary: #EFEAE4;
+  --accent-primary: #E5774A;
+  --text-secondary: #90948A;
+  --bg-subtle: #3C4135;
+  --border-subtle: #51574A;
+  --accent-secondary: #A8B091;
 
   --background: var(--bg-main);
   --foreground: var(--text-primary);
