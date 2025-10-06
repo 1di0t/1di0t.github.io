@@ -50,3 +50,4 @@ docs/drafts/
 # 개인 설정 파일
 .env
 .env.local
+.claude
