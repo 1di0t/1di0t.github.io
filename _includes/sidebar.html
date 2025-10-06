@@ -11,22 +11,62 @@
     </div>
 
     <!-- Dark Mode Toggle -->
-    <div class="px-4 pt-4">
-      <button id="dark-mode-toggle" class="w-full px-4 py-2 bg-accent-primary text-white rounded-lg hover:bg-opacity-90 transition-all">
-        <span id="theme-toggle-icon">🌙</span>
-        <span id="theme-toggle-text">다크모드</span>
+    <div class="px-4 pt-4 pb-2">
+      <button id="dark-mode-toggle" class="w-9 h-9 flex items-center justify-center rounded-md hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle transition-colors" aria-label="테마 전환">
+        <span id="theme-toggle-icon" class="text-xl">🌙</span>
       </button>
     </div>
 
     <!-- Main Content -->
     <div class="flex-1 p-4 overflow-y-auto">
 
+      <!-- Navigation -->
+      <nav class="mb-6">
+        <ul class="space-y-1">
+          <li>
+            <a href="{{ '/' | relative_url }}" class="flex items-center gap-2 px-2 py-2 rounded-md text-sm transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+              </svg>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="{{ '/blog/' | relative_url }}" class="flex items-center gap-2 px-2 py-2 rounded-md text-sm transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+              Blog
+            </a>
+          </li>
+          <li>
+            <a href="{{ '/projects/' | relative_url }}" class="flex items-center gap-2 px-2 py-2 rounded-md text-sm transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+              </svg>
+              Projects
+            </a>
+          </li>
+          <li>
+            <a href="{{ '/about/' | relative_url }}" class="flex items-center gap-2 px-2 py-2 rounded-md text-sm transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+              About
+            </a>
+          </li>
+        </ul>
+      </nav>
+
       <!-- Categories -->
       <div class="mb-6">
         <h2 class="text-sm font-semibold text-text-secondary dark:text-dark-text-secondary uppercase tracking-wider mb-3 px-2">카테고리</h2>
-        <nav class="space-y-1">
+        <div class="space-y-1">
+          {% assign study_categories = "Python,딥러닝,머신러닝,알고리즘,자료구조,수학" | split: "," %}
+          {% assign project_categories = "AI-ML,웹개발,데이터분석,토이프로젝트" | split: "," %}
+
           <!-- 공부 -->
-          <details class="group">
+          <details class="group" open>
             <summary class="flex items-center gap-2 px-2 py-2 rounded-md text-sm cursor-pointer transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle list-none text-text-primary dark:text-dark-text-primary">
               <svg class="h-4 w-4 transition-transform group-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -34,24 +74,15 @@
               <span class="font-semibold">📚 공부</span>
             </summary>
             <div class="ml-6 mt-1 space-y-1">
-              <a href="{{ '/category/Python/' | relative_url }}" class="flex items-center justify-between px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
-                <span>Python</span>
-              </a>
-              <a href="{{ '/category/딥러닝/' | relative_url }}" class="flex items-center justify-between px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
-                <span>딥러닝</span>
-              </a>
-              <a href="{{ '/category/머신러닝/' | relative_url }}" class="flex items-center justify-between px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
-                <span>머신러닝</span>
-              </a>
-              <a href="{{ '/category/알고리즘/' | relative_url }}" class="flex items-center justify-between px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
-                <span>알고리즘</span>
-              </a>
-              <a href="{{ '/category/자료구조/' | relative_url }}" class="flex items-center justify-between px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
-                <span>자료구조</span>
-              </a>
-              <a href="{{ '/category/수학/' | relative_url }}" class="flex items-center justify-between px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
-                <span>수학</span>
-              </a>
+              {% for cat in study_categories %}
+                {% assign cat_posts = site.categories[cat] | size %}
+                {% if cat_posts > 0 %}
+                <a href="{{ '/category/' | append: cat | append: '/' | relative_url }}" class="flex items-center justify-between px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
+                  <span>{{ cat }}</span>
+                  <span class="text-xs text-text-secondary dark:text-dark-text-secondary">({{ cat_posts }})</span>
+                </a>
+                {% endif %}
+              {% endfor %}
             </div>
           </details>
 
@@ -64,21 +95,18 @@
               <span class="font-semibold">💻 프로젝트</span>
             </summary>
             <div class="ml-6 mt-1 space-y-1">
-              <a href="{{ '/category/AI-ML/' | relative_url }}" class="flex items-center justify-between px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
-                <span>AI/ML</span>
-              </a>
-              <a href="{{ '/category/웹개발/' | relative_url }}" class="flex items-center justify-between px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
-                <span>웹개발</span>
-              </a>
-              <a href="{{ '/category/데이터분석/' | relative_url }}" class="flex items-center justify-between px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
-                <span>데이터분석</span>
-              </a>
-              <a href="{{ '/category/토이프로젝트/' | relative_url }}" class="flex items-center justify-between px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
-                <span>토이프로젝트</span>
-              </a>
+              {% for cat in project_categories %}
+                {% assign cat_posts = site.categories[cat] | size %}
+                {% if cat_posts > 0 %}
+                <a href="{{ '/category/' | append: cat | append: '/' | relative_url }}" class="flex items-center justify-between px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
+                  <span>{{ cat }}</span>
+                  <span class="text-xs text-text-secondary dark:text-dark-text-secondary">({{ cat_posts }})</span>
+                </a>
+                {% endif %}
+              {% endfor %}
             </div>
           </details>
-        </nav>
+        </div>
       </div>
 
       <!-- Social Links -->

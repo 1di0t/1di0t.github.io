@@ -2,7 +2,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const darkModeToggle = document.getElementById('dark-mode-toggle');
   const themeToggleIcon = document.getElementById('theme-toggle-icon');
-  const themeToggleText = document.getElementById('theme-toggle-text');
   const html = document.documentElement;
 
   // Check for saved theme preference or default to 'light'
@@ -10,23 +9,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (currentTheme === 'dark') {
     html.classList.add('dark');
-    themeToggleIcon.textContent = '☀️';
-    themeToggleText.textContent = '라이트모드';
+    document.body.classList.add('dark');
+    if (themeToggleIcon) themeToggleIcon.textContent = '☀️';
   }
 
   // Toggle dark mode
   if (darkModeToggle) {
     darkModeToggle.addEventListener('click', function() {
       html.classList.toggle('dark');
+      document.body.classList.toggle('dark');
 
       if (html.classList.contains('dark')) {
         localStorage.setItem('theme', 'dark');
-        themeToggleIcon.textContent = '☀️';
-        themeToggleText.textContent = '라이트모드';
+        if (themeToggleIcon) themeToggleIcon.textContent = '☀️';
       } else {
         localStorage.setItem('theme', 'light');
-        themeToggleIcon.textContent = '🌙';
-        themeToggleText.textContent = '다크모드';
+        if (themeToggleIcon) themeToggleIcon.textContent = '🌙';
       }
     });
   }
