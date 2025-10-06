@@ -112,30 +112,30 @@
 }
 
 .dark {
-  /* Dark Mode - 숲속 느낌 */
-  --bg-main: #2A2E24;
+  /* Dark Mode - 은은한 숲속 느낌 */
+  --bg-main: #1F2120;              /* 더 중립적인 어두운 배경 */
   --text-primary: #EFEAE4;
   --accent-primary: #E5774A;
-  --text-secondary: #90948A;
-  --bg-subtle: #3C4135;
-  --border-subtle: #51574A;
+  --text-secondary: #9B9C97;       /* 조금 더 밝은 회색 */
+  --bg-subtle: #2B2D2A;            /* 더 부드러운 서브틀 */
+  --border-subtle: #3F4240;        /* 더 중립적인 보더 */
   --accent-secondary: #A8B091;
 
   /* 추가 색상 - 숲속 테마 */
-  --forest-deep: #1F3A27;          /* 깊은 숲 */
-  --forest-moss: #5A6B4D;          /* 이끼색 */
-  --forest-leaf: #7A8B6F;          /* 나뭇잎색 */
-  --bark-dark: #3D3A32;            /* 나무껍질 어두운 톤 */
-  --sage-muted: #8B9A7C;           /* 세이지 그린 */
+  --forest-deep: #1A2620;          /* 깊은 숲 (덜 녹색) */
+  --forest-moss: #5A6B5A;          /* 이끼색 (덜 선명) */
+  --forest-leaf: #7A8B7A;          /* 나뭇잎색 */
+  --bark-dark: #353532;            /* 나무껍질 어두운 톤 */
+  --sage-muted: #8B9A88;           /* 세이지 그린 */
 
   /* 호버 및 인터랙션 색상 */
-  --hover-forest: #4A5542;         /* 숲 호버 */
+  --hover-forest: #3A3D38;         /* 숲 호버 (덜 녹색) */
   --hover-accent: #F08A5D;         /* 액센트 호버 (밝게) */
 
   /* 그라데이션용 */
-  --gradient-start: #2A2E24;
-  --gradient-mid: #323729;
-  --gradient-end: #3C4135;
+  --gradient-start: #1F2120;
+  --gradient-mid: #252726;
+  --gradient-end: #2B2D2A;
 
   --background: var(--bg-main);
   --foreground: var(--text-primary);
