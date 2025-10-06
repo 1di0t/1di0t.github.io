@@ -63,7 +63,7 @@
 
 /* Custom color scheme - matching user's specifications */
 :root {
-  /* Light Mode */
+  /* Light Mode - 따뜻한 석양 느낌 */
   --bg-main: #FDFBF7;
   --text-primary: #1A1A1A;
   --accent-primary: #E5774A;
@@ -71,6 +71,22 @@
   --bg-subtle: #F9F3EE;
   --border-subtle: #EAE3DC;
   --accent-secondary: #7E8569;
+
+  /* 추가 색상 - 석양 테마 */
+  --sunset-warm: #F4A460;          /* 따뜻한 모래빛 */
+  --sunset-glow: #FFB380;          /* 석양 빛 */
+  --sunset-deep: #CC5533;          /* 깊은 석양 */
+  --earth-warm: #C19A6B;           /* 따뜻한 대지색 */
+  --clay-soft: #D4A574;            /* 부드러운 점토색 */
+
+  /* 호버 및 인터랙션 색상 */
+  --hover-warm: #F5DCC8;           /* 따뜻한 호버 */
+  --hover-accent: #D66B42;         /* 액센트 호버 */
+
+  /* 그라데이션용 */
+  --gradient-start: #FDFBF7;
+  --gradient-mid: #F9F3EE;
+  --gradient-end: #F4E9DF;
 
   /* Tailwind semantic tokens */
   --background: var(--bg-main);
@@ -96,7 +112,7 @@
 }
 
 .dark {
-  /* Dark Mode - Forest theme */
+  /* Dark Mode - 숲속 느낌 */
   --bg-main: #2A2E24;
   --text-primary: #EFEAE4;
   --accent-primary: #E5774A;
@@ -104,6 +120,22 @@
   --bg-subtle: #3C4135;
   --border-subtle: #51574A;
   --accent-secondary: #A8B091;
+
+  /* 추가 색상 - 숲속 테마 */
+  --forest-deep: #1F3A27;          /* 깊은 숲 */
+  --forest-moss: #5A6B4D;          /* 이끼색 */
+  --forest-leaf: #7A8B6F;          /* 나뭇잎색 */
+  --bark-dark: #3D3A32;            /* 나무껍질 어두운 톤 */
+  --sage-muted: #8B9A7C;           /* 세이지 그린 */
+
+  /* 호버 및 인터랙션 색상 */
+  --hover-forest: #4A5542;         /* 숲 호버 */
+  --hover-accent: #F08A5D;         /* 액센트 호버 (밝게) */
+
+  /* 그라데이션용 */
+  --gradient-start: #2A2E24;
+  --gradient-mid: #323729;
+  --gradient-end: #3C4135;
 
   --background: var(--bg-main);
   --foreground: var(--text-primary);
@@ -215,6 +247,35 @@
   /* Badges */
   .badge {
     @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs bg-secondary text-secondary-foreground;
+  }
+
+  /* Enhanced hover effects with new colors */
+  .hover-warm {
+    transition: all 0.3s ease;
+  }
+
+  .hover-warm:hover {
+    background-color: var(--hover-warm);
+  }
+
+  .dark .hover-warm:hover {
+    background-color: var(--hover-forest);
+  }
+
+  /* Accent hover effect */
+  a.text-primary:hover,
+  .hover\:text-primary:hover {
+    color: var(--hover-accent) !important;
+  }
+
+  /* Card gradient effect */
+  .card-gradient {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
+  }
+
+  /* Subtle gradient backgrounds */
+  .bg-gradient-subtle {
+    background: linear-gradient(180deg, var(--background) 0%, var(--muted) 100%);
   }
 }
 

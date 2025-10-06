@@ -24,7 +24,7 @@
     {% include sidebar.html %}
 
     <!-- Main Content -->
-    <main class="flex-1 ml-[280px]">
+    <main class="flex-1 ml-[280px] bg-gradient-subtle">
       <!-- Header -->
       <header class="sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div class="container flex items-center justify-between h-16 px-8">
@@ -36,12 +36,12 @@
             {% endif %}
           </div>
           <div class="flex items-center gap-2 mr-5">
-            <button id="search-button" class="p-2 hover:bg-muted rounded-md transition-colors" aria-label="검색">
+            <button id="search-button" class="p-2 hover:bg-muted rounded-md transition-colors hover-warm" aria-label="검색">
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
               </svg>
             </button>
-            <button id="dark-mode-toggle" class="p-2 hover:bg-muted rounded-md transition-colors" aria-label="테마 전환">
+            <button id="dark-mode-toggle" class="p-2 hover:bg-muted rounded-md transition-colors hover-warm" aria-label="테마 전환">
               <svg id="theme-icon-sun" class="h-4 w-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
               </svg>
