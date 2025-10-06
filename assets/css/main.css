@@ -297,52 +297,68 @@
     @apply fixed top-4 left-4 z-50 p-2 bg-primary text-primary-foreground rounded;
   }
 
-  /* 모바일에서 헤더와 컨텐츠 패딩 조정 */
-  header .container {
-    @apply px-5;
-  }
-
-  main .container {
-    @apply px-5;
-  }
-
   /* 그리드 간격 축소 */
   .grid {
     @apply gap-4;
   }
 
-  /* 모바일 컨텐츠 좌우 여백 */
-  .max-w-4xl {
-    @apply px-5;
+  /* 모바일 폰트 사이즈 조정 */
+  h1 {
+    font-size: 1.875rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .text-4xl {
+    font-size: 1.875rem !important;
+  }
+
+  .text-3xl {
+    font-size: 1.5rem !important;
+  }
+
+  .text-2xl {
+    font-size: 1.25rem !important;
+  }
+
+  .text-xl {
+    font-size: 1.125rem !important;
   }
 
   /* 코드 블록 모바일 최적화 - 텍스트 줄바꿈 */
   .highlight {
-    @apply overflow-visible;
+    overflow: visible;
   }
 
   .highlight pre {
-    @apply whitespace-pre-wrap;
+    white-space: pre-wrap;
     word-break: break-word;
   }
 
   .highlight code {
-    @apply whitespace-pre-wrap;
+    white-space: pre-wrap;
     word-break: break-word;
   }
 
   /* Prose 콘텐츠 모바일 최적화 */
   .prose {
-    @apply max-w-full;
+    max-width: 100%;
+    font-size: 1rem;
   }
 
   .prose pre {
-    @apply whitespace-pre-wrap;
+    white-space: pre-wrap;
     word-break: break-word;
   }
 
   .prose code {
-    @apply whitespace-pre-wrap;
+    white-space: pre-wrap;
     word-break: break-word;
   }
 

@@ -27,7 +27,7 @@
     <main class="flex-1 md:ml-[280px] bg-gradient-subtle">
       <!-- Header -->
       <header class="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div class="container flex items-center justify-between h-16 px-8">
+        <div class="container flex items-center justify-between h-16 px-5 md:px-8">
           <div class="flex items-center gap-4 md:ml-0 ml-16">
             {% if page.layout == "default" and page.title == "Home" %}
             <h2 class="text-lg font-semibold">최근 게시글</h2>
@@ -54,7 +54,7 @@
       </header>
 
       <!-- Content -->
-      <div class="container px-8 py-8">
+      <div class="container px-5 md:px-8 py-8">
         {{ content }}
       </div>
 
