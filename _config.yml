@@ -61,6 +61,7 @@ exclude:
 # Include
 include:
   - _pages
+  - _posts/**
 
 # Plugins
 plugins:
