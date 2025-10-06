@@ -1,130 +1,48 @@
-<aside class="sidebar" id="sidebar">
+<aside class="sidebar-width fixed left-0 top-0 h-screen border-r border-border bg-background overflow-y-auto">
   <div class="flex flex-col h-full">
     <!-- Header -->
-    <div class="p-6 border-b border-border-subtle dark:border-dark-border-subtle">
+    <div class="p-6 border-b border-border">
       <a href="{{ '/' | relative_url }}" class="flex items-center gap-2 group no-underline">
-        <svg class="h-5 w-5 text-accent-primary transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="h-5 w-5 text-primary transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
         </svg>
-        <h1 class="text-xl font-bold text-text-primary dark:text-dark-text-primary">{{ site.title }}</h1>
+        <h1 class="text-xl font-bold text-foreground">{{ site.title | default: "Tech Blog" }}</h1>
       </a>
     </div>
 
-    <!-- Dark Mode Toggle -->
-    <div class="px-4 pt-4 pb-2">
-      <button id="dark-mode-toggle" class="w-9 h-9 flex items-center justify-center rounded-md hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle transition-colors" aria-label="테마 전환">
-        <span id="theme-toggle-icon" class="text-xl">🌙</span>
-      </button>
-    </div>
-
-    <!-- Main Content -->
-    <div class="flex-1 p-4 overflow-y-auto">
-
-      <!-- Navigation -->
-      <nav class="mb-6">
-        <ul class="space-y-1">
-          <li>
-            <a href="{{ '/' | relative_url }}" class="flex items-center gap-2 px-2 py-2 rounded-md text-sm transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-              </svg>
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="{{ '/blog/' | relative_url }}" class="flex items-center gap-2 px-2 py-2 rounded-md text-sm transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-              </svg>
-              Blog
-            </a>
-          </li>
-          <li>
-            <a href="{{ '/projects/' | relative_url }}" class="flex items-center gap-2 px-2 py-2 rounded-md text-sm transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
-              </svg>
-              Projects
-            </a>
-          </li>
-          <li>
-            <a href="{{ '/about/' | relative_url }}" class="flex items-center gap-2 px-2 py-2 rounded-md text-sm transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-              </svg>
-              About
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <!-- Categories -->
+    <!-- Categories -->
+    <div class="flex-1 p-4">
       <div class="mb-6">
-        <h2 class="text-sm font-semibold text-text-secondary dark:text-dark-text-secondary uppercase tracking-wider mb-3 px-2">카테고리</h2>
-        <div class="space-y-1">
-          {% assign study_categories = "Python,딥러닝,머신러닝,알고리즘,자료구조,수학" | split: "," %}
-          {% assign project_categories = "AI-ML,웹개발,데이터분석,토이프로젝트" | split: "," %}
-
-          <!-- 공부 -->
-          <details class="group" open>
-            <summary class="flex items-center gap-2 px-2 py-2 rounded-md text-sm cursor-pointer transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle list-none text-text-primary dark:text-dark-text-primary">
-              <svg class="h-4 w-4 transition-transform group-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-              </svg>
-              <span class="font-semibold">📚 공부</span>
-            </summary>
-            <div class="ml-6 mt-1 space-y-1">
-              {% for cat in study_categories %}
-                {% assign cat_posts = site.categories[cat] | size %}
-                {% if cat_posts > 0 %}
-                <a href="{{ '/category/' | append: cat | append: '/' | relative_url }}" class="flex items-center justify-between px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
-                  <span>{{ cat }}</span>
-                  <span class="text-xs text-text-secondary dark:text-dark-text-secondary">({{ cat_posts }})</span>
-                </a>
-                {% endif %}
-              {% endfor %}
-            </div>
-          </details>
-
-          <!-- 프로젝트 -->
-          <details class="group">
-            <summary class="flex items-center gap-2 px-2 py-2 rounded-md text-sm cursor-pointer transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle list-none text-text-primary dark:text-dark-text-primary">
-              <svg class="h-4 w-4 transition-transform group-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-              </svg>
-              <span class="font-semibold">💻 프로젝트</span>
-            </summary>
-            <div class="ml-6 mt-1 space-y-1">
-              {% for cat in project_categories %}
-                {% assign cat_posts = site.categories[cat] | size %}
-                {% if cat_posts > 0 %}
-                <a href="{{ '/category/' | append: cat | append: '/' | relative_url }}" class="flex items-center justify-between px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-bg-subtle dark:hover:bg-dark-bg-subtle text-text-primary dark:text-dark-text-primary no-underline">
-                  <span>{{ cat }}</span>
-                  <span class="text-xs text-text-secondary dark:text-dark-text-secondary">({{ cat_posts }})</span>
-                </a>
-                {% endif %}
-              {% endfor %}
-            </div>
-          </details>
-        </div>
+        <h2 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3 px-2">카테고리</h2>
+        <nav class="space-y-1">
+          {% assign all_categories = site.categories | sort %}
+          {% for category in all_categories %}
+            {% assign cat_name = category[0] %}
+            {% assign cat_posts = category[1] %}
+            <a href="{{ site.baseurl }}/category/{{ cat_name | slugify }}/" class="flex items-center justify-between px-2 py-2 rounded-md text-sm transition-colors hover:bg-muted hover:text-foreground text-foreground no-underline">
+              <span>{{ cat_name }}</span>
+              <span class="text-xs text-muted-foreground">({{ cat_posts | size }})</span>
+            </a>
+          {% endfor %}
+        </nav>
       </div>
 
-      <!-- Social Links -->
-      <div class="border-t border-border-subtle dark:border-dark-border-subtle pt-6 mt-auto px-2">
-        <div class="flex gap-4">
-          {% if site.author.github %}
-          <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer" class="text-text-secondary dark:text-dark-text-secondary hover:text-accent-primary transition-colors" aria-label="GitHub">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-          </a>
-          {% endif %}
-          {% if site.author.email %}
-          <a href="mailto:{{ site.author.email }}" class="text-text-secondary dark:text-dark-text-secondary hover:text-accent-primary transition-colors" aria-label="Email">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          </a>
-          {% endif %}
-          <a href="{{ '/feed.xml' | relative_url }}" class="text-text-secondary dark:text-dark-text-secondary hover:text-accent-primary transition-colors" aria-label="RSS Feed">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
-          </a>
+      <!-- Tags -->
+      <div>
+        <h2 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3 px-2">태그</h2>
+        <div class="flex flex-wrap gap-2 px-2">
+          {% assign all_tags = site.tags | sort %}
+          {% for tag in all_tags limit:10 %}
+            {% assign tag_name = tag[0] %}
+            {% assign tag_posts = tag[1] %}
+            <a href="{{ site.baseurl }}/tags/{{ tag_name | slugify }}/" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs rounded-md bg-muted text-foreground hover:bg-primary hover:text-primary-foreground transition-colors no-underline">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+              </svg>
+              {{ tag_name }}
+              <span class="text-muted-foreground">({{ tag_posts | size }})</span>
+            </a>
+          {% endfor %}
         </div>
       </div>
     </div>
