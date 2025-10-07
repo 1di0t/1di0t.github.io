@@ -27,6 +27,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // Initialize Giscus theme on load
+  function initGiscusTheme() {
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    const checkIframe = setInterval(() => {
+      const iframe = document.querySelector('iframe.giscus-frame');
+      if (iframe) {
+        clearInterval(checkIframe);
+        // Wait for iframe to be fully loaded
+        setTimeout(() => {
+          updateGiscusTheme(currentTheme);
+        }, 500);
+      }
+    }, 100);
+
+    // Clear interval after 10 seconds if iframe not found
+    setTimeout(() => clearInterval(checkIframe), 10000);
+  }
+
+  // Call init function if on a page with comments
+  if (document.querySelector('script[src*="giscus"]')) {
+    initGiscusTheme();
+  }
+
   // Toggle dark mode
   if (darkModeToggle) {
     darkModeToggle.addEventListener('click', function() {
