@@ -132,12 +132,36 @@ npm run build  # prebuild 훅에서 자동으로 validate:categories 실행
 - 검증 스크립트는 `\r\n`(Windows)와 `\n`(Unix) 모두 지원
 - 정규식: `/^---[\r\n]+([\s\S]*?)[\r\n]+---/`
 
+## 현재 카테고리 목록
+
+### 공부 (Study)
+- `Study` - 공부 전체
+- `Python`
+- `Deep-Learning` - 딥러닝
+- `Machine-Learning` - 머신러닝
+- `Algorithm` - 알고리즘
+- `Data-Structure` - 자료구조
+- `Math` - 수학
+
+### 프로젝트 (Project)
+- `Project` - 프로젝트 전체
+- `AI-ML`
+- `Web-Development` - 웹개발
+- `Data-Analysis` - 데이터분석
+- `Toy-Project` - 토이프로젝트
+
+### 기타
+- `Development` - 개발 일반
+- `Git`
+
+⚠️ **주의**: 카테고리명은 대소문자를 정확히 지켜야 합니다. `Development` ≠ `development`
+
 ## 향후 개선 가능 사항
 
 1. **Pre-commit hook 추가**: 커밋 전 자동 검증
 2. **CI/CD 통합**: GitHub Actions에서 자동 검증
 3. **카테고리 생성 헬퍼**: 템플릿 기반 자동 생성 스크립트
-4. **대소문자 정책 통일**: 모든 카테고리를 소문자 또는 PascalCase로 통일
+4. **대소문자 정책 통일**: 모든 카테고리를 PascalCase 또는 kebab-case로 통일 (현재는 혼용)
 
 ## 참고
 
