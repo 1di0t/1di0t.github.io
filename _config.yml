@@ -29,6 +29,9 @@ collections:
   posts:
     output: true
     permalink: /blog/:year/:month/:day/:title/
+  projects:
+    output: true
+    permalink: /projects/:name/
 
 # Pagination
 paginate: 10
@@ -78,6 +81,12 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+      comments: true
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
       comments: true
   - scope:
       path: "_pages"
