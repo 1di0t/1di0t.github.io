@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 
   <!-- SEO -->
   {% seo %}
@@ -11,6 +11,9 @@
   <!-- Fonts -->
   <link rel="preload" href="{{ '/assets/fonts/MaruBuri-Regular.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ '/assets/fonts/D2Coding-Ver1.3.2-20180524.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{{ '/bear.png' | relative_url }}">
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ '/assets/css/output.css' | relative_url }}">
