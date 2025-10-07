@@ -37,17 +37,17 @@ collections:
 paginate: 10
 paginate_path: "/blog/page:num/"
 
-# Jekyll Archives
-jekyll-archives:
-  enabled:
-    - categories
-    - tags
-  layouts:
-    category: category
-    tag: tag
-  permalinks:
-    category: '/category/:name/'
-    tag: '/tags/:name/'
+# Jekyll Archives - 수동 카테고리 페이지 사용으로 비활성화
+# jekyll-archives:
+#   enabled:
+#     - categories
+#     - tags
+#   layouts:
+#     category: category
+#     tag: tag
+#   permalinks:
+#     category: '/category/:name/'
+#     tag: '/tags/:name/'
 
 # Exclude from processing
 exclude:
@@ -65,6 +65,7 @@ exclude:
 include:
   - _pages
   - _posts/**
+  - category/**
 
 # Plugins
 plugins:
@@ -72,7 +73,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-paginate
-  - jekyll-archives
+  # - jekyll-archives  # 수동 카테고리 페이지 사용으로 비활성화
 
 # Default front matter
 defaults:

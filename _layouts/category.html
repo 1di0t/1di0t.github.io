@@ -2,6 +2,16 @@
 layout: default
 ---
 
+{% comment %}
+jekyll-archives가 자동 생성할 때는 page.posts 사용
+수동 페이지일 때는 page.category로 site.categories에서 가져옴
+{% endcomment %}
+{% if page.posts %}
+  {% assign category_posts = page.posts %}
+{% else %}
+  {% assign category_posts = site.categories[page.category] %}
+{% endif %}
+
 <div class="category-page max-w-4xl mx-auto">
   <header class="mb-6 md:mb-8">
     <div class="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
@@ -11,12 +21,12 @@ layout: default
       <h1 class="text-2xl md:text-4xl font-bold">{{ page.title }}</h1>
     </div>
     <p class="text-sm md:text-base text-muted-foreground">
-      총 {{ page.posts | size }}개의 글
+      총 {{ category_posts | size }}개의 글
     </p>
   </header>
 
   <div class="grid gap-4 md:gap-6">
-    {% for post in page.posts %}
+    {% for post in category_posts %}
     <article class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary">
       <h2 class="text-lg md:text-2xl font-bold mb-1.5 md:mb-2">
         <a href="{{ post.url | relative_url }}" class="no-underline hover:text-primary text-foreground">

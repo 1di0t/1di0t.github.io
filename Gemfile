@@ -8,5 +8,5 @@ group :jekyll_plugins do
   gem "jekyll-seo-tag"
   gem "jekyll-sitemap"
   gem "jekyll-paginate"
-  gem "jekyll-archives"
+  # gem "jekyll-archives"  # 수동 카테고리 페이지 사용으로 비활성화
 end
