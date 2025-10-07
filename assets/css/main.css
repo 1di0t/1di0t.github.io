@@ -294,6 +294,37 @@
   .dark mark {
     background-color: rgba(242, 142, 99, 0.3);
   }
+
+  /* Custom Scrollbar - Light Mode */
+  aside::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  aside::-webkit-scrollbar-track {
+    background: var(--bg-subtle);
+  }
+
+  aside::-webkit-scrollbar-thumb {
+    background: var(--border-subtle);
+    border-radius: 4px;
+  }
+
+  aside::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+  }
+
+  /* Custom Scrollbar - Dark Mode */
+  .dark aside::-webkit-scrollbar-track {
+    background: var(--bg-main);
+  }
+
+  .dark aside::-webkit-scrollbar-thumb {
+    background: var(--border-subtle);
+  }
+
+  .dark aside::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-secondary);
+  }
 }
 
 /* Mobile responsive */
