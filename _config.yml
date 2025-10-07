@@ -66,6 +66,7 @@ include:
   - _pages
   - _posts/**
   - category/**
+  - tags/**
 
 # Plugins
 plugins:
