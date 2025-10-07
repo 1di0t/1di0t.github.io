@@ -164,19 +164,25 @@ comments: true  # 댓글 표시 (기본: true)
 
 ## 📂 카테고리 구조
 
-### 공부
+### 공부 (Study)
+- Study (공부 전체)
 - Python
-- 딥러닝
-- 머신러닝
-- 알고리즘
-- 자료구조
-- 수학
+- Deep-Learning (딥러닝)
+- Machine-Learning (머신러닝)
+- Algorithm (알고리즘)
+- Data-Structure (자료구조)
+- Math (수학)
 
-### 프로젝트
-- AI/ML
-- 웹개발
-- 데이터분석
-- 토이프로젝트
+### 프로젝트 (Project)
+- Project (프로젝트 전체)
+- AI-ML
+- Web-Development (웹개발)
+- Data-Analysis (데이터분석)
+- Toy-Project (토이프로젝트)
+
+### 기타
+- Development (개발 일반)
+- Git
 
 ## 🎨 디자인
 
