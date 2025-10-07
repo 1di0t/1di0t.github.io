@@ -28,7 +28,13 @@
       <!-- Header -->
       <header class="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div class="container flex items-center justify-between h-16 px-5 md:px-8">
-          <div class="flex items-center gap-4 md:ml-0 ml-16">
+          <div class="flex items-center gap-4">
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden p-2 hover:bg-muted rounded-md transition-colors hover-warm" id="mobile-menu-btn" aria-label="메뉴 열기">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
             {% if page.layout == "default" and page.title == "Home" %}
             <h2 class="text-base md:text-lg font-semibold">최근 게시글</h2>
             {% elsif page.title %}
@@ -62,13 +68,6 @@
       {% include footer.html %}
     </main>
   </div>
-
-  <!-- Mobile Menu Button -->
-  <button class="md:hidden fixed top-4 left-4 z-[60] p-2 bg-primary text-primary-foreground rounded-md" id="mobile-menu-btn" aria-label="Toggle menu">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
-  </button>
 
   <!-- Scripts -->
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
