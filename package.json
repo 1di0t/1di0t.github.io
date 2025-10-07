@@ -8,11 +8,13 @@
     "watch:css": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/output.css --watch",
     "build": "npm run build:css && bundle exec jekyll build",
     "validate:categories": "node scripts/validate-categories.js",
-    "prebuild": "npm run validate:categories"
+    "generate:tags": "node scripts/generate-tag-pages.js",
+    "prebuild": "npm run validate:categories && npm run generate:tags"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
     "concurrently": "^8.2.2",
+    "js-yaml": "^4.1.0",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.0"
   },
