@@ -6,7 +6,9 @@
     "dev": "concurrently \"npm run watch:css\" \"bundle exec jekyll serve --livereload\"",
     "build:css": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/output.css --minify",
     "watch:css": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/output.css --watch",
-    "build": "npm run build:css && bundle exec jekyll build"
+    "build": "npm run build:css && bundle exec jekyll build",
+    "validate:categories": "node scripts/validate-categories.js",
+    "prebuild": "npm run validate:categories"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
