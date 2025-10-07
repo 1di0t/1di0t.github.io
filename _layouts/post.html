@@ -69,15 +69,15 @@ layout: default
     </div>
   </nav>
 
-  <!-- Comments (Giscus) - Disabled until configured -->
-  {% comment %}
-  {% if page.comments %}
-  <div class="mt-12 pt-8 border-t border-border">
+  <!-- Comments (Giscus) -->
+  {% if page.comments != false %}
+  <div class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border">
+    <h2 class="text-lg md:text-xl font-bold mb-4 md:mb-6">💬 댓글</h2>
     <script src="https://giscus.app/client.js"
         data-repo="1di0t/1di0t.github.io"
-        data-repo-id="YOUR_REPO_ID"
+        data-repo-id="R_kgDONbLAlQ"
         data-category="General"
-        data-category-id="YOUR_CATEGORY_ID"
+        data-category-id="DIC_kwDONbLAlc4ClQPa"
         data-mapping="pathname"
         data-strict="0"
         data-reactions-enabled="1"
@@ -90,5 +90,4 @@ layout: default
     </script>
   </div>
   {% endif %}
-  {% endcomment %}
 </article>

@@ -15,6 +15,18 @@ document.addEventListener('DOMContentLoaded', function() {
     if (themeIconMoon) themeIconMoon.classList.add('hidden');
   }
 
+  // Function to update Giscus theme
+  function updateGiscusTheme(theme) {
+    const iframe = document.querySelector('iframe.giscus-frame');
+    if (iframe) {
+      const giscusTheme = theme === 'dark' ? 'dark' : 'light';
+      iframe.contentWindow.postMessage(
+        { giscus: { setConfig: { theme: giscusTheme } } },
+        'https://giscus.app'
+      );
+    }
+  }
+
   // Toggle dark mode
   if (darkModeToggle) {
     darkModeToggle.addEventListener('click', function() {
@@ -25,10 +37,12 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('theme', 'dark');
         if (themeIconSun) themeIconSun.classList.remove('hidden');
         if (themeIconMoon) themeIconMoon.classList.add('hidden');
+        updateGiscusTheme('dark');
       } else {
         localStorage.setItem('theme', 'light');
         if (themeIconSun) themeIconSun.classList.add('hidden');
         if (themeIconMoon) themeIconMoon.classList.remove('hidden');
+        updateGiscusTheme('light');
       }
     });
   }
