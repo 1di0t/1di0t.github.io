@@ -35,13 +35,29 @@
 #### [POST_GUIDE.md](POST_GUIDE.md)
 - **목적**: Jekyll 블로그 포스트 작성 완벽 가이드
 - **대상**: 블로그를 처음 시작하는 사람, Jekyll 사용법을 배우고 싶은 사람
+- **최근 업데이트**: 2025-10-08
+  - ⚠️ **카테고리 소문자 규칙 강조** (대문자 사용 시 404 에러)
+  - 월별 폴더 구조 권장 추가
+  - 타임존 포함 날짜 형식 추가
+  - 실전 팁 섹션 추가
+  - 트러블슈팅 확장
 - **내용**:
-  - Front Matter 작성법
+  - Front Matter 작성법 (카테고리 소문자 필수!)
   - Markdown 문법
   - 이미지 추가 방법
   - Git 업로드 및 배포
   - 양질의 포스트 작성 팁
   - FAQ
+
+#### [QUICK_CHECKLIST.md](QUICK_CHECKLIST.md) ✨ 신규
+- **목적**: 빠른 참조용 체크리스트
+- **대상**: 매번 포스트 작성 시 참고할 사람
+- **내용**:
+  - 파일 생성 체크리스트
+  - Front Matter 템플릿
+  - 발행 전 검증 항목
+  - 자주 하는 실수 정리
+  - Git 워크플로우 요약
 
 ---
 
@@ -70,15 +86,18 @@
 
 ### 3. 품질 가이드
 
-#### [Guide.txt](Guide.txt)
-- **목적**: 양질의 기술 블로그 글쓰기 가이드라인
+#### [WRITING_GUIDE.md](WRITING_GUIDE.md) ⭐ 신규
+- **목적**: 양질의 기술 블로그 글쓰기 완벽 가이드
 - **대상**: 좋은 글을 쓰고 싶은 모든 사람
+- **특징**: Guide.txt를 마크다운으로 전환하고 대폭 확장
 - **내용**:
-  - 3단계 글쓰기 프레임워크
-  - 독자 정의 및 주제 선정
-  - 쉬운 설명 방법 (비유, 예제)
-  - 가독성 높이기
+  - 3단계 글쓰기 프레임워크 (전/중/후)
+  - 독자 정의 및 주제 선정 전략
+  - 비유와 예시 활용법
+  - 점진적 설명 기법
+  - 코드 작성 원칙
   - 매력적인 제목 작성법
+  - 최종 체크리스트
 
 ---
 
@@ -124,7 +143,7 @@
                  Git 업로드
 
 공통:
-  - Guide.txt: 품질 향상 팁
+  - WRITING_GUIDE.md: 품질 향상 팁
   - Flow.md: 시스템 이해
 ```
 
@@ -148,11 +167,11 @@
 1. [POST_GUIDE.md](POST_GUIDE.md) 전체 읽기
 2. [Flow.md](Flow.md)에서 시스템 원리 이해
 3. 직접 포스트 작성 실습
-4. [Guide.txt](Guide.txt)로 글쓰기 품질 향상
+4. [WRITING_GUIDE.md](WRITING_GUIDE.md)로 글쓰기 품질 향상
 
 ### 시나리오 3: "글을 더 잘 쓰고 싶어요"
 
-1. [Guide.txt](Guide.txt) 읽기
+1. [WRITING_GUIDE.md](WRITING_GUIDE.md) 읽기 - 3단계 글쓰기 프레임워크
 2. [POST_GUIDE.md](POST_GUIDE.md)의 "양질의 포스트 작성하기" 섹션 참고
 3. [AI_PROMPT.md](AI_PROMPT.md)의 가이드라인 활용
 
@@ -163,8 +182,8 @@
 모든 문서는 상호 연결되어 있습니다. 하나를 수정할 때 다음 문서들도 확인하세요:
 
 - **AI_WORKFLOW.md** 수정 시 → AI_PROMPT.md, POST_GUIDE.md 확인
-- **POST_GUIDE.md** 수정 시 → AI_WORKFLOW.md, README.md 확인
-- **Guide.txt** 수정 시 → AI_PROMPT.md, POST_GUIDE.md 확인
+- **POST_GUIDE.md** 수정 시 → AI_WORKFLOW.md, README.md, QUICK_CHECKLIST.md 확인
+- **WRITING_GUIDE.md** 수정 시 → AI_PROMPT.md, POST_GUIDE.md 확인
 - **Flow.md** 수정 시 → README.md 확인
 
 ---
@@ -174,12 +193,13 @@
 ```
 docs/
 ├── README_DOCS.md          # 이 파일 (문서 안내)
+├── POST_GUIDE.md           # 포스트 작성 완벽 가이드 ⭐ 업데이트됨
+├── QUICK_CHECKLIST.md      # 빠른 체크리스트 ✨ 신규
+├── WRITING_GUIDE.md        # 기술 블로그 글쓰기 가이드 ✨ 신규
 ├── AI_WORKFLOW.md          # AI 글 작성 워크플로우
-├── POST_GUIDE.md           # 포스트 작성 완벽 가이드
-├── AI_PROMPT.md            # AI 프롬프트 템플릿
-├── Guide.txt               # 글쓰기 품질 가이드라인
+├── AI_PROMPT.md            # AI 프롬프트 템플릿 ⭐ 업데이트됨
 ├── Flow.md                 # 시스템 작동 원리
-├── BLOG_REQUIREMENTS.md    # 블로그 요구사항
+├── GITHUB_PAGES_SETUP.md   # GitHub Pages 설정 가이드
 └── drafts/                 # 초안 폴더 (Git 제외)
     └── TEMPLATE.md         # 초안 템플릿
 ```
