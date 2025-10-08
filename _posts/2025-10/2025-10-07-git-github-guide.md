@@ -2,7 +2,7 @@
 layout: post
 title: "Git/GitHub 사용 가이드"
 date: 2025-10-07 02:00:00 +0900
-categories: [Development, Git]
+categories: [development, git]
 tags: [git, github, 버전관리, 개발도구, 커밋]
 ---
 

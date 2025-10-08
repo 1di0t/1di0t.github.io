@@ -2,7 +2,7 @@
 layout: post
 title: "EatPrint 개발일지 - SNS 앱 개발 여정"
 date: 2025-10-07 04:00:00 +0900
-categories: [Project, Mobile]
+categories: [project, mobile]
 tags: [flutter, dart, python, flask, aws, dynamodb, postgresql, 앱개발]
 ---
 
