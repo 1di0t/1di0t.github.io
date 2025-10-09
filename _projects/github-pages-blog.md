@@ -1,6 +1,6 @@
 ---
 title: "Jekyll + Tailwind CSS 기술 블로그"
-category: web-development
+category: Toy-Project
 tech_stack: [Jekyll, Tailwind-CSS, Liquid, GitHub-Pages, GitHub-Actions, JavaScript, Ruby]
 github: https://github.com/1di0t/1di0t.github.io
 demo: https://1di0t.github.io
