@@ -81,11 +81,16 @@ parentCategorySelect.addEventListener('change', (e) => {
 // Check if user is logged in
 async function checkAuth() {
   // Check if session cookie exists
+  console.log('Checking auth...');
+  console.log('All cookies:', document.cookie);
   const hasCookie = document.cookie.includes('session=');
+  console.log('Has session cookie:', hasCookie);
 
   if (hasCookie) {
+    console.log('✅ User logged in - showing editor');
     showEditorScreen();
   } else {
+    console.log('❌ No session - showing login screen');
     showLoginScreen();
   }
 }

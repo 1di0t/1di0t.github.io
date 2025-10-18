@@ -130,7 +130,8 @@ export function getSessionFromCookie(request) {
  */
 export function createSessionCookie(token) {
   const maxAge = JWT_CONFIG.EXPIRES_IN;
-  return `session=${token}; HttpOnly; Secure; SameSite=Strict; Max-Age=${maxAge}; Path=/`;
+  // SameSite=Lax: OAuth 리다이렉트 시에도 쿠키 전송 허용
+  return `session=${token}; HttpOnly; Secure; SameSite=Lax; Max-Age=${maxAge}; Path=/`;
 }
 
 /**
@@ -138,5 +139,5 @@ export function createSessionCookie(token) {
  * @returns {string} Set-Cookie 헤더 값
  */
 export function clearSessionCookie() {
-  return 'session=; HttpOnly; Secure; SameSite=Strict; Max-Age=0; Path=/';
+  return 'session=; HttpOnly; Secure; SameSite=Lax; Max-Age=0; Path=/';
 }
