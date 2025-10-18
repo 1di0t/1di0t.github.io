@@ -83,19 +83,54 @@ Authorization callback URL: https://your-project.pages.dev/auth/callback
    | Variable name | Value | 설명 |
    |---------------|-------|------|
    | `JWT_SECRET` | 랜덤 문자열 (32자 이상) | JWT 토큰 서명용 |
+   | `ENCRYPTION_KEY` | 랜덤 문자열 (32자 base64) | Token 암호화 키 |
 
-   JWT_SECRET 생성 예시:
+   **생성 예시:**
    ```bash
-   # Node.js
+   # JWT_SECRET (hex)
    node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 
-   # Python
-   python -c "import secrets; print(secrets.token_hex(32))"
-
-   # 또는 온라인: https://generate-secret.vercel.app/32
+   # ENCRYPTION_KEY (base64)
+   node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
    ```
 
 3. **Save** 클릭
+
+---
+
+### Step 2-B: D1/R2/KV 바인딩 설정 (필수!)
+
+⚠️ **중요:** 환경변수만으로는 부족합니다. D1, R2, KV 바인딩도 필요합니다!
+
+**다음 에러가 발생하면:**
+```
+인증 실패: Cannot read properties of undefined (reading 'prepare')
+```
+
+이는 **D1 데이터베이스 바인딩이 없음**을 의미합니다.
+
+**빠른 해결:**
+
+1. **Settings → Functions** (Environment variables 아님!)
+
+2. **D1 database bindings 추가**
+   - Variable name: `DB`
+   - D1 database: `autoblog-db` (먼저 생성 필요)
+   - Environment: Production
+
+3. **R2 bucket bindings 추가**
+   - Variable name: `R2_BUCKET`
+   - R2 bucket: `autoblog-images` (먼저 생성 필요)
+   - Environment: Production
+
+4. **KV namespace bindings 추가**
+   - Variable name: `KV`
+   - KV namespace: `autoblog-kv` (먼저 생성 필요)
+   - Environment: Production
+
+**⚠️ D1/R2/KV를 아직 생성하지 않았다면:**
+
+[D1_DATABASE_SETUP.md](./D1_DATABASE_SETUP.md)를 먼저 따라하세요. 모든 리소스 생성 및 바인딩을 상세히 설명합니다.
 
 ---
 
