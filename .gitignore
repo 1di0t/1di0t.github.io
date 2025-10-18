@@ -1,7 +1,5 @@
 # Obsidian
-.obsidian/workspace*
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
+.obsidian/
 .trash/
 
 # Personal notes (not published)
@@ -45,3 +43,7 @@ docs/archive/
 folder_structure.txt
 *.tmp
 *.bak
+nul
+
+# Scripts (utility)
+scripts/
