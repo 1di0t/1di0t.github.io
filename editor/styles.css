@@ -24,13 +24,14 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
+  padding: 20px;
 }
 
 #login-screen::before {
   content: '';
   position: absolute;
-  top: -50%;
-  right: -10%;
+  top: 0;
+  right: 0;
   width: 500px;
   height: 500px;
   background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
@@ -41,8 +42,8 @@ body {
 #login-screen::after {
   content: '';
   position: absolute;
-  bottom: -30%;
-  left: -10%;
+  bottom: 0;
+  left: 0;
   width: 400px;
   height: 400px;
   background: radial-gradient(circle, rgba(255, 107, 149, 0.15) 0%, transparent 70%);
@@ -58,7 +59,7 @@ body {
 
 .login-container {
   max-width: 480px;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   padding: 56px 48px;
   background: rgba(255, 255, 255, 0.95);
