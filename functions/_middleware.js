@@ -12,22 +12,34 @@ export async function onRequest(context) {
   const url = new URL(request.url);
   const path = url.pathname;
 
-  // 정적 파일 및 페이지는 제한 제외
-  if (path.startsWith('/assets/') ||
-      path.startsWith('/editor/') ||
-      path.startsWith('/category/') ||
-      path.startsWith('/tags/') ||
-      path === '/editor' ||
-      path === '/' ||
-      path.endsWith('.html') ||
-      path.endsWith('.css') ||
-      path.endsWith('.js')) {
+  // Rate Limit 예외 경로
+  const exemptPaths = [
+    '/assets/',
+    '/editor/',
+    '/category/',
+    '/tags/',
+    '/auth/',        // 🔥 인증 엔드포인트 제외 (중요!)
+    '/'
+  ];
+
+  const isExempt = exemptPaths.some(p => path.startsWith(p)) ||
+                   path === '/editor' ||
+                   path.endsWith('.html') ||
+                   path.endsWith('.css') ||
+                   path.endsWith('.js');
+
+  if (isExempt) {
+    console.log(`Rate limit bypassed for: ${path}`);
     return await next();
   }
 
   // 1. Rate Limiting (IP 기반)
   // KV가 바인딩되지 않았으면 Rate Limiting 건너뛰기
-  if (!env.KV) {
+  // 🚧 임시: 개발/테스트 중에는 Rate Limit 비활성화
+  const ENABLE_RATE_LIMIT = false;  // ⚠️ 프로덕션에서는 true로 변경!
+
+  if (!env.KV || !ENABLE_RATE_LIMIT) {
+    console.log('Rate limiting disabled');
     return await next();
   }
 
@@ -59,10 +71,10 @@ export async function onRequest(context) {
   const ipKey = `ratelimit:ip:${ip}:${today}`;
   const ipCount = await env.KV.get(ipKey);
 
-  if (ipCount && parseInt(ipCount) > 100) {
+  if (ipCount && parseInt(ipCount) > 300) {  // 100 → 300으로 증가
     return new Response(
       JSON.stringify({
-        error: 'IP별 일일 요청 한도 초과 (100/일)',
+        error: 'IP별 일일 요청 한도 초과 (300/일)',
         resetAt: getTomorrowMidnight()
       }),
       {
