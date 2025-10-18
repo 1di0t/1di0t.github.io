@@ -61,7 +61,7 @@
   font-display: swap;
 }
 
-/* Custom color scheme - 2025 트렌드 반영: 따뜻하고 깔끔한 디자인 */
+/* 🎨 2025 혁신적인 디자인 시스템 - Mocha Mousse × Glassmorphism */
 :root {
   /* Light Mode - Mocha Mousse 기반 따뜻한 뉴트럴 톤 */
   --bg-main: #FDFBF7;              /* 부드러운 아이보리 */
@@ -90,6 +90,20 @@
   --gradient-start: #FDFBF7;
   --gradient-mid: #FAF6F2;
   --gradient-end: #F5F0EA;
+
+  /* 🌟 Glassmorphism 컬러 */
+  --glass-bg: rgba(253, 251, 247, 0.7);
+  --glass-border: rgba(217, 119, 87, 0.18);
+  --glass-shadow: rgba(44, 38, 34, 0.1);
+
+  /* 🎭 Neumorphism 그림자 */
+  --neu-shadow-light: rgba(255, 255, 255, 0.7);
+  --neu-shadow-dark: rgba(44, 38, 34, 0.15);
+
+  /* ✨ 애니메이션 설정 */
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
   /* Tailwind semantic tokens */
   --background: var(--bg-main);
@@ -142,6 +156,15 @@
   --gradient-start: #1F1D1B;
   --gradient-mid: #2C2825;
   --gradient-end: #3F3A35;
+
+  /* 🌟 Dark Glassmorphism */
+  --glass-bg: rgba(31, 29, 27, 0.6);
+  --glass-border: rgba(232, 155, 122, 0.2);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
+
+  /* 🎭 Dark Neumorphism */
+  --neu-shadow-light: rgba(87, 79, 72, 0.4);
+  --neu-shadow-dark: rgba(0, 0, 0, 0.5);
 
   --background: var(--bg-main);
   --foreground: var(--text-primary);
@@ -261,28 +284,72 @@
     @apply text-muted-foreground text-sm;
   }
 
-  /* Cards - 2025 트렌드: 미니멀하고 깔끔한 카드 디자인 */
+  /* 🎴 Cards - 2025 혁신적인 카드 디자인: Glassmorphism + Neumorphism */
   .card {
-    @apply bg-card rounded-2xl p-6 border border-border transition-all duration-300;
-    /* 2025 트렌드: 미묘한 그림자로 깊이감 */
-    box-shadow: 0 1px 3px rgba(44, 38, 34, 0.04), 0 2px 8px rgba(44, 38, 34, 0.02);
+    @apply bg-card rounded-3xl p-6 border transition-all duration-500;
+    border: 1px solid var(--glass-border);
+    background: linear-gradient(135deg,
+      var(--bg-subtle) 0%,
+      rgba(250, 246, 242, 0.95) 100%);
+    backdrop-filter: blur(10px);
+    box-shadow:
+      0 8px 32px rgba(44, 38, 34, 0.06),
+      0 2px 8px rgba(44, 38, 34, 0.04),
+      inset 0 1px 1px var(--neu-shadow-light);
+    transition: all 0.5s var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(217, 119, 87, 0.08),
+      transparent);
+    transition: left 0.6s var(--transition-smooth);
   }
 
   .card:hover {
     @apply border-primary;
-    transform: translateY(-3px); /* 더 부드러운 움직임 */
-    /* 2025 트렌드: 따뜻한 그림자 효과 */
-    box-shadow: 0 4px 12px rgba(193, 154, 107, 0.12),
-                0 8px 24px rgba(217, 119, 87, 0.08);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow:
+      0 20px 60px rgba(217, 119, 87, 0.15),
+      0 8px 24px rgba(193, 154, 107, 0.12),
+      inset 0 1px 2px var(--neu-shadow-light);
+  }
+
+  .card:hover::before {
+    left: 100%;
   }
 
   .dark .card {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg,
+      var(--bg-subtle) 0%,
+      rgba(44, 40, 37, 0.9) 100%);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      inset 0 1px 1px var(--neu-shadow-light);
+  }
+
+  .dark .card::before {
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(232, 155, 122, 0.12),
+      transparent);
   }
 
   .dark .card:hover {
-    box-shadow: 0 4px 12px rgba(232, 155, 122, 0.15),
-                0 8px 24px rgba(232, 155, 122, 0.1);
+    box-shadow:
+      0 20px 60px rgba(232, 155, 122, 0.2),
+      0 8px 24px rgba(232, 155, 122, 0.15),
+      inset 0 1px 2px var(--neu-shadow-light);
   }
 
   /* Separator between cards */
@@ -312,34 +379,65 @@
     }
   }
 
-  /* Badges - 2025 트렌드: 미니멀하고 따뜻한 배지 */
+  /* 🏷️ Badges - 2025 Glassmorphism 배지 with Micro-interactions */
   .badge {
-    @apply inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium;
-    /* 2025 트렌드: 더 부드러운 배경과 세이지 그린 */
+    @apply inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold;
     background: linear-gradient(135deg,
-                var(--accent-secondary) 0%,
-                rgba(139, 148, 120, 0.9) 100%);
+                rgba(139, 148, 120, 0.85) 0%,
+                rgba(139, 148, 120, 0.75) 100%);
     color: var(--secondary-foreground);
-    border: 1px solid rgba(139, 148, 120, 0.25);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); /* 더 자연스러운 이징 */
-    backdrop-filter: blur(8px); /* 2025 트렌드: 글래스모피즘 효과 */
+    border: 1.5px solid rgba(139, 148, 120, 0.35);
+    backdrop-filter: blur(12px) saturate(180%);
+    transition: all 0.3s var(--transition-bounce);
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+      0 2px 8px rgba(139, 148, 120, 0.15),
+      inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  }
+
+  .badge::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s var(--transition-smooth);
   }
 
   .badge:hover {
-    transform: translateY(-1px) scale(1.02); /* 미세한 스케일 효과 */
-    box-shadow: 0 4px 12px rgba(139, 148, 120, 0.25);
-    border-color: rgba(139, 148, 120, 0.4);
+    transform: translateY(-2px) scale(1.05) rotate(-1deg);
+    box-shadow:
+      0 6px 20px rgba(139, 148, 120, 0.35),
+      inset 0 1px 2px rgba(255, 255, 255, 0.3);
+    border-color: rgba(139, 148, 120, 0.6);
+  }
+
+  .badge:hover::after {
+    opacity: 1;
+  }
+
+  .badge:active {
+    transform: translateY(0) scale(0.98);
   }
 
   .dark .badge {
     background: linear-gradient(135deg,
-                var(--accent-secondary) 0%,
-                rgba(163, 177, 138, 0.85) 100%);
-    border-color: rgba(163, 177, 138, 0.3);
+                rgba(163, 177, 138, 0.75) 0%,
+                rgba(163, 177, 138, 0.65) 100%);
+    border-color: rgba(163, 177, 138, 0.4);
+    box-shadow:
+      0 2px 8px rgba(163, 177, 138, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 0.15);
   }
 
   .dark .badge:hover {
-    box-shadow: 0 4px 12px rgba(163, 177, 138, 0.3);
+    box-shadow:
+      0 6px 20px rgba(163, 177, 138, 0.4),
+      inset 0 1px 2px rgba(255, 255, 255, 0.25);
   }
 
   /* PACER 학습 프레임워크 배지 - enhanced */
@@ -499,6 +597,177 @@
 
   .dark aside::-webkit-scrollbar-thumb:hover {
     background: var(--accent-secondary);
+  }
+
+  /* 🎯 2025 혁신적인 유틸리티 클래스들 */
+
+  /* Glassmorphism 컴포넌트 */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px var(--glass-shadow);
+  }
+
+  .glass-strong {
+    background: var(--glass-bg);
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    border: 1.5px solid var(--glass-border);
+    box-shadow:
+      0 8px 32px var(--glass-shadow),
+      inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Neumorphism 버튼 */
+  .neu-btn {
+    @apply px-6 py-3 rounded-2xl font-semibold transition-all duration-300;
+    background: linear-gradient(145deg, var(--bg-subtle), var(--mocha-light));
+    box-shadow:
+      6px 6px 12px var(--neu-shadow-dark),
+      -6px -6px 12px var(--neu-shadow-light);
+  }
+
+  .neu-btn:hover {
+    box-shadow:
+      8px 8px 16px var(--neu-shadow-dark),
+      -8px -8px 16px var(--neu-shadow-light);
+    transform: translateY(-2px);
+  }
+
+  .neu-btn:active {
+    box-shadow:
+      inset 4px 4px 8px var(--neu-shadow-dark),
+      inset -4px -4px 8px var(--neu-shadow-light);
+    transform: translateY(0);
+  }
+
+  .dark .neu-btn {
+    background: linear-gradient(145deg, var(--mocha-dark), var(--mocha-deep));
+    box-shadow:
+      6px 6px 12px var(--neu-shadow-dark),
+      -6px -6px 12px var(--neu-shadow-light);
+  }
+
+  /* Bento Grid 레이아웃 */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    grid-auto-rows: minmax(200px, auto);
+  }
+
+  .bento-item {
+    @apply rounded-3xl overflow-hidden;
+    background: linear-gradient(135deg, var(--bg-subtle), var(--mocha-light));
+    border: 1px solid var(--glass-border);
+    transition: all 0.4s var(--transition-smooth);
+  }
+
+  .bento-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(217, 119, 87, 0.15);
+  }
+
+  .bento-item-large {
+    grid-column: span 2;
+  }
+
+  .bento-item-tall {
+    grid-row: span 2;
+  }
+
+  @media (max-width: 768px) {
+    .bento-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .bento-item-large,
+    .bento-item-tall {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+  }
+
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(135deg,
+      var(--accent-primary) 0%,
+      var(--accent-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Shimmer Effect */
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(217, 119, 87, 0.2) 50%,
+      transparent 100%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  /* Smooth Reveal on Scroll */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .reveal {
+    animation: fadeInUp 0.6s var(--transition-smooth) forwards;
+  }
+
+  /* Stagger delay for multiple elements */
+  .reveal:nth-child(1) { animation-delay: 0.1s; }
+  .reveal:nth-child(2) { animation-delay: 0.2s; }
+  .reveal:nth-child(3) { animation-delay: 0.3s; }
+  .reveal:nth-child(4) { animation-delay: 0.4s; }
+  .reveal:nth-child(5) { animation-delay: 0.5s; }
+
+  /* Pulse Glow Effect */
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(217, 119, 87, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(217, 119, 87, 0.6);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
   }
 }
 

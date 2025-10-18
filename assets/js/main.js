@@ -223,6 +223,98 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// 🎬 2025 Scroll Animations - Intersection Observer for Reveal Effects
+document.addEventListener('DOMContentLoaded', function() {
+  // Intersection Observer for scroll reveal animations
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  // Apply reveal animation to elements with 'reveal' class
+  const revealElements = document.querySelectorAll('.reveal');
+  revealElements.forEach((el, index) => {
+    // Initial state
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = `opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
+    revealObserver.observe(el);
+  });
+
+  // Parallax effect for hero sections
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const heroElements = document.querySelectorAll('.glass-strong');
+
+    heroElements.forEach(hero => {
+      const rect = hero.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const parallaxSpeed = 0.5;
+        hero.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+      }
+    });
+  });
+
+  // Add smooth scale animation to cards on scroll
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'scale(1)';
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'scale(0.95)';
+    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    cardObserver.observe(card);
+  });
+
+  // Enhanced theme toggle with smooth transition
+  const darkModeToggle = document.getElementById('dark-mode-toggle');
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', function() {
+      // Add ripple effect on click
+      const ripple = document.createElement('span');
+      ripple.className = 'absolute inset-0 rounded-xl';
+      ripple.style.background = 'radial-gradient(circle, rgba(217, 119, 87, 0.3) 0%, transparent 70%)';
+      ripple.style.animation = 'ripple 0.6s ease-out';
+      this.appendChild(ripple);
+
+      setTimeout(() => ripple.remove(), 600);
+    });
+  }
+
+  // Add CSS for ripple animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes ripple {
+      from {
+        transform: scale(0);
+        opacity: 1;
+      }
+      to {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+});
+
 // Image lazy loading enhancement
 if ('loading' in HTMLImageElement.prototype) {
   const images = document.querySelectorAll('img[loading="lazy"]');
