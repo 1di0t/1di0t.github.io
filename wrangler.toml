@@ -1,0 +1,38 @@
+# Cloudflare Pages Functions 설정
+# https://developers.cloudflare.com/pages/functions/
+
+name = "autoblog-editor"
+compatibility_date = "2024-01-01"
+
+# Pages Functions는 wrangler.toml이 필수는 아니지만
+# D1, R2, KV 바인딩을 위해 필요합니다.
+
+# D1 Database 바인딩
+[[d1_databases]]
+binding = "DB"
+database_name = "autoblog-db"
+database_id = "YOUR_D1_DATABASE_ID"  # 배포 시 변경 필요
+
+# R2 Bucket 바인딩
+[[r2_buckets]]
+binding = "R2_BUCKET"
+bucket_name = "autoblog-images"
+preview_bucket_name = "autoblog-images-preview"
+
+# KV Namespace 바인딩
+[[kv_namespaces]]
+binding = "KV"
+id = "YOUR_KV_NAMESPACE_ID"  # 배포 시 변경 필요
+preview_id = "YOUR_KV_PREVIEW_ID"
+
+# 환경변수 (로컬 개발용)
+[vars]
+ENVIRONMENT = "development"
+
+# Cron Triggers (오래된 이미지 삭제)
+# Pages Functions에서는 직접 지원하지 않으므로
+# 별도 Worker로 구현하거나 수동 실행
+
+# 로컬 개발 설정
+[dev]
+port = 8788

@@ -9,12 +9,27 @@ title: Home
   <a href="{{ post.url | relative_url }}" class="block group no-underline">
     <article class="transition-all hover:shadow-lg hover:border-primary bg-card rounded-lg border border-border p-4 md:p-6">
       <!-- Post Header -->
-      <div class="flex items-center gap-2 text-xs text-muted-foreground mb-2 md:mb-3">
-        {% if post.category %}
-        <span class="inline-flex items-center px-2 md:px-2.5 py-0.5 md:py-1 rounded-md bg-secondary text-secondary-foreground font-normal text-[10px] md:text-xs">
-          {{ post.category }}
-        </span>
+      <div class="flex flex-wrap items-center gap-2 text-xs text-muted-foreground mb-2 md:mb-3">
+        {% comment %} 부모 카테고리 {% endcomment %}
+        {% if post.parent_category %}
+          {% assign parent = site.data.parent_categories.parent_categories | where: "id", post.parent_category | first %}
+          {% if parent %}
+          <span class="inline-flex items-center px-2 md:px-2.5 py-0.5 md:py-1 rounded-md bg-secondary/50 text-secondary-foreground font-normal text-[10px] md:text-xs">
+            {{ parent.icon }} {{ parent.name_kr }}
+          </span>
+          {% endif %}
         {% endif %}
+
+        {% comment %} PACER 배지 {% endcomment %}
+        {% if post.learning_framework.pacer_type %}
+          {% assign pacer = site.data.learning_framework.pacer_types | where: "id", post.learning_framework.pacer_type | first %}
+          {% if pacer %}
+          <span class="inline-flex items-center px-2 md:px-2.5 py-0.5 md:py-1 rounded-md pacer-badge pacer-{{ pacer.id }} text-[10px] md:text-xs font-medium">
+            {{ pacer.symbol }} {{ pacer.name_kr }}
+          </span>
+          {% endif %}
+        {% endif %}
+
         <span class="flex items-center gap-1 text-[10px] md:text-xs">
           <svg class="h-2.5 w-2.5 md:h-3 md:w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>

@@ -44,3 +44,12 @@ folder_structure.txt
 *.tmp
 *.bak
 nul
+
+# Cloudflare (Web Editor)
+.wrangler/
+.dev.vars
+wrangler.toml.local
+
+# Environment variables (NEVER commit these!)
+.env.local
+.env.production
