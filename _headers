@@ -3,11 +3,11 @@
 
 # 에디터 페이지 - 더 관대한 CSP (로그인된 사용자만 접근)
 /editor/*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src 'self' data:; img-src 'self' data: https: blob:; connect-src 'self' https://api.github.com https://github.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://github.com;
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src 'self' data:; img-src 'self' data: https: blob:; connect-src 'self' https://api.github.com https://github.com https://cloudflareinsights.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://github.com;
 
 # 블로그 페이지 - 엄격한 CSP
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://utteranc.es; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self'; frame-src https://utteranc.es; object-src 'none'; base-uri 'self'; form-action 'self';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://utteranc.es https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' https://cloudflareinsights.com; frame-src https://utteranc.es; object-src 'none'; base-uri 'self'; form-action 'self';
 
   # XSS 방어 (레거시 브라우저용)
   X-XSS-Protection: 1; mode=block
