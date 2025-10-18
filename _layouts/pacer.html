@@ -1,0 +1,184 @@
+---
+layout: default
+---
+
+{% comment %}
+PACER 타입별 포스트 필터링 레이아웃
+page.pacer_id로 특정 PACER 타입의 포스트만 필터링
+{% endcomment %}
+
+{% assign pacer_id = page.pacer_id %}
+{% assign pacer_info = site.data.learning_framework.pacer_types | where: "id", pacer_id | first %}
+
+{% comment %} 해당 PACER 타입을 가진 포스트 필터링 {% endcomment %}
+{% assign pacer_posts = "" | split: "" %}
+{% for post in site.posts %}
+  {% if post.learning_framework.pacer_type == pacer_id or post.learning_framework.pacer_types contains pacer_id %}
+    {% assign pacer_posts = pacer_posts | push: post %}
+  {% endif %}
+{% endfor %}
+
+<div class="max-w-4xl mx-auto">
+  <!-- Header -->
+  <header class="mb-8 md:mb-10">
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center gap-4">
+        <span class="text-5xl md:text-6xl">{{ pacer_info.symbol }}</span>
+        <div>
+          <h1 class="text-3xl md:text-4xl font-bold">{{ pacer_info.name_kr }}</h1>
+          <p class="text-lg text-muted-foreground">{{ pacer_info.name_en }}</p>
+        </div>
+      </div>
+
+      <a href="{{ '/learning-framework/' | relative_url }}"
+         class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors no-underline text-sm font-medium">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        프레임워크 소개
+      </a>
+    </div>
+
+    <!-- Description Card -->
+    <div class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl p-6 border-2 border-primary/20 mb-6">
+      <p class="text-lg mb-4">{{ pacer_info.description }}</p>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-background/80 rounded-lg p-4">
+          <h3 class="font-semibold mb-2 flex items-center gap-2">
+            <svg class="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            예시
+          </h3>
+          <ul class="space-y-1 text-sm text-muted-foreground">
+            {% for example in pacer_info.examples %}
+            <li>• {{ example }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="bg-primary/10 rounded-lg p-4 border border-primary/30">
+          <h3 class="font-semibold mb-2 flex items-center gap-2 text-primary">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            학습 전략: {{ pacer_info.strategy }}
+          </h3>
+          <p class="text-sm text-muted-foreground">{{ pacer_info.strategy_description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="flex items-center justify-between bg-muted rounded-lg p-4">
+      <div class="flex items-center gap-3">
+        <svg class="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        <span class="font-semibold">총 {{ pacer_posts | size }}개의 포스트</span>
+      </div>
+
+      <!-- Other PACER Links -->
+      <div class="hidden lg:flex items-center gap-2">
+        <span class="text-sm text-muted-foreground mr-2">다른 타입:</span>
+        {% for other_pacer in site.data.learning_framework.pacer_types %}
+          {% if other_pacer.id != pacer_id %}
+            <a href="{{ '/pacer/' | append: other_pacer.id | append: '/' | relative_url }}"
+               class="inline-flex items-center gap-1 px-2 py-1 rounded text-xs pacer-badge pacer-{{ other_pacer.id }} no-underline hover:scale-105 transition-transform"
+               title="{{ other_pacer.name_kr }}">
+              {{ other_pacer.symbol }}
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </header>
+
+  <!-- Posts Grid -->
+  {% if pacer_posts.size > 0 %}
+  <div class="grid gap-6">
+    {% for post in pacer_posts %}
+    <article class="bg-card rounded-xl border-2 border-border p-6 hover:shadow-xl transition-all hover:border-primary">
+      <h2 class="text-xl md:text-2xl font-bold mb-3">
+        <a href="{{ post.url | relative_url }}" class="no-underline hover:text-primary text-foreground transition-colors">
+          {{ post.title }}
+        </a>
+      </h2>
+
+      <div class="flex flex-wrap items-center gap-2 text-xs md:text-sm text-muted-foreground mb-3">
+        <time datetime="{{ post.date | date_to_xmlschema }}" class="flex items-center gap-1">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          {{ post.date | date: "%Y년 %m월 %d일" }}
+        </time>
+
+        {% if post.category %}
+          {% assign cat_info = site.data.categories.categories | where: "id", post.category | first %}
+          {% if cat_info %}
+          <span>•</span>
+          <a href="{{ '/category/' | append: post.category | append: '/' | relative_url }}"
+             class="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-muted text-foreground hover:bg-primary hover:text-primary-foreground transition-colors no-underline">
+            {{ cat_info.name_kr }}
+          </a>
+          {% endif %}
+        {% endif %}
+
+        {% comment %} 복합 PACER 타입 표시 {% endcomment %}
+        {% if post.learning_framework.pacer_types %}
+          {% assign pacer_count = post.learning_framework.pacer_types | size %}
+          {% if pacer_count > 1 %}
+            <span>•</span>
+            <span class="text-xs">복합 타입:</span>
+            {% for type_id in post.learning_framework.pacer_types %}
+              {% assign type_info = site.data.learning_framework.pacer_types | where: "id", type_id | first %}
+              {% if type_info and type_id != pacer_id %}
+              <span class="pacer-badge pacer-{{ type_id }} px-2 py-0.5 text-xs">
+                {{ type_info.symbol }}
+              </span>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endif %}
+      </div>
+
+      {% if post.excerpt %}
+      <p class="text-muted-foreground mb-4 leading-relaxed">
+        {{ post.excerpt | strip_html | truncate: 200 }}
+      </p>
+      {% endif %}
+
+      {% if post.tags %}
+      <div class="flex flex-wrap gap-2">
+        {% for tag in post.tags limit:5 %}
+        <a href="{{ '/tags/' | append: tag | append: '/' | relative_url }}"
+           class="inline-flex items-center gap-1 px-2 py-1 text-xs rounded-md bg-muted text-foreground hover:bg-primary hover:text-primary-foreground transition-colors no-underline">
+          <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+          </svg>
+          {{ tag }}
+        </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <!-- Empty State -->
+  <div class="text-center py-16">
+    <svg class="h-24 w-24 mx-auto text-muted-foreground mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+    </svg>
+    <h3 class="text-xl font-semibold mb-2">아직 포스트가 없습니다</h3>
+    <p class="text-muted-foreground mb-6">
+      {{ pacer_info.name_kr }} 타입의 포스트가 곧 추가될 예정입니다
+    </p>
+    <a href="{{ '/blog/' | relative_url }}"
+       class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors no-underline">
+      전체 포스트 보기 →
+    </a>
+  </div>
+  {% endif %}
+</div>
