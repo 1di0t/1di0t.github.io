@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>{% if page.title %}{{ page.title }} | 바보곰의 블로그{% else %}바보곰의 블로그{% endif %}</title>
 
   <!-- SEO -->
   {% seo %}
@@ -12,10 +12,12 @@
   <link rel="preload" href="{{ '/assets/fonts/MaruBuri-Regular.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ '/assets/fonts/D2Coding-Ver1.3.2-20180524.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 
-  <!-- Favicon -->
+  <!-- Favicon - 모든 브라우저 호환 -->
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/bear-circle.png' | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/bear-circle.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/images/bear-circle.png' | relative_url }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/bear-circle.png' | relative_url }}">
-  <link rel="shortcut icon" href="{{ '/assets/images/bear-circle.png' | relative_url }}">
+  <link rel="shortcut icon" type="image/png" href="{{ '/assets/images/bear-circle.png' | relative_url }}">
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ '/assets/css/output.css' | relative_url }}">
