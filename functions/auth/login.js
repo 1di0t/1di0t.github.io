@@ -7,13 +7,21 @@
 export async function onRequestGet(context) {
   const { GITHUB_CLIENT_ID } = context.env;
 
+  // 디버깅: 사용 가능한 환경변수 확인
+  console.log('Available env keys:', Object.keys(context.env || {}));
+  console.log('GITHUB_CLIENT_ID exists:', !!GITHUB_CLIENT_ID);
+
   if (!GITHUB_CLIENT_ID) {
     return new Response(
       JSON.stringify({
         error: 'GitHub OAuth 설정 오류',
         message: 'GITHUB_CLIENT_ID 환경변수가 설정되지 않았습니다.',
         solution: 'Cloudflare Pages 대시보드 > Settings > Environment Variables에서 GITHUB_CLIENT_ID를 설정하세요.',
-        docs: 'https://github.com/settings/developers'
+        docs: 'https://github.com/settings/developers',
+        debug: {
+          availableEnvKeys: Object.keys(context.env || {}),
+          note: '환경변수 설정 후 반드시 재배포가 필요합니다.'
+        }
       }),
       {
         status: 500,
