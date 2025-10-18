@@ -83,10 +83,70 @@ _drafts/ 폴더: 5개 초안 발견
 4. 매칭률이 30% 미만이면 가장 유사한 카테고리 선택
 5. 사용자 확인 없이 즉시 4단계로 진행
 
-**사용 가능한 카테고리** (17개):
+**사용 가능한 카테고리** (18개):
 - ai, programming, web, database, data-science, data-analysis
 - Machine-Learning, MLOps, Development, Git, Mobile
-- network, cpp, Project, study, Terms, troubleshooting
+- network, cpp, Project, study, Terms, troubleshooting, coffee
+
+### 3.5단계: 학습 프레임워크 자동 분류 (자동 실행)
+
+**목적**: 2단계 학습 프레임워크 (PACER)에 따라 포스트를 자동 분류합니다.
+
+**분류 로직** (자동 실행):
+
+1. **부모 카테고리 자동 매핑**
+   - 기술 관련 (ai, programming, web 등) → `study`
+   - 취미 (coffee) → `hobby`
+   - 프로젝트 → `project`
+   - 용어/정리 (Terms, study) → `documentation`
+   - 에러 해결 (troubleshooting) → `troubleshooting`
+
+2. **PACER 타입 자동 분석**
+
+   포스트 내용을 분석하여 적절한 PACER 타입을 결정합니다:
+
+   - **Procedural (절차형)** 🔨
+     - 코드 블록이 많음 (3개 이상)
+     - "방법", "단계", "가이드", "튜토리얼", "설치" 키워드
+     - 실습/튜토리얼 형식
+     - 전략: 즉시 실전 적용 (Practice)
+
+   - **Conceptual (개념형)** 💡
+     - "이란", "란?", "정의", "개념", "이론", "원리" 키워드
+     - ## 개요, ## 설명, ## 개념 섹션
+     - 이론적 설명 위주
+     - 전략: 구조화 (Structuring)
+
+   - **Evidence (근거형)** 📊
+     - "프로젝트", "개발일지", "트러블슈팅", "사례" 키워드
+     - 실제 경험과 사례 기록
+     - 문제/해결 구조
+     - 전략: 수집 & 반복 활용 (Application)
+
+   - **Reference (참고형)** 📚
+     - 짧고 간결 (150줄 이하)
+     - 테이블/목록 형식
+     - "치트시트", "명령어 모음", "참고" 키워드
+     - 전략: 수집 & 간격 반복 (Spaced Repetition)
+
+   - **Analogous (유사형)** 🔗
+     - "비유", "비교", "처럼", "마치", "같은" 키워드
+     - "vs", "차이", "비교" 제목
+     - 전략: 비판적 검토 (Critique)
+
+3. **복합 타입 처리**
+   - 여러 특성이 혼재된 경우 주요 타입 2-3개 선택
+   - 예: [conceptual, procedural], [evidence, procedural]
+
+4. **자동 결정 및 진행**
+   - 사용자 확인 없이 즉시 4단계로 진행
+
+**출력 예시**:
+```
+✅ 부모 카테고리: study (공부)
+✅ PACER 타입: Conceptual (개념형)
+   전략: 구조화하여 개념 간 관계 파악
+```
 
 ### 4단계: 태그 자동 생성 (자동 실행)
 
@@ -104,13 +164,23 @@ layout: post
 title: "{{명확하고 구체적인 제목}}"
 date: {{오늘 날짜 YYYY-MM-DD}}
 category: {{자동 추천된 카테고리}}
+parent_category: {{자동 분류된 부모 카테고리}}
+learning_framework:
+  stage: digestion
+  pacer_type: {{자동 분류된 PACER 타입}}
+  pacer_types: [{{복합 타입인 경우}}]
 tags: [{{자동 생성된 태그 3-5개}}]
 excerpt: "{{1-2문장 요약}}"
 ---
 ```
 
 **주의사항**:
-- `category:` (단수형) 사용
+- `category:` (단수형) 사용 - 기존 하위 카테고리
+- `parent_category:` - study, hobby, project, documentation, troubleshooting 중 하나
+- `learning_framework:` - PACER 분류 정보
+  - `stage:` 항상 "digestion"
+  - `pacer_type:` 주요 타입 1개
+  - `pacer_types:` 복합 타입인 경우에만 배열로 추가
 - `categories:` (복수형) 사용하지 않음
 - 제목은 큰따옴표로 감싸기
 - 날짜 형식: YYYY-MM-DD
@@ -146,32 +216,40 @@ excerpt: "{{1-2문장 요약}}"
 **당신이 할 일** (질문 없이 자동 실행):
 1. `_drafts/커피 추출 팁.md` 읽기
 2. `_data/categories.yml` 참조하여 카테고리 자동 추천
-3. 태그 자동 생성
-4. Front Matter 자동 작성
-5. 내용 자동 정리 및 개선
-6. `_posts/YYYY-MM/YYYY-MM-DD-제목.md`로 자동 저장
-7. 결과 리포트 출력
+3. **학습 프레임워크 자동 분류 (PACER 타입 결정)**
+4. 태그 자동 생성
+5. Front Matter 자동 작성 (PACER 정보 포함)
+6. 내용 자동 정리 및 개선
+7. `_posts/YYYY-MM/YYYY-MM-DD-제목.md`로 자동 저장
+8. 결과 리포트 출력
 
 **출력 형식**:
 ```markdown
-✅ 카테고리 추천: Development (키워드 매칭: docker, container, devops)
-✅ 태그 생성: [docker, docker-compose, devops, tips]
-✅ 파일 저장: _posts/2025-10/2025-10-18-docker-tips.md
+✅ 카테고리 추천: coffee (키워드 매칭: coffee, brewing, handdrip)
+✅ 부모 카테고리: hobby (취미)
+✅ PACER 타입: Procedural (절차형 - 실습 가이드)
+   전략: 즉시 실전 적용
+✅ 태그 생성: [coffee, brewing, handdrip, tips]
+✅ 파일 저장: _posts/2025-10/2025-10-18-coffee-brewing-tips.md
 
 ---
 layout: post
-title: "Docker 실전 팁 모음"
+title: "핸드드립 커피 추출 완벽 가이드"
 date: 2025-10-18
-category: Development
-tags: [docker, docker-compose, devops, tips]
-excerpt: "Docker 사용 시 알아두면 유용한 실전 팁을 정리했습니다."
+category: coffee
+parent_category: hobby
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
+tags: [coffee, brewing, handdrip, tips]
+excerpt: "다크/라이트 로스팅별 물줄기와 분쇄도, 최적 물 온도까지 - 커피 추출의 모든 것"
 ---
 
-# Docker 실전 팁 모음
+# 핸드드립 커피 추출 완벽 가이드
 
-Docker를 사용하면서 자주 사용하는 유용한 팁들을 정리했습니다.
+커피를 직접 내려 마시는 즐거움, 핸드드립. 로스팅 정도에 따라 추출 방법을 달리하면 훨씬 일관된 맛을 낼 수 있습니다.
 
-## 1. 컨테이너 정리
+## 1. 추출 타이밍의 핵심
 
 ...
 ```
@@ -221,16 +299,22 @@ _posts/ 폴더: 44개 포스트 발견
 ```markdown
 [1/3] docker-tips.md 처리 중...
 ✅ 카테고리: Development (키워드: docker, container, devops)
+✅ 부모 카테고리: study (공부)
+✅ PACER 타입: Procedural (절차형)
 ✅ 태그: [docker, docker-compose, devops, tips]
 ✅ 저장: _posts/2025-10/2025-10-18-docker-tips.md
 
 [2/3] python-basics.md 처리 중...
 ✅ 카테고리: programming (키워드: python, function, beginner)
+✅ 부모 카테고리: study (공부)
+✅ PACER 타입: Procedural (절차형)
 ✅ 태그: [python, tutorial, beginner, function]
 ✅ 저장: _posts/2025-10/2025-10-18-python-basics.md
 
 [3/3] typescript-guide.md 처리 중...
 ✅ 카테고리: web (키워드: typescript, type, javascript)
+✅ 부모 카테고리: study (공부)
+✅ PACER 타입: Conceptual (개념형)
 ✅ 태그: [typescript, web, frontend, type-safety]
 ✅ 저장: _posts/2025-10/2025-10-18-typescript-guide.md
 ```
