@@ -1,6 +1,7 @@
 # 바보곰의 개발 블로그
 
 > Python, 딥러닝, 머신러닝을 공부하고 프로젝트를 기록하는 기술 블로그
+> **2단계 학습 프레임워크 (PACER)** 적용 ✨
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Jekyll](https://img.shields.io/badge/Jekyll-4.3-red)]()
@@ -10,21 +11,52 @@
 
 ---
 
-## ✨ 특징
+## ✨ 주요 특징
 
-- **44개 포스트** (2023-12 ~ 현재)
-- **99% 자동화** 블로그 작성 시스템 (NEW!)
-- **Slash Commands** `/blog`, `/blog-batch` (NEW! 🔥)
-- **입력 길이 90% 감소** (150자 → 15자)
-- **배치 처리** 최대 3개 파일 일괄 정리
+### 🧠 2단계 학습 프레임워크 (NEW! 🔥)
+
+모든 포스트가 **PACER 분류**로 자동 분류되어 효과적인 학습을 지원합니다:
+
+- 🔨 **Procedural** (절차형): 실습/튜토리얼 - 즉시 실전 적용
+- 💡 **Conceptual** (개념형): 이론/개념 - 구조화하여 학습
+- 📊 **Evidence** (근거형): 사례/경험 - 수집 & 반복 활용
+- 📚 **Reference** (참고형): 치트시트/명령어 - 간격 반복 학습
+- 🔗 **Analogous** (유사형): 비유/비교 - 비판적 검토
+
+각 포스트에 **학습 전략 힌트**가 자동으로 표시됩니다!
+
+👉 자세히: [docs/LEARNING_FRAMEWORK.md](docs/LEARNING_FRAMEWORK.md)
+
+### 🎯 계층 구조 카테고리
+
+- **5개 상위 카테고리**: 공부, 취미, 프로젝트, 정리, 트러블슈팅
+- **18개 하위 카테고리**: AI, 프로그래밍, 웹개발, 커피 등
+- **Breadcrumb 네비게이션**: 공부 › AI › 포스트
+
+### 🤖 99% 자동화 블로그 시스템
+
+- **Slash Commands**: `/blog`, `/blog-batch`
+- **입력 길이 90% 감소**: 150자 → 15자
+- **배치 처리**: 최대 3개 파일 일괄 정리
+- **AI 자동 추천**: 카테고리, 태그, PACER 타입
+- **Obsidian + Claude Desktop MCP 연동**
+
+### 🎨 모던 디자인
+
 - **Tailwind CSS** 커스텀 디자인
-- **다크모드** 지원
-- **17개 카테고리** + 태그 시스템 (AI 자동 추천)
+- **다크모드** 지원 (석양/숲속 테마)
 - **검색 기능** (Lunr.js)
 - **목차(TOC) 자동 생성**
-- **utterances 댓글** (GitHub Issues 기반, 무료)
+- **utterances 댓글** (GitHub Issues 기반)
 - **SEO 최적화**
-- **Obsidian + Claude Desktop MCP 연동**
+
+### 📊 통계
+
+- **총 포스트**: 45개 (2023-12 ~ 현재)
+- **Procedural**: 24개 (53%)
+- **Conceptual**: 11개 (24%)
+- **Evidence**: 5개 (11%)
+- **Reference**: 4개 (9%)
 
 ---
 
