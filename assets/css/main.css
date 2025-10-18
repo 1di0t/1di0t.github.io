@@ -239,20 +239,72 @@
     @apply text-muted-foreground text-sm;
   }
 
-  /* Cards - exact match to technical-blog */
+  /* Cards - enhanced with better visuals */
   .card {
-    @apply bg-card rounded-lg p-6 border border-border transition-all hover:shadow-lg hover:border-primary;
+    @apply bg-card rounded-xl p-6 border-2 border-border transition-all duration-300;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
 
-  /* Badges */
+  .card:hover {
+    @apply shadow-xl border-primary;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(229, 119, 74, 0.12);
+  }
+
+  .dark .card:hover {
+    box-shadow: 0 8px 24px rgba(242, 142, 99, 0.2);
+  }
+
+  /* Separator between cards */
+  article + article {
+    position: relative;
+  }
+
+  article + article::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--border-subtle) 50%, transparent 100%);
+    opacity: 0.5;
+  }
+
+  @media (min-width: 768px) {
+    article + article::before {
+      top: -16px;
+    }
+  }
+
+  /* Badges - enhanced with better visuals */
   .badge {
-    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs bg-secondary text-secondary-foreground;
+    @apply inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold;
+    background: linear-gradient(135deg, var(--secondary) 0%, rgba(126, 133, 105, 0.85) 100%);
+    color: var(--secondary-foreground);
+    border: 1px solid rgba(126, 133, 105, 0.3);
+    transition: all 0.2s ease;
   }
 
-  /* PACER 학습 프레임워크 배지 */
+  .badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(126, 133, 105, 0.2);
+  }
+
+  .dark .badge {
+    background: linear-gradient(135deg, var(--secondary) 0%, rgba(157, 162, 138, 0.85) 100%);
+    border-color: rgba(157, 162, 138, 0.3);
+  }
+
+  .dark .badge:hover {
+    box-shadow: 0 4px 8px rgba(157, 162, 138, 0.25);
+  }
+
+  /* PACER 학습 프레임워크 배지 - enhanced */
   .pacer-badge {
-    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-medium transition-all;
-    border: 1px solid transparent;
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all;
+    border: 1.5px solid transparent;
+    backdrop-filter: blur(4px);
   }
 
   /* Procedural - 절차형 (파란색) */
