@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://1di0t.github.io/sitemap.xml
+Sitemap: https://autoblog.pages.dev/sitemap.xml

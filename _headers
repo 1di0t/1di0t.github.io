@@ -1,0 +1,38 @@
+# Cloudflare Pages 보안 헤더 설정
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  # Content Security Policy (XSS, 인젝션 공격 방어)
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net utteranc.es; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self'; frame-src utteranc.es; object-src 'none'; base-uri 'self'; form-action 'self';
+
+  # XSS 방어 (레거시 브라우저용)
+  X-XSS-Protection: 1; mode=block
+
+  # 클릭재킹 방어
+  X-Frame-Options: SAMEORIGIN
+
+  # MIME 타입 스니핑 방지
+  X-Content-Type-Options: nosniff
+
+  # Referrer 정책 (개인정보 보호)
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # 권한 정책 (불필요한 브라우저 기능 비활성화)
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+
+  # HSTS (HTTPS 강제, 6개월)
+  Strict-Transport-Security: max-age=15552000; includeSubDomains; preload
+
+# 정적 자산 캐싱 (성능 최적화 + 비용 절감)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.png
+  Cache-Control: public, max-age=31536000, immutable
+
+# 동적 컨텐츠는 짧은 캐시
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/search.json
+  Cache-Control: public, max-age=1800, must-revalidate

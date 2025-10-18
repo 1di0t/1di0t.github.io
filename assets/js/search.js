@@ -110,19 +110,24 @@
     return div.innerHTML;
   }
 
-  // 검색어 하이라이트
+  // 정규식 특수문자 이스케이프
+  function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  // 검색어 하이라이트 (XSS 방어 강화)
   function highlightMatch(text, query) {
     if (!text || !query) return escapeHtml(text);
 
     const escapedText = escapeHtml(text);
-    const words = query.toLowerCase().split(/\s+/);
+    const words = query.toLowerCase().split(/\s+/).filter(w => w.length > 1);
     let highlighted = escapedText;
 
     words.forEach(word => {
-      if (word.length > 1) {
-        const regex = new RegExp(`(${word})`, 'gi');
-        highlighted = highlighted.replace(regex, '<mark class="bg-accent/30 text-foreground rounded px-1">$1</mark>');
-      }
+      // 정규식 특수문자 이스케이프하여 XSS 방지
+      const safeWord = escapeRegExp(word);
+      const regex = new RegExp(`(${safeWord})`, 'gi');
+      highlighted = highlighted.replace(regex, '<mark class="bg-accent/30 text-foreground rounded px-1">$1</mark>');
     });
 
     return highlighted;
