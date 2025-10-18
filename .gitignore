@@ -35,3 +35,14 @@ venv/
 
 # Remotely Save
 .remotely-save/
+
+# Analysis and temporary folders
+blog-analysis/
+
+# Archive (old documentation)
+docs/archive/
+
+# Temporary files
+folder_structure.txt
+*.tmp
+*.bak

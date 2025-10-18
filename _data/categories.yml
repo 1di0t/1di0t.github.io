@@ -1,0 +1,258 @@
+# 카테고리 정의 및 자동 매칭 키워드
+# Claude가 이 파일을 참고하여 자동으로 카테고리를 추천합니다
+
+categories:
+  - id: ai
+    name: "AI"
+    description: "인공지능, 머신러닝, 딥러닝"
+    keywords:
+      - ai
+      - artificial intelligence
+      - machine learning
+      - deep learning
+      - neural network
+      - tensorflow
+      - pytorch
+      - model
+      - training
+      - inference
+      - nlp
+      - natural language
+      - computer vision
+      - embedding
+
+  - id: programming
+    name: "Programming"
+    description: "프로그래밍 언어 및 알고리즘"
+    keywords:
+      - python
+      - javascript
+      - java
+      - algorithm
+      - data structure
+      - coding
+      - function
+      - class
+      - programming
+      - syntax
+      - loop
+      - conditional
+
+  - id: web
+    name: "Web"
+    description: "웹 개발, 프론트엔드, 백엔드"
+    keywords:
+      - html
+      - css
+      - react
+      - vue
+      - angular
+      - django
+      - flask
+      - fastapi
+      - express
+      - node
+      - frontend
+      - backend
+      - api
+      - rest
+      - graphql
+      - web development
+
+  - id: database
+    name: "Database"
+    description: "데이터베이스 관리 및 쿼리"
+    keywords:
+      - sql
+      - mysql
+      - postgresql
+      - mongodb
+      - nosql
+      - database
+      - query
+      - table
+      - index
+      - dbms
+      - orm
+      - transaction
+
+  - id: data-science
+    name: "Data Science"
+    description: "데이터 사이언스, 분석, 시각화"
+    keywords:
+      - data science
+      - pandas
+      - numpy
+      - matplotlib
+      - seaborn
+      - jupyter
+      - data analysis
+      - statistics
+      - visualization
+      - dataframe
+      - series
+
+  - id: data-analysis
+    name: "Data Analysis"
+    description: "데이터 분석 실무"
+    keywords:
+      - analysis
+      - analytics
+      - eda
+      - exploratory
+      - dataset
+      - preprocessing
+      - cleaning
+      - feature engineering
+
+  - id: Machine-Learning
+    name: "Machine Learning"
+    description: "머신러닝 모델 및 알고리즘"
+    keywords:
+      - supervised learning
+      - unsupervised learning
+      - classification
+      - regression
+      - clustering
+      - random forest
+      - decision tree
+      - svm
+      - gradient boosting
+      - feature
+      - label
+
+  - id: MLOps
+    name: "MLOps"
+    description: "ML 운영, 배포, 모니터링"
+    keywords:
+      - mlops
+      - deployment
+      - pipeline
+      - docker
+      - kubernetes
+      - monitoring
+      - ci/cd
+      - model serving
+      - mlflow
+      - kubeflow
+
+  - id: Development
+    name: "Development"
+    description: "소프트웨어 개발 전반"
+    keywords:
+      - development
+      - software
+      - devops
+      - architecture
+      - design pattern
+      - refactoring
+      - testing
+      - debugging
+
+  - id: Git
+    name: "Git"
+    description: "Git 버전 관리"
+    keywords:
+      - git
+      - github
+      - gitlab
+      - version control
+      - commit
+      - branch
+      - merge
+      - pull request
+      - repository
+
+  - id: Mobile
+    name: "Mobile"
+    description: "모바일 앱 개발"
+    keywords:
+      - mobile
+      - android
+      - ios
+      - swift
+      - kotlin
+      - react native
+      - flutter
+      - app
+
+  - id: network
+    name: "Network"
+    description: "네트워크 및 통신"
+    keywords:
+      - network
+      - tcp
+      - udp
+      - http
+      - https
+      - socket
+      - protocol
+      - osi
+      - subnet
+      - routing
+
+  - id: cpp
+    name: "C++"
+    description: "C++ 프로그래밍"
+    keywords:
+      - cpp
+      - c++
+      - pointer
+      - memory
+      - destructor
+      - constructor
+      - template
+      - stl
+
+  - id: Project
+    name: "Project"
+    description: "프로젝트 소개 및 개발 일지"
+    keywords:
+      - project
+      - portfolio
+      - development log
+      - case study
+      - implementation
+
+  - id: study
+    name: "Study"
+    description: "학습 내용 정리"
+    keywords:
+      - study
+      - learning
+      - course
+      - tutorial
+      - beginner
+      - concept
+      - basics
+
+  - id: Terms
+    name: "Terms"
+    description: "개발 용어 정리"
+    keywords:
+      - term
+      - definition
+      - glossary
+      - concept
+      - terminology
+      - dictionary
+
+  - id: troubleshooting
+    name: "Troubleshooting"
+    description: "에러 해결 및 디버깅"
+    keywords:
+      - error
+      - bug
+      - fix
+      - debug
+      - troubleshooting
+      - issue
+      - solution
+      - problem
+      - resolve
+
+# 카테고리 추천 규칙:
+# 1. 포스트 내용에서 키워드 추출
+# 2. 각 카테고리의 keywords와 매칭
+# 3. 가장 많이 매칭되는 카테고리 선택
+# 4. 매칭률이 낮으면 (< 30%) 새 카테고리 제안
