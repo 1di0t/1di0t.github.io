@@ -195,6 +195,8 @@ body::before {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;  /* 배경보다 위에 표시 */
 }
 
 .header {
@@ -205,6 +207,8 @@ body::before {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 10;  /* 헤더를 최상위로 */
 }
 
 .header h1 {
@@ -241,6 +245,8 @@ body::before {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   overflow-y: auto;
   height: calc(100vh - 100px);
+  position: relative;
+  z-index: 5;  /* 입력 요소들을 배경 위로 */
 }
 
 .metadata-section h3 {
@@ -340,6 +346,8 @@ body::before {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
+  z-index: 5;  /* 에디터 영역을 배경 위로 */
 }
 
 /* Split Editor */
