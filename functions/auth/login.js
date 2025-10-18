@@ -8,9 +8,18 @@ export async function onRequestGet(context) {
   const { GITHUB_CLIENT_ID } = context.env;
 
   if (!GITHUB_CLIENT_ID) {
-    return new Response('GitHub OAuth가 설정되지 않았습니다. 환경변수를 확인하세요.', {
-      status: 500
-    });
+    return new Response(
+      JSON.stringify({
+        error: 'GitHub OAuth 설정 오류',
+        message: 'GITHUB_CLIENT_ID 환경변수가 설정되지 않았습니다.',
+        solution: 'Cloudflare Pages 대시보드 > Settings > Environment Variables에서 GITHUB_CLIENT_ID를 설정하세요.',
+        docs: 'https://github.com/settings/developers'
+      }),
+      {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      }
+    );
   }
 
   // GitHub OAuth URL 생성
