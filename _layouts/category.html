@@ -4,12 +4,21 @@ layout: default
 
 {% comment %}
 jekyll-archives가 자동 생성할 때는 page.posts 사용
-수동 페이지일 때는 page.category로 필터링
+수동 페이지일 때는 카테고리 ID, name, name_kr 모두 체크
 {% endcomment %}
 {% if page.posts %}
   {% assign category_posts = page.posts %}
 {% else %}
-  {% assign category_posts = site.posts | where: "category", page.category %}
+  {% comment %} 카테고리 정보 찾기 {% endcomment %}
+  {% assign cat_info = site.data.categories.categories | where: "id", page.category | first %}
+
+  {% comment %} 포스트 필터링 (id, name, name_kr 중 하나라도 일치) {% endcomment %}
+  {% assign category_posts = "" | split: "" %}
+  {% for post in site.posts %}
+    {% if post.category == page.category or post.category == cat_info.name or post.category == cat_info.name_kr %}
+      {% assign category_posts = category_posts | push: post %}
+    {% endif %}
+  {% endfor %}
 {% endif %}
 
 <div class="category-page max-w-4xl mx-auto">
