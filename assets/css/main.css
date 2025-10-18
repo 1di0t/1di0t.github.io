@@ -249,6 +249,87 @@
     @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs bg-secondary text-secondary-foreground;
   }
 
+  /* PACER 학습 프레임워크 배지 */
+  .pacer-badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-medium transition-all;
+    border: 1px solid transparent;
+  }
+
+  /* Procedural - 절차형 (파란색) */
+  .pacer-procedural {
+    background-color: rgba(52, 152, 219, 0.15);
+    color: #2980b9;
+    border-color: rgba(52, 152, 219, 0.3);
+  }
+
+  .dark .pacer-procedural {
+    background-color: rgba(52, 152, 219, 0.2);
+    color: #5dade2;
+    border-color: rgba(52, 152, 219, 0.4);
+  }
+
+  /* Conceptual - 개념형 (주황색) */
+  .pacer-conceptual {
+    background-color: rgba(243, 156, 18, 0.15);
+    color: #d68910;
+    border-color: rgba(243, 156, 18, 0.3);
+  }
+
+  .dark .pacer-conceptual {
+    background-color: rgba(243, 156, 18, 0.2);
+    color: #f5b041;
+    border-color: rgba(243, 156, 18, 0.4);
+  }
+
+  /* Evidence - 근거형 (빨간색) */
+  .pacer-evidence {
+    background-color: rgba(231, 76, 60, 0.15);
+    color: #c0392b;
+    border-color: rgba(231, 76, 60, 0.3);
+  }
+
+  .dark .pacer-evidence {
+    background-color: rgba(231, 76, 60, 0.2);
+    color: #ec7063;
+    border-color: rgba(231, 76, 60, 0.4);
+  }
+
+  /* Reference - 참고형 (청록색) */
+  .pacer-reference {
+    background-color: rgba(26, 188, 156, 0.15);
+    color: #16a085;
+    border-color: rgba(26, 188, 156, 0.3);
+  }
+
+  .dark .pacer-reference {
+    background-color: rgba(26, 188, 156, 0.2);
+    color: #48c9b0;
+    border-color: rgba(26, 188, 156, 0.4);
+  }
+
+  /* Analogous - 유사형 (보라색) */
+  .pacer-analogous {
+    background-color: rgba(155, 89, 182, 0.15);
+    color: #8e44ad;
+    border-color: rgba(155, 89, 182, 0.3);
+  }
+
+  .dark .pacer-analogous {
+    background-color: rgba(155, 89, 182, 0.2);
+    color: #bb8fce;
+    border-color: rgba(155, 89, 182, 0.4);
+  }
+
+  /* PACER 배지 호버 효과 */
+  .pacer-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .pacer-badge:hover {
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+  }
+
   /* Enhanced hover effects with new colors */
   .hover-warm {
     transition: all 0.3s ease;
