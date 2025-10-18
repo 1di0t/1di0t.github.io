@@ -13,8 +13,10 @@
 ## ✨ 특징
 
 - **44개 포스트** (2023-12 ~ 현재)
-- **98% 자동화** 블로그 작성 시스템
-- **배치 처리** 최대 3개 파일 일괄 정리 (NEW! 🔥)
+- **99% 자동화** 블로그 작성 시스템 (NEW!)
+- **Slash Commands** `/blog`, `/blog-batch` (NEW! 🔥)
+- **입력 길이 90% 감소** (150자 → 15자)
+- **배치 처리** 최대 3개 파일 일괄 정리
 - **Tailwind CSS** 커스텀 디자인
 - **다크모드** 지원
 - **17개 카테고리** + 태그 시스템 (AI 자동 추천)
@@ -22,7 +24,7 @@
 - **목차(TOC) 자동 생성**
 - **utterances 댓글** (GitHub Issues 기반, 무료)
 - **SEO 최적화**
-- **Obsidian + Claude Desktop 연동** (AutoBlog)
+- **Obsidian + Claude Desktop MCP 연동**
 
 ---
 
@@ -67,31 +69,15 @@ bundle exec jekyll serve
 **여러 파일 일괄 처리** (NEW! 🔥):
 ```
 1. Obsidian에서 _drafts/에 여러 글 작성
-2. Claude Desktop: "블로그 배치 정리"  ← 1번만!
-3. 최대 3개 파일 자동 처리
+2. Claude Desktop: "example-draft.md 형식으로 모든 초안 정리해줘"  ← 1줄!
+3. 참조 파일 형식으로 최대 3개 파일 자동 처리
 4. 10분 후 자동 배포!
 ```
 
-**간단한 방법**:
-```bash
-# 1. 파일 생성
-touch _posts/2025-10/2025-10-18-my-post.md
-
-# 2. 내용 작성 (Front matter + 본문)
-
-# 3. Git 푸시
-git add _posts/2025-10/2025-10-18-my-post.md
-git commit -m "Add: 새 포스트"
-git push origin main
-
-# 4. 1-2분 후 https://1di0t.github.io 에서 확인!
-```
-
 **자세한 가이드**:
-- [docs/QUICKSTART.md](docs/QUICKSTART.md) - 5분 시작 가이드 🚀
-- [docs/CATEGORY_AUTO.md](docs/CATEGORY_AUTO.md) - 카테고리 자동화 🤖
-- [docs/DEPLOYMENT_SIMPLE.md](docs/DEPLOYMENT_SIMPLE.md) - 배포 가이드 📦
-- [docs/WRITING_GUIDE.md](docs/WRITING_GUIDE.md) - 작성 가이드 ✍️
+- [docs/setup/QUICKSTART.md](docs/setup/QUICKSTART.md) - 5분 시작 가이드 🚀
+- [docs/setup/MCP_SETUP.md](docs/setup/MCP_SETUP.md) - MCP 설정 가이드 🔌 (NEW!)
+- [docs/setup/WRITING_GUIDE.md](docs/setup/WRITING_GUIDE.md) - 작성 가이드 ✍️
 
 ---
 
@@ -110,13 +96,12 @@ AutoBlog/
 │   ├── postcss.config.js      # PostCSS 설정
 │   └── robots.txt             # SEO 설정
 │
-├── 📚 docs/                   # 문서 (정리됨!)
-│   ├── QUICKSTART_SUMMARY.md  # 5분 빠른 시작
-│   ├── WRITING_GUIDE.md       # OS별 글 작성 가이드
-│   ├── DEPLOYMENT.md          # 배포 및 확인 방법
-│   ├── CHANGELOG.md           # 버전 히스토리
-│   ├── CONTRIBUTING.md        # 기여 가이드
-│   └── PROJECT_STATUS.md      # 프로젝트 현황
+├── 📚 docs/                   # 문서 (간소화됨!)
+│   ├── README.md              # 문서 목차 및 빠른 참조
+│   └── setup/                 # 설정 가이드
+│       ├── QUICKSTART.md      # 5분 빠른 시작
+│       ├── MCP_SETUP.md       # Claude Desktop MCP 설정
+│       └── WRITING_GUIDE.md   # 글 작성 가이드
 │
 ├── ✍️ 콘텐츠 (Jekyll)
 │   ├── _posts/                # 블로그 포스트 (YYYY-MM 폴더별)
@@ -166,16 +151,20 @@ tags: [python, django, web]
 ---
 ```
 
-### 카테고리 (17개)
+### 카테고리 (17개, 한글 지원)
 
 ```
-ai, cpp, data-analysis, data-science, database,
-Development, Git, Machine-Learning, MLOps, Mobile,
-network, programming, Project, study, Terms,
-troubleshooting, web
+인공지능 (AI), 프로그래밍 (Programming), 웹개발 (Web),
+데이터베이스 (Database), 데이터사이언스 (Data Science),
+데이터분석 (Data Analysis), 머신러닝 (Machine Learning),
+MLOps, 개발 (Development), Git, 모바일 (Mobile),
+네트워크 (Network), C++, 프로젝트 (Project), 학습 (Study),
+용어정리 (Terms), 트러블슈팅 (Troubleshooting)
 ```
 
-**자세한 작성 방법**: [WRITING_GUIDE.md](WRITING_GUIDE.md)
+**자동 추천**: AI가 포스트 내용을 분석하여 자동으로 카테고리를 추천합니다.
+
+**자세한 작성 방법**: [docs/setup/WRITING_GUIDE.md](docs/setup/WRITING_GUIDE.md)
 
 ---
 
@@ -259,7 +248,7 @@ Obsidian을 사용하면 더 편리하게 작성할 수 있습니다:
 3. `_posts/`로 저장
 4. 자동 배포!
 
-**자세한 방법**: [WRITING_GUIDE.md](WRITING_GUIDE.md) - 방법 3 참고
+**자세한 방법**: [docs/setup/WRITING_GUIDE.md](docs/setup/WRITING_GUIDE.md)
 
 ---
 
@@ -275,17 +264,15 @@ Obsidian을 사용하면 더 편리하게 작성할 수 있습니다:
 
 ## 📖 문서
 
+모든 문서는 [docs/](docs/) 폴더에서 확인하세요.
+
 ### 빠른 시작
-- [docs/QUICKSTART_SUMMARY.md](docs/QUICKSTART_SUMMARY.md) - **5분 안에 시작하기** 🚀
+- [docs/README.md](docs/README.md) - **문서 목차 및 빠른 참조** 📚
+- [docs/setup/QUICKSTART.md](docs/setup/QUICKSTART.md) - **5분 안에 시작하기** 🚀
 
-### 상세 가이드
-- [docs/WRITING_GUIDE.md](docs/WRITING_GUIDE.md) - **OS별 글 작성 가이드** (Windows/macOS/Linux/iOS/Android) ⭐
-- [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) - **배포 및 확인 방법** 📦
-
-### 기타
-- [docs/CHANGELOG.md](docs/CHANGELOG.md) - 버전 히스토리
-- [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) - 기여 가이드
-- [docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md) - 프로젝트 현황
+### 설정 가이드
+- [docs/setup/MCP_SETUP.md](docs/setup/MCP_SETUP.md) - **Claude Desktop MCP 설정** 🔌
+- [docs/setup/WRITING_GUIDE.md](docs/setup/WRITING_GUIDE.md) - **글 작성 가이드** ✍️
 
 ---
 
