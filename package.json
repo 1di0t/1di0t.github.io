@@ -1,0 +1,25 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Jekyll blog with Tailwind CSS",
+  "scripts": {
+    "dev": "concurrently \"npm run watch:css\" \"bundle exec jekyll serve --livereload\"",
+    "build:css": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/output.css --minify",
+    "watch:css": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/output.css --watch",
+    "build": "npm run build:css && bundle exec jekyll build",
+    "validate:categories": "node scripts/validate-categories.js",
+    "generate:tags": "node scripts/generate-tag-pages.js",
+    "prebuild": "npm run validate:categories && npm run generate:tags"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "concurrently": "^8.2.2",
+    "js-yaml": "^4.1.0",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.0"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "lunr": "^2.3.9"
+  }
+}

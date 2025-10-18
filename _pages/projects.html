@@ -1,0 +1,168 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+<div class="projects-page">
+  <header class="mb-8">
+    <h1 class="text-4xl font-bold mb-4">프로젝트</h1>
+    <p class="text-text-secondary dark:text-dark-text-secondary">
+      진행한 프로젝트들을 모아놓은 포트폴리오입니다.
+    </p>
+  </header>
+
+  <!-- Project Categories -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-12">
+    {% assign ai_ml_count = site.projects | where: "category", "AI-ML" | size %}
+    {% assign web_count = site.projects | where: "category", "웹개발" | size %}
+    {% assign data_count = site.projects | where: "category", "데이터분석" | size %}
+    {% assign toy_count = site.projects | where: "category", "토이프로젝트" | size %}
+
+    <div class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary cursor-pointer group category-filter" data-category="AI-ML">
+      <h2 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors">🤖 AI/ML</h2>
+      <p class="text-sm md:text-base text-muted-foreground">
+        인공지능 및 머신러닝 관련 프로젝트 ({{ ai_ml_count }})
+      </p>
+    </div>
+
+    <div class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary cursor-pointer group category-filter" data-category="웹개발">
+      <h2 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors">🌐 웹개발</h2>
+      <p class="text-sm md:text-base text-muted-foreground">
+        웹 개발 프로젝트 ({{ web_count }})
+      </p>
+    </div>
+
+    <div class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary cursor-pointer group category-filter" data-category="데이터분석">
+      <h2 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors">📊 데이터분석</h2>
+      <p class="text-sm md:text-base text-muted-foreground">
+        데이터 분석 프로젝트 ({{ data_count }})
+      </p>
+    </div>
+
+    <div class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary cursor-pointer group category-filter" data-category="토이프로젝트">
+      <h2 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors">🎮 토이프로젝트</h2>
+      <p class="text-sm md:text-base text-muted-foreground">
+        재미있는 작은 프로젝트들 ({{ toy_count }})
+      </p>
+    </div>
+  </div>
+
+  <!-- All Projects -->
+  <section>
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-3xl font-bold">모든 프로젝트</h2>
+      <button id="reset-filter" class="text-sm text-primary hover:underline" style="display: none;">
+        전체 보기
+      </button>
+    </div>
+    <div class="grid gap-6">
+      {% for project in site.projects %}
+      <a href="{{ project.url | relative_url }}" class="block group no-underline project-item" data-project-category="{{ project.category }}">
+        <article class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary">
+          <!-- Category Badge -->
+          {% if project.category %}
+          <div class="mb-3">
+            <span class="inline-flex items-center px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground text-xs md:text-sm font-medium">
+              {{ project.category }}
+            </span>
+          </div>
+          {% endif %}
+
+          <!-- Title -->
+          <h3 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors text-foreground">
+            {{ project.title }}
+          </h3>
+
+          <!-- Period -->
+          {% if project.period %}
+          <div class="flex items-center gap-1 text-xs md:text-sm text-muted-foreground mb-3">
+            <svg class="h-3.5 w-3.5 md:h-4 md:w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            {{ project.period }}
+          </div>
+          {% endif %}
+
+          <!-- Excerpt -->
+          {% if project.excerpt %}
+          <p class="text-sm md:text-base text-muted-foreground mb-4 leading-relaxed">
+            {{ project.excerpt | strip_html | truncate: 150 }}
+          </p>
+          {% endif %}
+
+          <!-- Tech Stack -->
+          {% if project.tech_stack %}
+          <div class="flex flex-wrap gap-1.5 md:gap-2">
+            {% for tech in project.tech_stack %}
+            <span class="inline-flex items-center px-2 py-0.5 md:px-2.5 md:py-1 text-[10px] md:text-xs rounded-md bg-primary/10 text-primary font-medium">
+              {{ tech }}
+            </span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </article>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const categoryFilters = document.querySelectorAll('.category-filter');
+  const projectItems = document.querySelectorAll('.project-item');
+  const resetButton = document.getElementById('reset-filter');
+  let activeCategory = null;
+
+  categoryFilters.forEach(filter => {
+    filter.addEventListener('click', function() {
+      const category = this.getAttribute('data-category');
+
+      // 같은 카테고리 클릭 시 필터 해제
+      if (activeCategory === category) {
+        resetFilter();
+        return;
+      }
+
+      activeCategory = category;
+
+      // 모든 카테고리 카드의 활성화 상태 제거
+      categoryFilters.forEach(f => {
+        f.classList.remove('ring-2', 'ring-primary');
+        f.style.borderColor = '';
+      });
+
+      // 현재 카테고리 카드 활성화
+      this.classList.add('ring-2', 'ring-primary');
+
+      // 프로젝트 필터링
+      let visibleCount = 0;
+      projectItems.forEach(item => {
+        if (item.getAttribute('data-project-category') === category) {
+          item.style.display = 'block';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      resetButton.style.display = 'block';
+    });
+  });
+
+  resetButton.addEventListener('click', resetFilter);
+
+  function resetFilter() {
+    activeCategory = null;
+    categoryFilters.forEach(f => {
+      f.classList.remove('ring-2', 'ring-primary');
+      f.style.borderColor = '';
+    });
+    projectItems.forEach(item => {
+      item.style.display = 'block';
+    });
+    resetButton.style.display = 'none';
+  }
+});
+</script>

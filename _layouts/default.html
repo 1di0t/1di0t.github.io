@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+  <!-- SEO -->
+  {% seo %}
+
+  <!-- Fonts -->
+  <link rel="preload" href="{{ '/assets/fonts/MaruBuri-Regular.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ '/assets/fonts/D2Coding-Ver1.3.2-20180524.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon.png' | relative_url }}">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ '/assets/css/output.css' | relative_url }}">
+
+  <!-- Feed -->
+  {% feed_meta %}
+</head>
+<body>
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    {% include sidebar.html %}
+
+    <!-- Main Content -->
+    <main class="flex-1 md:ml-[280px] bg-gradient-subtle">
+      <!-- Header -->
+      <header class="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div class="container flex items-center justify-between h-16 px-5 md:px-8">
+          <div class="flex items-center gap-4">
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden p-2 hover:bg-muted rounded-md transition-colors hover-warm" id="mobile-menu-btn" aria-label="메뉴 열기">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            {% if page.layout == "default" and page.title == "Home" %}
+            <h2 class="text-base md:text-lg font-semibold">최근 게시글</h2>
+            {% elsif page.title %}
+            <h2 class="text-sm md:text-lg font-semibold truncate max-w-[200px] md:max-w-none">{{ page.title }}</h2>
+            {% endif %}
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="search-button" class="p-2 hover:bg-muted rounded-md transition-colors hover-warm" aria-label="검색">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+            </button>
+            <button id="dark-mode-toggle" class="p-2 hover:bg-muted rounded-md transition-colors hover-warm" aria-label="테마 전환">
+              <svg id="theme-icon-sun" class="h-4 w-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+              </svg>
+              <svg id="theme-icon-moon" class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="container px-4 md:px-8 py-6 md:py-8">
+        {{ content }}
+      </div>
+
+      <!-- Footer -->
+      {% include footer.html %}
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
+  <!-- Search -->
+  <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
+  <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
+
+  {% if page.math %}
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body);"></script>
+  {% endif %}
+</body>
+</html>

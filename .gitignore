@@ -1,0 +1,37 @@
+# Obsidian
+.obsidian/workspace*
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.trash/
+
+# Personal notes (not published)
+daily-notes/
+private/
+temp/
+
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Node
+node_modules/
+package-lock.json
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Remotely Save
+.remotely-save/

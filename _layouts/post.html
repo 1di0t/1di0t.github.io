@@ -1,0 +1,86 @@
+---
+layout: default
+---
+
+<article class="post max-w-4xl mx-auto">
+  <!-- Post Header -->
+  <header class="mb-6 md:mb-8">
+    <h1 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4">{{ page.title }}</h1>
+
+    <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-4">
+      <time datetime="{{ page.date | date_to_xmlschema }}" class="flex items-center gap-1">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+        {{ page.date | date: "%Y년 %m월 %d일" }}
+      </time>
+
+      {% if page.category %}
+      <a href="{{ '/category/' | append: page.category | append: '/' | relative_url }}" class="inline-flex items-center px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground text-xs no-underline hover:bg-opacity-80 transition-opacity">
+        {{ page.category }}
+      </a>
+      {% endif %}
+    </div>
+
+    <!-- Tags -->
+    {% if page.tags %}
+    <div class="flex flex-wrap gap-2 mb-6">
+      {% for tag in page.tags %}
+      <a href="{{ '/tags/' | append: tag | append: '/' | relative_url }}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs rounded-md bg-muted text-foreground hover:bg-primary hover:text-primary-foreground transition-colors no-underline">
+        <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+        </svg>
+        {{ tag }}
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  <!-- Table of Contents -->
+  {% if page.toc != false %}
+  <nav class="toc mb-6 md:mb-8">
+    <h2 class="text-lg md:text-xl font-bold mb-3 md:mb-4">목차</h2>
+    <div id="toc-content"></div>
+  </nav>
+  {% endif %}
+
+  <!-- Post Content -->
+  <div class="prose prose-sm md:prose-lg max-w-none dark:prose-invert">
+    {{ content }}
+  </div>
+
+  <!-- Post Navigation -->
+  <nav class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+      {% if page.previous.url %}
+      <a href="{{ page.previous.url | relative_url }}" class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary no-underline">
+        <div class="text-xs md:text-sm text-muted-foreground mb-1 md:mb-2">← 이전 글</div>
+        <div class="text-sm md:text-base font-semibold text-foreground">{{ page.previous.title }}</div>
+      </a>
+      {% endif %}
+
+      {% if page.next.url %}
+      <a href="{{ page.next.url | relative_url }}" class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary text-right no-underline">
+        <div class="text-xs md:text-sm text-muted-foreground mb-1 md:mb-2">다음 글 →</div>
+        <div class="text-sm md:text-base font-semibold text-foreground">{{ page.next.title }}</div>
+      </a>
+      {% endif %}
+    </div>
+  </nav>
+
+  <!-- Comments (utterances) -->
+  {% if page.comments != false %}
+  <div class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border">
+    <h2 class="text-lg md:text-xl font-bold mb-4 md:mb-6">💬 댓글</h2>
+    <script src="https://utteranc.es/client.js"
+            repo="1di0t/1di0t.github.io"
+            issue-term="pathname"
+            label="comments"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+  </div>
+  {% endif %}
+</article>
