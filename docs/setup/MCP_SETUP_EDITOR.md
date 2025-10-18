@@ -53,18 +53,20 @@ Claude Desktop의 MCP (Model Context Protocol)를 사용하여 GitHub 저장소�
 
 **Windows**:
 ```
-%APPDATA%\Claude\claude_desktop_config.json
+%APPDATA%\Claude\config.json
 ```
 
 **Mac**:
 ```
-~/Library/Application Support/Claude/claude_desktop_config.json
+~/Library/Application Support/Claude/config.json
 ```
 
 **Linux**:
 ```
-~/.config/Claude/claude_desktop_config.json
+~/.config/Claude/config.json
 ```
+
+⚠️ **주의**: 파일명은 `config.json`입니다 (`claude_desktop_config.json`이 아님)
 
 ### 2.2. 설정 파일 편집
 
@@ -93,6 +95,43 @@ Claude Desktop의 MCP (Model Context Protocol)를 사용하여 GitHub 저장소�
 1. Claude Desktop 완전 종료
 2. 다시 시작
 3. MCP 연결 확인 (좌측 하단 🔌 아이콘)
+
+---
+
+## ⚠️ 중요: PC 실행 필수
+
+Claude Desktop은 **로컬 애플리케이션**이므로:
+
+- ✅ **PC가 켜져 있어야** 합니다
+- ✅ **Claude Desktop이 실행 중**이어야 합니다
+- ❌ **모바일 단독으로는 AI 정리 불가능**
+
+### 권장 워크플로우 (옵션 1: PC 중심)
+
+```
+1️⃣ 외출 중 (모바일)
+   웹 에디터에서 러프하게 작성 → "저장" 버튼
+   → GitHub _drafts/ 폴더에 자동 커밋
+
+2️⃣ 집에 돌아옴 (PC)
+   PC 켜기 → Claude Desktop 실행
+
+3️⃣ Claude에게 요청
+   "1di0t/1di0t.github.io 저장소의 _drafts 폴더에 있는
+    모든 파일을 정리해서 _posts/2025-10/ 폴더에 커밋해줘"
+
+4️⃣ 자동 배포
+   1-2분 후 블로그 업데이트 완료 ✅
+```
+
+**장점**:
+- ✅ API 비용 0원 (구독형 Claude 사용)
+- ✅ 외출 중에도 작성 가능 (모바일)
+- ✅ 완전 무료 (10년간)
+
+**제약**:
+- ⚠️ AI 정리는 PC에서만 가능
+- ⚠️ Claude Desktop 실행 필요
 
 ---
 

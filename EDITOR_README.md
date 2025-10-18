@@ -10,20 +10,26 @@
 
 ---
 
-## 🎯 워크플로우
+## 🎯 워크플로우 (옵션 1: PC 중심)
 
 ```
 📱 모바일/PC → 웹 에디터
     ↓ "저장" 버튼
 ☁️ GitHub _drafts/ (자동 커밋)
     ↓
-💻 Claude Desktop (MCP GitHub)
+💻 Claude Desktop (MCP GitHub) [⚠️ PC 필요]
     "모든 초안 정리해줘"
     ↓ AI 정리 (카테고리, 태그, 구조화)
 ☁️ GitHub _posts/ (자동 커밋 + 푸시)
     ↓
 🌐 Cloudflare Pages (자동 배포)
 ```
+
+**실제 사용 시나리오**:
+1. **외출 중 (모바일)**: 웹 에디터에서 러프하게 작성 → 저장
+2. **집에 도착 (PC)**: PC 켜기 → Claude Desktop 실행
+3. **Claude에게 요청**: "모든 초안 정리해줘"
+4. **자동 배포**: 1-2분 후 블로그 업데이트 ✅
 
 **소요 시간**: 웹 작성 5분 + Claude 정리 10초 = **총 5분**
 
@@ -42,6 +48,7 @@
 - ✅ **완전 자동화** (git pull/push 불필요)
 - ✅ **AI 정리** (카테고리, 태그, 구조화)
 - ✅ **구독형 Claude 사용** (API 키 불필요)
+- ⚠️ **PC 실행 필요** (Claude Desktop은 로컬 앱)
 
 ### 보안
 - ✅ **GitHub Token 암호화** (AES-256-GCM)
