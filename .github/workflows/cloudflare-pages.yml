@@ -48,3 +48,5 @@ jobs:
           directory: _site
           branch: main
           wranglerVersion: '3'
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          commitDirty: true
