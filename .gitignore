@@ -44,6 +44,3 @@ folder_structure.txt
 *.tmp
 *.bak
 nul
-
-# Scripts (utility)
-scripts/
