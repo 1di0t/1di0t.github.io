@@ -5,9 +5,28 @@ layout: default
 <article class="post max-w-4xl mx-auto">
   <!-- Post Header -->
   <header class="mb-6 md:mb-8">
+    {% comment %} Breadcrumb {% endcomment %}
+    {% if page.parent_category %}
+      {% assign parent = site.data.parent_categories.parent_categories | where: "id", page.parent_category | first %}
+      <nav class="breadcrumb flex items-center gap-2 text-sm text-muted-foreground mb-3">
+        <a href="{{ '/category/' | append: page.parent_category | append: '/' | relative_url }}" class="hover:text-primary transition-colors no-underline">
+          {{ parent.icon }} {{ parent.name_kr }}
+        </a>
+        {% if page.category %}
+          {% assign cat = site.data.categories.categories | where: "id", page.category | first %}
+          {% if cat %}
+          <span>›</span>
+          <a href="{{ '/category/' | append: page.category | append: '/' | relative_url }}" class="hover:text-primary transition-colors no-underline">
+            {{ cat.name_kr }}
+          </a>
+          {% endif %}
+        {% endif %}
+      </nav>
+    {% endif %}
+
     <h1 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4">{{ page.title }}</h1>
 
-    <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-4">
+    <div class="flex flex-wrap items-center gap-2 md:gap-3 text-sm text-muted-foreground mb-4">
       <time datetime="{{ page.date | date_to_xmlschema }}" class="flex items-center gap-1">
         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
@@ -15,12 +34,32 @@ layout: default
         {{ page.date | date: "%Y년 %m월 %d일" }}
       </time>
 
-      {% if page.category %}
-      <a href="{{ '/category/' | append: page.category | append: '/' | relative_url }}" class="inline-flex items-center px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground text-xs no-underline hover:bg-opacity-80 transition-opacity">
-        {{ page.category }}
-      </a>
+      {% comment %} PACER 배지 {% endcomment %}
+      {% if page.learning_framework.pacer_type %}
+        {% assign pacer = site.data.learning_framework.pacer_types | where: "id", page.learning_framework.pacer_type | first %}
+        {% if pacer %}
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md pacer-badge pacer-{{ pacer.id }} text-xs font-medium" title="{{ pacer.strategy_description }}">
+          {{ pacer.symbol }} {{ pacer.name_kr }}
+        </span>
+        {% endif %}
       {% endif %}
     </div>
+
+    {% comment %} 학습 전략 힌트 {% endcomment %}
+    {% if page.learning_framework.pacer_type %}
+      {% assign pacer = site.data.learning_framework.pacer_types | where: "id", page.learning_framework.pacer_type | first %}
+      {% if pacer %}
+      <div class="learning-strategy bg-muted/50 rounded-lg p-3 md:p-4 mb-4 border-l-4 border-primary">
+        <div class="flex items-start gap-2">
+          <span class="text-lg">💡</span>
+          <div>
+            <div class="font-semibold text-sm mb-1">학습 전략: {{ pacer.strategy }}</div>
+            <div class="text-xs md:text-sm text-muted-foreground">{{ pacer.strategy_description }}</div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    {% endif %}
 
     <!-- Tags -->
     {% if page.tags %}
