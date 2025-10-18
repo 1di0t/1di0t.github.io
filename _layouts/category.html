@@ -4,12 +4,12 @@ layout: default
 
 {% comment %}
 jekyll-archives가 자동 생성할 때는 page.posts 사용
-수동 페이지일 때는 page.category로 site.categories에서 가져옴
+수동 페이지일 때는 page.category로 필터링
 {% endcomment %}
 {% if page.posts %}
   {% assign category_posts = page.posts %}
 {% else %}
-  {% assign category_posts = site.categories[page.category] %}
+  {% assign category_posts = site.posts | where: "category", page.category %}
 {% endif %}
 
 <div class="category-page max-w-4xl mx-auto">
