@@ -81,43 +81,59 @@ permalink: /learning-framework/
   </div>
 
   <!-- PACER 타입 설명 -->
-  <h2 class="text-2xl md:text-3xl font-bold mb-6">PACER 정보 분류</h2>
+  <h2 class="text-2xl md:text-3xl font-bold mb-4">PACER 정보 분류</h2>
+
+  <!-- PACER 타입 탭 -->
+  <div class="mb-8">
+    <div class="flex flex-wrap justify-center gap-2 md:gap-3 p-4 bg-muted/30 rounded-xl border border-border">
+      {% assign pacer_types_for_tabs = site.data.learning_framework.pacer_types %}
+      {% for pacer in pacer_types_for_tabs %}
+      <a href="{{ '/pacer/' | append: pacer.id | append: '/' | relative_url }}"
+         class="inline-flex items-center gap-2 px-3 md:px-4 py-2 rounded-lg pacer-badge pacer-{{ pacer.id }} no-underline hover:scale-105 transition-all shadow-sm hover:shadow-md font-semibold text-sm">
+        <span class="text-base md:text-lg">{{ pacer.symbol }}</span>
+        <span class="hidden sm:inline">{{ pacer.name_kr }}</span>
+        <span class="sm:hidden">{{ pacer.name_en }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
 
   {% assign pacer_types = site.data.learning_framework.pacer_types %}
 
   <div class="space-y-6 mb-12">
     {% for pacer in pacer_types %}
-    <div class="card hover:shadow-2xl transition-all">
-      <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl flex-shrink-0">{{ pacer.symbol }}</span>
-        <div class="flex-1">
-          <div class="flex items-center gap-3 mb-2">
-            <h3 class="text-xl font-bold">{{ pacer.name_kr }} ({{ pacer.name_en }})</h3>
-            <a href="{{ '/pacer/' | append: pacer.id | append: '/' | relative_url }}"
-               class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold pacer-badge pacer-{{ pacer.id }} no-underline hover:scale-105 transition-transform">
-              포스트 보기 →
-            </a>
-          </div>
-          <p class="text-muted-foreground mb-3">{{ pacer.description }}</p>
-
-          <div class="grid md:grid-cols-2 gap-4 text-sm">
-            <div class="bg-muted/50 rounded-lg p-3">
-              <p class="font-semibold mb-2 text-foreground">📝 예시</p>
-              <ul class="space-y-1 text-muted-foreground">
-                {% for example in pacer.examples %}
-                <li>• {{ example }}</li>
-                {% endfor %}
-              </ul>
+    <a href="{{ '/pacer/' | append: pacer.id | append: '/' | relative_url }}" class="block no-underline group">
+      <div class="card hover:shadow-2xl transition-all hover:border-primary cursor-pointer">
+        <div class="flex items-start gap-4 mb-4">
+          <span class="text-4xl flex-shrink-0">{{ pacer.symbol }}</span>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-2">
+              <h3 class="text-xl font-bold text-foreground group-hover:text-primary transition-colors">{{ pacer.name_kr }} ({{ pacer.name_en }})</h3>
+              <span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold pacer-badge pacer-{{ pacer.id }} group-hover:scale-105 transition-transform">
+                포스트 보기 →
+              </span>
             </div>
+            <p class="text-muted-foreground mb-3">{{ pacer.description }}</p>
 
-            <div class="bg-primary/5 rounded-lg p-3 border border-primary/20">
-              <p class="font-semibold mb-2 text-primary">💪 학습 전략: {{ pacer.strategy }}</p>
-              <p class="text-muted-foreground">{{ pacer.strategy_description }}</p>
+            <div class="grid md:grid-cols-2 gap-4 text-sm">
+              <div class="bg-muted/50 rounded-lg p-3">
+                <p class="font-semibold mb-2 text-foreground">📝 예시</p>
+                <ul class="space-y-1 text-muted-foreground">
+                  {% for example in pacer.examples %}
+                  <li>• {{ example }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+
+              <div class="bg-primary/5 rounded-lg p-3 border border-primary/20">
+                <p class="font-semibold mb-2 text-primary">💪 학습 전략: {{ pacer.strategy }}</p>
+                <p class="text-muted-foreground">{{ pacer.strategy_description }}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </a>
     {% endfor %}
   </div>
 
@@ -221,19 +237,10 @@ permalink: /learning-framework/
   </div>
 
   <!-- CTA -->
-  <div class="text-center bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl p-8 border-2 border-primary/20">
-    <h3 class="text-xl font-bold mb-3">지금 바로 시작하세요!</h3>
-    <p class="text-muted-foreground mb-6">
+  <div class="text-center bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl p-6 md:p-8 border-2 border-primary/20">
+    <h3 class="text-xl md:text-2xl font-bold mb-3">지금 바로 시작하세요!</h3>
+    <p class="text-sm md:text-base text-muted-foreground">
       PACER 타입별로 분류된 포스트를 탐색하고, 효과적인 학습을 경험해보세요
     </p>
-    <div class="flex flex-wrap justify-center gap-3">
-      {% for pacer in pacer_types %}
-      <a href="{{ '/pacer/' | append: pacer.id | append: '/' | relative_url }}"
-         class="inline-flex items-center gap-2 px-4 py-2 rounded-lg pacer-badge pacer-{{ pacer.id }} no-underline hover:scale-105 transition-transform">
-        <span>{{ pacer.symbol }}</span>
-        <span>{{ pacer.name_kr }}</span>
-      </a>
-      {% endfor %}
-    </div>
   </div>
 </div>
