@@ -34,7 +34,12 @@ export async function onRequestGet(context) {
     const user = await getGitHubUser(accessToken);
 
     // 3. 허용된 사용자 확인
-    if (!ALLOWED_USERS.includes(user.login)) {
+    // 환경 변수가 있으면 우선 사용, 없으면 config.js의 기본값 사용
+    const allowedUsers = context.env.ALLOWED_USERS
+      ? context.env.ALLOWED_USERS.split(',').map(u => u.trim())
+      : ALLOWED_USERS;
+
+    if (!allowedUsers.includes(user.login)) {
       return new Response(
         `접근 거부: ${user.login}은(는) 허용되지 않은 사용자입니다.`,
         { status: 403 }

@@ -28,12 +28,14 @@ AutoBlog Editor에서 GitHub 로그인을 사용하려면 GitHub OAuth App을 �
 
 ### Production 환경 변수
 
-| 변수 이름 | 값 | 설명 |
-|----------|-----|------|
-| `GITHUB_CLIENT_ID` | (1단계에서 복사한 Client ID) | GitHub OAuth App의 Client ID |
-| `GITHUB_CLIENT_SECRET` | (1단계에서 복사한 Client Secret) | GitHub OAuth App의 Client Secret |
-| `JWT_SECRET` | (랜덤 문자열, 최소 32자) | 세션 암호화에 사용 |
-| `ALLOWED_USERS` | `1di0t` | 로그인 허용할 GitHub 사용자명 (쉼표로 구분) |
+| 변수 이름 | 값 | 설명 | 필수 여부 |
+|----------|-----|------|----------|
+| `GITHUB_CLIENT_ID` | (1단계에서 복사한 Client ID) | GitHub OAuth App의 Client ID | ✅ 필수 |
+| `GITHUB_CLIENT_SECRET` | (1단계에서 복사한 Client Secret) | GitHub OAuth App의 Client Secret | ✅ 필수 |
+| `JWT_SECRET` | (랜덤 문자열, 최소 32자) | 세션 암호화에 사용 | ✅ 필수 |
+| `ALLOWED_USERS` | `1di0t` | 로그인 허용할 GitHub 사용자명 (쉼표로 구분) | ⚠️ 선택 (기본값: `1di0t`) |
+
+> **참고**: `ALLOWED_USERS`는 선택 사항입니다. 설정하지 않으면 `1di0t` 사용자만 허용됩니다.
 
 ### JWT_SECRET 생성 방법
 
@@ -49,11 +51,19 @@ node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
 
 ### 환경 변수 추가 예시
 
+**최소 설정 (필수 변수만)**:
 ```
 GITHUB_CLIENT_ID=Iv1.abc123def456
 GITHUB_CLIENT_SECRET=ghp_abc123def456...
 JWT_SECRET=a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6
-ALLOWED_USERS=1di0t
+```
+
+**전체 설정 (추가 사용자 허용)**:
+```
+GITHUB_CLIENT_ID=Iv1.abc123def456
+GITHUB_CLIENT_SECRET=ghp_abc123def456...
+JWT_SECRET=a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6
+ALLOWED_USERS=1di0t,user2,user3
 ```
 
 ## 3단계: 재배포
@@ -90,14 +100,15 @@ ALLOWED_USERS=1di0t
 1. Cloudflare Pages 환경 변수에 GITHUB_CLIENT_ID 추가
 2. 재배포
 
-### 로그인 후 "Unauthorized" 오류
+### 로그인 후 "Unauthorized" 또는 "접근 거부" 오류
 
 **원인**: ALLOWED_USERS에 사용자명이 없음
 
 **해결**:
-1. ALLOWED_USERS 환경 변수에 GitHub 사용자명 추가
-2. 여러 사용자 허용 시: `ALLOWED_USERS=user1,user2,user3`
-3. 재배포
+1. 다른 GitHub 계정으로 로그인하려면 ALLOWED_USERS 환경 변수 추가
+   - 예: `ALLOWED_USERS=yourname` 또는 `ALLOWED_USERS=yourname,friend1,friend2`
+2. `1di0t` 계정은 기본적으로 허용되므로 추가 설정 불필요
+3. 환경 변수 추가 후 재배포
 
 ### 콜백 URL 오류
 

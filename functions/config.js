@@ -34,7 +34,8 @@ export const CLOUDFLARE_FREE_TIER = {
 };
 
 // 허용된 사용자 (GitHub username)
-export const ALLOWED_USERS = ['1di0t'];
+// 환경 변수로 설정 가능하며, 없으면 기본값 사용
+export const ALLOWED_USERS = ['1di0t']; // 기본값
 
 // JWT 설정
 export const JWT_CONFIG = {
