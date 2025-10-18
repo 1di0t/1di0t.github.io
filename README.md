@@ -13,14 +13,16 @@
 ## ✨ 특징
 
 - **44개 포스트** (2023-12 ~ 현재)
+- **98% 자동화** 블로그 작성 시스템
+- **배치 처리** 최대 3개 파일 일괄 정리 (NEW! 🔥)
 - **Tailwind CSS** 커스텀 디자인
 - **다크모드** 지원
-- **17개 카테고리** + 태그 시스템
+- **17개 카테고리** + 태그 시스템 (AI 자동 추천)
 - **검색 기능** (Lunr.js)
 - **목차(TOC) 자동 생성**
 - **utterances 댓글** (GitHub Issues 기반, 무료)
 - **SEO 최적화**
-- **Obsidian 연동** 가능 (AutoBlog)
+- **Obsidian + Claude Desktop 연동** (AutoBlog)
 
 ---
 
@@ -50,13 +52,23 @@ bundle exec jekyll serve
 # http://localhost:4000
 ```
 
-### 3. 새 포스트 작성 (95% 자동화)
+### 3. 새 포스트 작성 (98% 자동화)
 
 **AutoBlog 방법 (권장)** ⭐:
+
+**단일 파일**:
 ```
 1. Obsidian에서 _drafts/에 대충 작성
-2. Claude Desktop에게 "정리해줘"
-3. _posts/로 저장
+2. Claude Desktop: "블로그 정리: 파일명"
+3. _posts/로 자동 저장
+4. 10분 후 자동 배포!
+```
+
+**여러 파일 일괄 처리** (NEW! 🔥):
+```
+1. Obsidian에서 _drafts/에 여러 글 작성
+2. Claude Desktop: "블로그 배치 정리"  ← 1번만!
+3. 최대 3개 파일 자동 처리
 4. 10분 후 자동 배포!
 ```
 
