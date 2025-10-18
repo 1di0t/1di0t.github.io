@@ -3,14 +3,16 @@ layout: default
 ---
 
 <article class="page max-w-4xl mx-auto">
-  <header class="mb-8">
-    <h1 class="text-4xl font-bold">{{ page.title }}</h1>
+  <!-- 2025 트렌드: 넉넉한 여백과 부드러운 배경 -->
+  <header class="mb-10 pb-6 border-b border-border/50">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ page.title }}</h1>
     {% if page.description %}
-    <p class="text-xl text-text-secondary dark:text-dark-text-secondary mt-4">{{ page.description }}</p>
+    <p class="text-lg md:text-xl text-muted-foreground mt-4 leading-relaxed">{{ page.description }}</p>
     {% endif %}
   </header>
 
-  <div class="prose prose-lg max-w-none dark:prose-invert">
+  <!-- 2025 트렌드: 읽기 편한 타이포그래피와 여백 -->
+  <div class="prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-p:leading-relaxed prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-a:transition-all">
     {{ content }}
   </div>
 </article>

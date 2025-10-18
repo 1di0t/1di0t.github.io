@@ -3,16 +3,16 @@ layout: default
 ---
 
 <article class="project max-w-6xl mx-auto">
-  <!-- Project Hero -->
-  <header class="mb-6 md:mb-8">
+  <!-- Project Hero - 2025 트렌드: 부드러운 이미지와 넉넉한 여백 -->
+  <header class="mb-8 md:mb-12">
     {% if page.thumbnail %}
-    <div class="mb-4 md:mb-6 rounded-lg overflow-hidden">
+    <div class="mb-6 md:mb-8 rounded-2xl overflow-hidden shadow-warm">
       <img src="{{ page.thumbnail }}" alt="{{ page.title }}"
-           class="w-full h-48 md:h-64 object-cover">
+           class="w-full h-48 md:h-72 object-cover transition-transform duration-500 hover:scale-105">
     </div>
     {% endif %}
 
-    <h1 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4">{{ page.title }}</h1>
+    <h1 class="text-3xl md:text-5xl font-bold mb-4 md:mb-6 leading-tight">{{ page.title }}</h1>
 
     <!-- Meta Info -->
     <div class="flex flex-wrap items-center gap-2 md:gap-3 mb-4 md:mb-6">
@@ -32,13 +32,18 @@ layout: default
       {% endif %}
     </div>
 
-    <!-- Tech Stack -->
+    <!-- Tech Stack - 2025 트렌드: 부드러운 배지 디자인 -->
     {% if page.tech_stack %}
-    <div class="mb-4 md:mb-6">
-      <h2 class="text-sm md:text-base font-semibold mb-2 md:mb-3 text-foreground">기술 스택</h2>
-      <div class="flex flex-wrap gap-1.5 md:gap-2">
+    <div class="mb-6 md:mb-8 p-5 md:p-6 bg-muted/30 rounded-2xl border border-border/50">
+      <h2 class="text-sm md:text-base font-semibold mb-3 md:mb-4 text-foreground flex items-center gap-2">
+        <svg class="h-4 w-4 md:h-5 md:w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+        </svg>
+        기술 스택
+      </h2>
+      <div class="flex flex-wrap gap-2 md:gap-2.5">
         {% for tech in page.tech_stack %}
-        <span class="inline-flex items-center px-2 md:px-2.5 py-0.5 md:py-1 text-xs rounded-md bg-primary/10 text-primary font-medium">
+        <span class="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm rounded-full bg-primary/15 text-primary font-medium border border-primary/20 hover:bg-primary/25 transition-colors">
           {{ tech }}
         </span>
         {% endfor %}

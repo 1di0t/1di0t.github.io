@@ -61,32 +61,35 @@
   font-display: swap;
 }
 
-/* Custom color scheme - matching user's specifications */
+/* Custom color scheme - 2025 트렌드 반영: 따뜻하고 깔끔한 디자인 */
 :root {
-  /* Light Mode - 따뜻한 석양 느낌 */
-  --bg-main: #FDFBF7;
-  --text-primary: #1A1A1A;
-  --accent-primary: #E5774A;
-  --text-secondary: #887B74;
-  --bg-subtle: #F9F3EE;
-  --border-subtle: #EAE3DC;
-  --accent-secondary: #7E8569;
+  /* Light Mode - Mocha Mousse 기반 따뜻한 뉴트럴 톤 */
+  --bg-main: #FDFBF7;              /* 부드러운 아이보리 */
+  --text-primary: #2C2622;         /* 따뜻한 블랙 (가독성 향상) */
+  --accent-primary: #D97757;       /* 차분한 테라코타 (눈에 피로감 감소) */
+  --text-secondary: #7C6F65;       /* 따뜻한 그레이 */
+  --bg-subtle: #FAF6F2;            /* 미묘한 크림색 */
+  --border-subtle: #E8DDD2;        /* 부드러운 샌드 */
+  --accent-secondary: #8B9478;     /* 세이지 그린 (자연스러운 느낌) */
 
-  /* 추가 색상 - 석양 테마 */
-  --sunset-warm: #F4A460;          /* 따뜻한 모래빛 */
-  --sunset-glow: #FFB380;          /* 석양 빛 */
-  --sunset-deep: #CC5533;          /* 깊은 석양 */
-  --earth-warm: #C19A6B;           /* 따뜻한 대지색 */
-  --clay-soft: #D4A574;            /* 부드러운 점토색 */
+  /* 2025 트렌드: Mocha Mousse 톤 */
+  --mocha-light: #F5F0EA;          /* 밝은 모카 */
+  --mocha-medium: #D9C7B8;         /* 중간 모카 */
+  --mocha-rich: #B59680;           /* 풍부한 모카 (Pantone 2025) */
 
-  /* 호버 및 인터랙션 색상 */
-  --hover-warm: #F5DCC8;           /* 따뜻한 호버 */
-  --hover-accent: #D66B42;         /* 액센트 호버 */
+  /* 따뜻한 액센트 톤 */
+  --warm-terracotta: #D97757;      /* 테라코타 */
+  --warm-clay: #C9A684;            /* 점토색 */
+  --warm-sand: #E8D5C4;            /* 모래색 */
 
-  /* 그라데이션용 */
+  /* 호버 및 인터랙션 색상 - 미세한 변화로 세련됨 */
+  --hover-subtle: #F0E6DC;         /* 매우 부드러운 호버 */
+  --hover-accent: #C26B4F;         /* 액센트 호버 (살짝 어둡게) */
+
+  /* 그라데이션 - 부드러운 전환 */
   --gradient-start: #FDFBF7;
-  --gradient-mid: #F9F3EE;
-  --gradient-end: #F4E9DF;
+  --gradient-mid: #FAF6F2;
+  --gradient-end: #F5F0EA;
 
   /* Tailwind semantic tokens */
   --background: var(--bg-main);
@@ -112,30 +115,33 @@
 }
 
 .dark {
-  /* Dark Mode */
-  --bg-main: #242220;
-  --text-primary: #F0EBE4;
-  --accent-primary: #F28E63;
-  --text-secondary: #9E938B;
-  --bg-subtle: #3A3633;
-  --border-subtle: #504A45;
-  --accent-secondary: #9DA28A;
+  /* Dark Mode - 2025 트렌드: 따뜻하고 편안한 다크 톤 */
+  --bg-main: #1F1D1B;              /* 따뜻한 다크 브라운 (눈의 피로 감소) */
+  --text-primary: #EDE7DF;         /* 부드러운 크림 텍스트 */
+  --accent-primary: #E89B7A;       /* 밝은 테라코타 */
+  --text-secondary: #A69C91;       /* 따뜻한 그레이 */
+  --bg-subtle: #2C2825;            /* 미묘하게 밝은 배경 */
+  --border-subtle: #3F3A35;        /* 부드러운 경계선 */
+  --accent-secondary: #A3B18A;     /* 밝은 세이지 (다크 모드용) */
 
-  /* 추가 색상 - 숲속 테마 */
-  --forest-deep: #1A2620;          /* 깊은 숲 (덜 녹색) */
-  --forest-moss: #5A6B5A;          /* 이끼색 (덜 선명) */
-  --forest-leaf: #7A8B7A;          /* 나뭇잎색 */
-  --bark-dark: #353532;            /* 나무껍질 어두운 톤 */
-  --sage-muted: #8B9A88;           /* 세이지 그린 */
+  /* 2025 트렌드: 다크 모카 톤 */
+  --mocha-dark: #2C2825;           /* 다크 모카 */
+  --mocha-deep: #3F3A35;           /* 깊은 모카 */
+  --mocha-warm: #574F48;           /* 따뜻한 모카 */
 
-  /* 호버 및 인터랙션 색상 */
-  --hover-forest: #3A3D38;         /* 숲 호버 (덜 녹색) */
-  --hover-accent: #F08A5D;         /* 액센트 호버 (밝게) */
+  /* 따뜻한 다크 액센트 */
+  --dark-terracotta: #E89B7A;      /* 밝은 테라코타 */
+  --dark-clay: #D4B69C;            /* 밝은 점토색 */
+  --dark-sand: #C9B8A5;            /* 밝은 모래색 */
 
-  /* 그라데이션용 */
-  --gradient-start: #1F2120;
-  --gradient-mid: #252726;
-  --gradient-end: #2B2D2A;
+  /* 호버 색상 - 다크 모드에 최적화 */
+  --hover-subtle: #363330;         /* 미세한 호버 */
+  --hover-accent: #F5A989;         /* 더 밝은 호버 */
+
+  /* 그라데이션 - 자연스러운 전환 */
+  --gradient-start: #1F1D1B;
+  --gradient-mid: #2C2825;
+  --gradient-end: #3F3A35;
 
   --background: var(--bg-main);
   --foreground: var(--text-primary);
@@ -158,7 +164,7 @@
   --ring: var(--accent-primary);
 }
 
-/* Base styles */
+/* Base styles - 2025 트렌드: 향상된 가독성과 여백 */
 @layer base {
   * {
     @apply border-border;
@@ -171,25 +177,41 @@
   body {
     @apply font-sans bg-background text-foreground;
     transition: background-color 0.3s ease, color 0.3s ease;
+    /* 2025 트렌드: 더 나은 가독성을 위한 안티앨리어싱 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold text-foreground;
-    line-height: 1.3;
+    line-height: 1.35; /* 2025 트렌드: 여유로운 라인 높이 */
+    letter-spacing: -0.02em; /* 미세한 자간 조정으로 세련됨 */
+  }
+
+  h1 {
+    letter-spacing: -0.03em; /* 큰 제목은 더 타이트하게 */
   }
 
   p {
-    line-height: 1.7;
+    line-height: 1.75; /* 2025 트렌드: 편안한 읽기를 위한 넉넉한 줄간격 */
   }
 
   code {
     @apply font-mono text-sm;
   }
 
-  /* Selection styling */
+  /* Selection styling - 따뜻한 느낌 */
   ::selection {
     background-color: var(--accent-primary);
     color: white;
+  }
+
+  /* 2025 트렌드: 포커스 상태 개선 */
+  *:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 }
 
@@ -239,20 +261,28 @@
     @apply text-muted-foreground text-sm;
   }
 
-  /* Cards - enhanced with better visuals */
+  /* Cards - 2025 트렌드: 미니멀하고 깔끔한 카드 디자인 */
   .card {
-    @apply bg-card rounded-xl p-6 border-2 border-border transition-all duration-300;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    @apply bg-card rounded-2xl p-6 border border-border transition-all duration-300;
+    /* 2025 트렌드: 미묘한 그림자로 깊이감 */
+    box-shadow: 0 1px 3px rgba(44, 38, 34, 0.04), 0 2px 8px rgba(44, 38, 34, 0.02);
   }
 
   .card:hover {
-    @apply shadow-xl border-primary;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(229, 119, 74, 0.12);
+    @apply border-primary;
+    transform: translateY(-3px); /* 더 부드러운 움직임 */
+    /* 2025 트렌드: 따뜻한 그림자 효과 */
+    box-shadow: 0 4px 12px rgba(193, 154, 107, 0.12),
+                0 8px 24px rgba(217, 119, 87, 0.08);
+  }
+
+  .dark .card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
   .dark .card:hover {
-    box-shadow: 0 8px 24px rgba(242, 142, 99, 0.2);
+    box-shadow: 0 4px 12px rgba(232, 155, 122, 0.15),
+                0 8px 24px rgba(232, 155, 122, 0.1);
   }
 
   /* Separator between cards */
@@ -277,27 +307,34 @@
     }
   }
 
-  /* Badges - enhanced with better visuals */
+  /* Badges - 2025 트렌드: 미니멀하고 따뜻한 배지 */
   .badge {
-    @apply inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold;
-    background: linear-gradient(135deg, var(--secondary) 0%, rgba(126, 133, 105, 0.85) 100%);
+    @apply inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium;
+    /* 2025 트렌드: 더 부드러운 배경과 세이지 그린 */
+    background: linear-gradient(135deg,
+                var(--accent-secondary) 0%,
+                rgba(139, 148, 120, 0.9) 100%);
     color: var(--secondary-foreground);
-    border: 1px solid rgba(126, 133, 105, 0.3);
-    transition: all 0.2s ease;
+    border: 1px solid rgba(139, 148, 120, 0.25);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); /* 더 자연스러운 이징 */
+    backdrop-filter: blur(8px); /* 2025 트렌드: 글래스모피즘 효과 */
   }
 
   .badge:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(126, 133, 105, 0.2);
+    transform: translateY(-1px) scale(1.02); /* 미세한 스케일 효과 */
+    box-shadow: 0 4px 12px rgba(139, 148, 120, 0.25);
+    border-color: rgba(139, 148, 120, 0.4);
   }
 
   .dark .badge {
-    background: linear-gradient(135deg, var(--secondary) 0%, rgba(157, 162, 138, 0.85) 100%);
-    border-color: rgba(157, 162, 138, 0.3);
+    background: linear-gradient(135deg,
+                var(--accent-secondary) 0%,
+                rgba(163, 177, 138, 0.85) 100%);
+    border-color: rgba(163, 177, 138, 0.3);
   }
 
   .dark .badge:hover {
-    box-shadow: 0 4px 8px rgba(157, 162, 138, 0.25);
+    box-shadow: 0 4px 12px rgba(163, 177, 138, 0.3);
   }
 
   /* PACER 학습 프레임워크 배지 - enhanced */

@@ -1,11 +1,24 @@
-<footer class="mt-16 py-8 border-t border-border-subtle dark:border-dark-border-subtle">
+<!-- 2025 트렌드: 미니멀하고 따뜻한 푸터 디자인 -->
+<footer class="mt-20 py-10 border-t border-border/30">
   <div class="max-w-4xl mx-auto px-5 md:px-8">
-    <div class="text-center text-text-secondary dark:text-dark-text-secondary text-sm">
-      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
-      <p class="mt-2">
-        Built with <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer" class="hover:text-accent-primary">Jekyll</a>
-        & <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" class="hover:text-accent-primary">Tailwind CSS</a>
+    <div class="text-center">
+      <!-- 2025 트렌드: 깔끔한 타이포그래피 -->
+      <p class="text-muted-foreground text-sm mb-3">
+        &copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.
       </p>
+      <div class="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+        <span>Built with</span>
+        <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer"
+           class="text-primary hover:text-primary/80 font-medium transition-colors">Jekyll</a>
+        <span>&</span>
+        <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer"
+           class="text-primary hover:text-primary/80 font-medium transition-colors">Tailwind CSS</a>
+      </div>
+
+      <!-- 2025 트렌드: 따뜻한 장식 요소 -->
+      <div class="mt-6 flex justify-center">
+        <div class="h-1 w-16 bg-gradient-to-r from-transparent via-primary/30 to-transparent rounded-full"></div>
+      </div>
     </div>
   </div>
 </footer>

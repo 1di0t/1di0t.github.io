@@ -5,61 +5,75 @@ permalink: /projects/
 ---
 
 <div class="projects-page">
-  <header class="mb-8">
-    <h1 class="text-4xl font-bold mb-4">프로젝트</h1>
-    <p class="text-text-secondary dark:text-dark-text-secondary">
-      진행한 프로젝트들을 모아놓은 포트폴리오입니다.
+  <!-- 2025 트렌드: 넉넉한 여백과 따뜻한 헤더 -->
+  <header class="mb-10 pb-6 border-b border-border/50">
+    <h1 class="text-4xl md:text-5xl font-bold mb-3 leading-tight">프로젝트</h1>
+    <p class="text-base md:text-lg text-muted-foreground leading-relaxed">
+      진행한 프로젝트들을 모아놓은 포트폴리오입니다
     </p>
   </header>
 
-  <!-- Project Categories -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-12">
+  <!-- Project Categories - 2025 트렌드: 부드러운 카드 디자인 -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mb-10 md:mb-14">
     {% assign ai_ml_count = site.projects | where: "category", "AI-ML" | size %}
     {% assign web_count = site.projects | where: "category", "웹개발" | size %}
     {% assign data_count = site.projects | where: "category", "데이터분석" | size %}
     {% assign toy_count = site.projects | where: "category", "토이프로젝트" | size %}
 
-    <div class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary cursor-pointer group category-filter" data-category="AI-ML">
-      <h2 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors">🤖 AI/ML</h2>
-      <p class="text-sm md:text-base text-muted-foreground">
+    <!-- 2025 트렌드: 부드러운 라운드와 넉넉한 패딩 -->
+    <div class="bg-card rounded-2xl border border-border p-5 md:p-7 hover:shadow-warm-lg transition-all hover:border-primary cursor-pointer group category-filter" data-category="AI-ML">
+      <div class="flex items-start gap-3 mb-3">
+        <span class="text-3xl md:text-4xl">🤖</span>
+        <h2 class="text-xl md:text-2xl font-bold group-hover:text-primary transition-colors">AI/ML</h2>
+      </div>
+      <p class="text-sm md:text-base text-muted-foreground leading-relaxed">
         인공지능 및 머신러닝 관련 프로젝트 ({{ ai_ml_count }})
       </p>
     </div>
 
-    <div class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary cursor-pointer group category-filter" data-category="웹개발">
-      <h2 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors">🌐 웹개발</h2>
-      <p class="text-sm md:text-base text-muted-foreground">
+    <div class="bg-card rounded-2xl border border-border p-5 md:p-7 hover:shadow-warm-lg transition-all hover:border-primary cursor-pointer group category-filter" data-category="웹개발">
+      <div class="flex items-start gap-3 mb-3">
+        <span class="text-3xl md:text-4xl">🌐</span>
+        <h2 class="text-xl md:text-2xl font-bold group-hover:text-primary transition-colors">웹개발</h2>
+      </div>
+      <p class="text-sm md:text-base text-muted-foreground leading-relaxed">
         웹 개발 프로젝트 ({{ web_count }})
       </p>
     </div>
 
-    <div class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary cursor-pointer group category-filter" data-category="데이터분석">
-      <h2 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors">📊 데이터분석</h2>
-      <p class="text-sm md:text-base text-muted-foreground">
+    <div class="bg-card rounded-2xl border border-border p-5 md:p-7 hover:shadow-warm-lg transition-all hover:border-primary cursor-pointer group category-filter" data-category="데이터분석">
+      <div class="flex items-start gap-3 mb-3">
+        <span class="text-3xl md:text-4xl">📊</span>
+        <h2 class="text-xl md:text-2xl font-bold group-hover:text-primary transition-colors">데이터분석</h2>
+      </div>
+      <p class="text-sm md:text-base text-muted-foreground leading-relaxed">
         데이터 분석 프로젝트 ({{ data_count }})
       </p>
     </div>
 
-    <div class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary cursor-pointer group category-filter" data-category="토이프로젝트">
-      <h2 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors">🎮 토이프로젝트</h2>
-      <p class="text-sm md:text-base text-muted-foreground">
+    <div class="bg-card rounded-2xl border border-border p-5 md:p-7 hover:shadow-warm-lg transition-all hover:border-primary cursor-pointer group category-filter" data-category="토이프로젝트">
+      <div class="flex items-start gap-3 mb-3">
+        <span class="text-3xl md:text-4xl">🎮</span>
+        <h2 class="text-xl md:text-2xl font-bold group-hover:text-primary transition-colors">토이프로젝트</h2>
+      </div>
+      <p class="text-sm md:text-base text-muted-foreground leading-relaxed">
         재미있는 작은 프로젝트들 ({{ toy_count }})
       </p>
     </div>
   </div>
 
-  <!-- All Projects -->
+  <!-- All Projects - 2025 트렌드: 깔끔한 프로젝트 리스트 -->
   <section>
-    <div class="flex justify-between items-center mb-6">
-      <h2 class="text-3xl font-bold">모든 프로젝트</h2>
-      <button id="reset-filter" class="text-sm text-primary hover:underline" style="display: none;">
+    <div class="flex justify-between items-center mb-6 md:mb-8">
+      <h2 class="text-2xl md:text-3xl font-bold">모든 프로젝트</h2>
+      <button id="reset-filter" class="px-4 py-2 text-sm text-primary hover:bg-primary/10 rounded-full transition-colors" style="display: none;">
         전체 보기
       </button>
     </div>
-    <div class="grid gap-6">
+    <div class="grid gap-6 md:gap-7">
       {% for project in site.projects %}
       <a href="{{ project.url | relative_url }}" class="block group no-underline project-item" data-project-category="{{ project.category }}">
-        <article class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary">
+        <article class="card">
           <!-- Category Badge -->
           {% if project.category %}
           <div class="mb-3">
