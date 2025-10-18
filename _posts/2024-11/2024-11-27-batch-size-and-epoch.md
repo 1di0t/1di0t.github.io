@@ -9,6 +9,10 @@ tags:
   - training
   - neural-networks
 excerpt: 딥러닝 학습 과정에서 중요한 개념인 배치 사이즈와 에폭에 대해 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 배치 사이즈 (Batch Size)

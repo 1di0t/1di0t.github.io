@@ -10,6 +10,10 @@ tags:
   - dikw
   - knowledge-management
 excerpt: 데이터의 특성, 유형, 그리고 지식으로의 변환 과정에 대해 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 데이터의 특성

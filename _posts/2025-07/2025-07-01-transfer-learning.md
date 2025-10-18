@@ -9,6 +9,10 @@ tags:
   - nlp
   - pre-training
 excerpt: 이미 학습된 모델을 재학습하여 새로운 태스크에 적용하는 전이 학습의 개념과 업스트림/다운스트림 테스크에 대해 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: conceptual
 ---
 
 ## 전이 학습이란?

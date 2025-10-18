@@ -10,6 +10,10 @@ tags:
   - broadcast
   - subnetting
 excerpt: 네트워크를 작은 단위로 분할하는 서브넷의 개념과 IP 주소 할당 규칙, 서브넷 마스크, 브로드캐스트 주소에 대해 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 서브넷이란?

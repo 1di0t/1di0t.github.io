@@ -9,6 +9,10 @@ tags:
   - text-processing
   - debugging
 excerpt: 번역 과정에서 줄바꿈 문자가 사라지는 문제를 해결하는 방법을 정리합니다.
+parent_category: troubleshooting
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 문제 설명

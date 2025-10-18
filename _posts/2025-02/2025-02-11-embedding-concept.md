@@ -9,6 +9,15 @@ tags:
   - machine-learning
   - dense-representation
 excerpt: 텍스트와 같은 이산적 데이터를 고차원 공간의 연속적인 수치 벡터로 변환하는 임베딩의 개념과 특징을 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
+  pacer_types:
+    - procedural
+    - conceptual
+    - evidence
+    - reference
 ---
 
 ## 임베딩의 정의

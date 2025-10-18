@@ -9,6 +9,13 @@ tags:
   - deployment
   - timeout
 excerpt: Google Cloud Build 배포 중 발생한 status.code 4 에러의 원인과 해결 방법을 정리합니다.
+parent_category: troubleshooting
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
+  pacer_types:
+    - procedural
+    - evidence
 ---
 
 ## 문제 설명

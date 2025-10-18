@@ -9,6 +9,10 @@ tags:
   - python
   - data-columns
 excerpt: 커피 데이터 분석을 위한 컬럼 구조와 데이터 항목에 대해 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 개요

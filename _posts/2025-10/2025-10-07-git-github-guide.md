@@ -9,6 +9,10 @@ tags:
   - 개발도구
   - 커밋
 category: 개발 (Development)
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## Git 커밋 타입

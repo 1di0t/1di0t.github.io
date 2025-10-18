@@ -10,6 +10,13 @@ tags:
   - web-security
   - authentication
 excerpt: 웹 개발에서 자주 사용되는 쿠키, 세션, 토큰, 캐시의 차이점과 각각의 특성, 보안 수준, 활용 방법에 대해 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
+  pacer_types:
+    - procedural
+    - evidence
 ---
 
 ## 서론: 왜 다양한 저장 방식이 필요한가?

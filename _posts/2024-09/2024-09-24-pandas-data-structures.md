@@ -9,6 +9,14 @@ tags:
   - series
   - dataframe
 excerpt: Pandas의 핵심 데이터 구조인 Series와 DataFrame에 대해 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
+  pacer_types:
+    - procedural
+    - reference
+    - conceptual
 ---
 
 ## 핵심 데이터 구조

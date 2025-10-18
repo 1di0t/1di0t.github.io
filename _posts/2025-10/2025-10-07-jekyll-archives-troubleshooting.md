@@ -8,6 +8,13 @@ tags:
   - troubleshooting
   - web-development
 excerpt: Jekyll 블로그에서 카테고리와 태그 페이지가 404 에러를 반환하거나 포스트를 표시하지 못하는 문제를 단계별로 해결한 경험을 공유합니다.
+parent_category: documentation
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
+  pacer_types:
+    - procedural
+    - evidence
 ---
 
 ## 문제 상황

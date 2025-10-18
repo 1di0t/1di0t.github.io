@@ -8,6 +8,10 @@ tags:
   - information-system
   - dbms
 excerpt: 데이터베이스의 특징과 다양한 측면에 대해 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: conceptual
 ---
 
 ## 데이터베이스의 특징

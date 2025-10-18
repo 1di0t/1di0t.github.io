@@ -8,6 +8,10 @@ tags:
   - pcb
   - certification
 excerpt: "정보처리산업기사 시험 대비: 프로세스의 정의와 특징, 상태 전이에 대해 알아봅니다."
+parent_category: documentation
+learning_framework:
+  stage: digestion
+  pacer_type: conceptual
 ---
 
 ## 프로세스의 정의

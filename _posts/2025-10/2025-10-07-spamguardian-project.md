@@ -11,6 +11,13 @@ tags:
   - flask
   - react
 category: 프로젝트 (Project)
+parent_category: project
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
+  pacer_types:
+    - procedural
+    - evidence
 ---
 
 ## 데이터 수집

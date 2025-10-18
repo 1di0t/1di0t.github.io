@@ -9,6 +9,13 @@ tags:
   - regression
   - algorithms
 excerpt: 지도학습의 분류(Classification)와 회귀(Regression) 기법에 대해 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
+  pacer_types:
+    - procedural
+    - reference
 ---
 
 ## 학습 분류 개요

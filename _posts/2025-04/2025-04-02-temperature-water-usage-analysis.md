@@ -10,6 +10,10 @@ tags:
   - water-usage
   - temperature
 excerpt: 기온 변화와 수도 사용량 간의 상관관계를 데이터 분석을 통해 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 목적

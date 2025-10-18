@@ -8,6 +8,10 @@ tags:
   - data-analysis
   - data-science
 excerpt: Pandas DataFrame의 데이터를 조회하고 검사하는 방법을 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 예시 데이터프레임

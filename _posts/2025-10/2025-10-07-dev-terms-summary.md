@@ -11,6 +11,10 @@ tags:
   - restful-api
   - nosql
 category: 개발 (Development)
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: reference
 ---
 
 ## Iterable Variable

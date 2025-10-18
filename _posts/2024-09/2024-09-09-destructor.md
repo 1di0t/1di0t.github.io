@@ -9,6 +9,10 @@ tags:
   - object-oriented-programming
   - virtual
 excerpt: C++에서 소멸자의 개념과 virtual 키워드의 중요성을 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: conceptual
 ---
 
 ## 소멸자 개요

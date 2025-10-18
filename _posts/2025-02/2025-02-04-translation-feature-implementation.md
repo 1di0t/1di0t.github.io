@@ -10,6 +10,10 @@ tags:
   - nllb
   - facebook
 excerpt: Facebook의 NLLB-200-distilled-600M 모델을 사용한 번역 기능 구현 과정과 발생한 문제를 정리합니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 개요

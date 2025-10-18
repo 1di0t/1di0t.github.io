@@ -8,6 +8,13 @@ tags:
   - relu
   - neural-networks
 excerpt: 딥러닝에서 가장 많이 사용되는 활성화 함수인 ReLU의 개념과 특징을 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: reference
+  pacer_types:
+    - reference
+    - conceptual
 ---
 
 ## ReLU (Rectified Linear Unit)

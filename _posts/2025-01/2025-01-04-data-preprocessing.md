@@ -9,6 +9,10 @@ tags:
   - missing-values
   - data-cleaning
 excerpt: 데이터 전처리 과정에서 결측치를 처리하는 방법을 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 개요

@@ -9,6 +9,10 @@ tags:
   - text-classification
   - deep-learning
 excerpt: 자연어처리 모델의 기본 개념과 주요 응용 분야인 문서 분류, 개체명 인식, 질의응답, 문장 생성에 대해 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: conceptual
 ---
 
 ## 자연어처리란?

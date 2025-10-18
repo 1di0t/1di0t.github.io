@@ -11,6 +11,10 @@ tags:
   - port
   - osi-model
 excerpt: 네트워크 통신의 기본 단위인 소켓의 개념과 TCP/UDP 프로토콜, 포트 번호, OSI 계층 구조에 대해 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 소켓이란?

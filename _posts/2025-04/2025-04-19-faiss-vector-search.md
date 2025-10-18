@@ -9,6 +9,14 @@ tags:
   - embedding
   - machine-learning
 excerpt: 대규모 벡터 연산을 효율적으로 처리하기 위해 설계된 벡터 데이터 검색 라이브러리 FAISS에 대해 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: conceptual
+  pacer_types:
+    - conceptual
+    - reference
+    - analogous
 ---
 
 ## 개요

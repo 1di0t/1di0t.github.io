@@ -8,6 +8,10 @@ tags:
   - ai
   - llm
 excerpt: AI에게 원하는 답변을 얻기 위한 명확하고 효과적인 질문 기술, 프롬프트 엔지니어링의 기본 개념과 핵심 원칙을 쉽게 배워보세요.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 서론: AI가 내 말을 못 알아듣는 이유

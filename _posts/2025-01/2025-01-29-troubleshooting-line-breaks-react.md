@@ -9,6 +9,10 @@ tags:
   - white-space
   - text-formatting
 excerpt: React 웹앱에서 Llama 답변의 줄바꿈 문자가 표시되지 않는 문제를 해결합니다.
+parent_category: troubleshooting
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 문제 설명

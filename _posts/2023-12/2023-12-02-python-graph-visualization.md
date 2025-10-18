@@ -9,6 +9,10 @@ tags:
   - visualization
   - graph
 excerpt: Python에서 Matplotlib을 사용하여 삼각함수 그래프를 그리는 방법을 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 코드 예제

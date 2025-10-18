@@ -8,6 +8,10 @@ tags:
   - linear-algebra
   - machine-learning
 excerpt: 머신러닝의 기초가 되는 벡터의 개념과 연산 방법을 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 벡터 소개

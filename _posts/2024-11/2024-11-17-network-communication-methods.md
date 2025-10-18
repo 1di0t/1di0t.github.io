@@ -10,6 +10,10 @@ tags:
   - tcp
   - communication
 excerpt: 회선 교환, 메시지 교환, 패킷 교환 등 네트워크 통신 방식의 종류와 특징을 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: reference
 ---
 
 ## 통신 방식 요약

@@ -9,6 +9,10 @@ tags:
   - commit
   - branch
 excerpt: Git 커밋 타입과 브랜치 관리 명령어를 정리합니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## Commit Types

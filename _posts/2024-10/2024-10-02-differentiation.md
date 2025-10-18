@@ -8,6 +8,10 @@ tags:
   - differentiation
   - machine-learning
 excerpt: 머신러닝의 기초가 되는 미분의 개념과 도함수에 대해 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: conceptual
 ---
 
 ## 미분 설명

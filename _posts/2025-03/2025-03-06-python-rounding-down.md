@@ -8,6 +8,13 @@ tags:
   - math
   - rounding
 excerpt: Python에서 math.ceil()을 사용하지 않고 내림 연산을 수행하는 방법을 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
+  pacer_types:
+    - procedural
+    - conceptual
 ---
 
 ## 개요

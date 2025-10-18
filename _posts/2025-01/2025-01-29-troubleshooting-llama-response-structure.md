@@ -9,6 +9,10 @@ tags:
   - regex
   - python
 excerpt: Llama 모델의 답변에서 필요한 부분만 추출하는 문자열 파싱 함수를 구현합니다.
+parent_category: troubleshooting
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 문제 설명

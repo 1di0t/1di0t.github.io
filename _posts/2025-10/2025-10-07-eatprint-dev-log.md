@@ -12,6 +12,13 @@ tags:
   - postgresql
   - 앱개발
 category: 프로젝트 (Project)
+parent_category: project
+learning_framework:
+  stage: digestion
+  pacer_type: evidence
+  pacer_types:
+    - evidence
+    - procedural
 ---
 
 ## 개발 언어 및 프레임워크

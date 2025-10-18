@@ -9,6 +9,10 @@ tags:
   - dimension
   - data-science
 excerpt: NumPy 배열의 차원을 확장하는 newaxis의 사용법을 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 개요

@@ -10,6 +10,13 @@ tags:
   - regression
   - evaluation
 excerpt: 머신러닝 모델 학습 시 사용되는 두 가지 주요 에러 평가 지표인 MSE와 MAE의 차이점을 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
+  pacer_types:
+    - procedural
+    - conceptual
 ---
 
 ## 개요

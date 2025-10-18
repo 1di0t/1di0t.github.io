@@ -9,6 +9,10 @@ tags:
   - ml-pipeline
   - 모델배포
 category: 개발 (Development)
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: evidence
 ---
 
 ## MLOps란?

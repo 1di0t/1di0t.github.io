@@ -9,6 +9,10 @@ tags:
   - pointer
   - debugging
 excerpt: C++에서 메모리 누수를 방지하는 방법을 알아봅니다.
+parent_category: study
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
 ---
 
 ## 개요
