@@ -90,71 +90,10 @@ layout: default
   </div>
 
   <!-- Post Navigation -->
-  <nav class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-      {% if page.previous.url %}
-      <a href="{{ page.previous.url | relative_url }}" class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary no-underline">
-        <div class="text-xs md:text-sm text-muted-foreground mb-1 md:mb-2">← 이전 글</div>
-        <div class="text-sm md:text-base font-semibold text-foreground">{{ page.previous.title }}</div>
-      </a>
-      {% endif %}
-
-      {% if page.next.url %}
-      <a href="{{ page.next.url | relative_url }}" class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary text-right no-underline">
-        <div class="text-xs md:text-sm text-muted-foreground mb-1 md:mb-2">다음 글 →</div>
-        <div class="text-sm md:text-base font-semibold text-foreground">{{ page.next.title }}</div>
-      </a>
-      {% endif %}
-    </div>
-  </nav>
+  {% include post-navigation.html previous=page.previous next=page.next %}
 
   <!-- Comments (utterances) -->
   {% if page.comments != false %}
-  <div class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border">
-    <h2 class="text-lg md:text-xl font-bold mb-4 md:mb-6">💬 댓글</h2>
-    <div id="utterances-container"></div>
-    <script>
-      // 다크모드에 따라 utterances 테마 자동 변경
-      function loadUtterances() {
-        const theme = document.documentElement.classList.contains('dark')
-          ? 'github-dark'
-          : 'github-light';
-
-        const script = document.createElement('script');
-        script.src = 'https://utteranc.es/client.js';
-        script.setAttribute('repo', '1di0t/1di0t.github.io');
-        script.setAttribute('issue-term', 'pathname');
-        script.setAttribute('label', 'comments');
-        script.setAttribute('theme', theme);
-        script.setAttribute('crossorigin', 'anonymous');
-        script.async = true;
-
-        document.getElementById('utterances-container').appendChild(script);
-      }
-
-      // 페이지 로드 시 utterances 로드
-      loadUtterances();
-
-      // 다크모드 토글 시 utterances 테마 변경
-      const themeToggle = document.querySelector('[data-theme-toggle]');
-      if (themeToggle) {
-        themeToggle.addEventListener('click', function() {
-          setTimeout(() => {
-            const utterances = document.querySelector('.utterances-frame');
-            if (utterances) {
-              const theme = document.documentElement.classList.contains('dark')
-                ? 'github-dark'
-                : 'github-light';
-              const message = {
-                type: 'set-theme',
-                theme: theme
-              };
-              utterances.contentWindow.postMessage(message, 'https://utteranc.es');
-            }
-          }, 100);
-        });
-      }
-    </script>
-  </div>
+    {% include comments.html type="utterances" %}
   {% endif %}
 </article>

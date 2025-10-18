@@ -1,0 +1,44 @@
+{% comment %}
+재사용 가능한 포스트 카드 컴포넌트
+사용법: {% include post-card.html post=post %}
+{% endcomment %}
+
+<article class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary">
+  <h2 class="text-lg md:text-2xl font-bold mb-1.5 md:mb-2">
+    <a href="{{ include.post.url | relative_url }}" class="no-underline hover:text-primary text-foreground">
+      {{ include.post.title }}
+    </a>
+  </h2>
+
+  <div class="flex flex-wrap items-center gap-2 md:gap-3 text-xs md:text-sm text-muted-foreground mb-2 md:mb-3">
+    {% include date-icon.html date=include.post.date %}
+
+    {% if include.post.category %}
+      {% assign cat_info = site.data.categories.categories | where: "id", include.post.category | first %}
+      {% if cat_info %}
+      <span class="inline-flex items-center px-2 md:px-2.5 py-0.5 md:py-1 rounded-md bg-secondary text-secondary-foreground text-[10px] md:text-xs">
+        {{ cat_info.name_kr }}
+      </span>
+      {% endif %}
+    {% endif %}
+
+    {% if include.post.learning_framework.pacer_type %}
+      {% assign pacer = site.data.learning_framework.pacer_types | where: "id", include.post.learning_framework.pacer_type | first %}
+      {% if pacer %}
+      <span class="inline-flex items-center gap-1 px-2 md:px-2.5 py-0.5 md:py-1 rounded-md pacer-badge pacer-{{ pacer.id }} text-[10px] md:text-xs font-medium">
+        {{ pacer.symbol }} {{ pacer.name_kr }}
+      </span>
+      {% endif %}
+    {% endif %}
+  </div>
+
+  {% if include.post.excerpt %}
+  <p class="text-sm md:text-base text-muted-foreground mb-3 md:mb-4 leading-relaxed">
+    {{ include.post.excerpt | strip_html | truncate: 200 }}
+  </p>
+  {% endif %}
+
+  {% if include.post.tags %}
+  {% include tags-list.html tags=include.post.tags limit=5 %}
+  {% endif %}
+</article>

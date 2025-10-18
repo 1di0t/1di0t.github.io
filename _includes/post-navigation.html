@@ -1,0 +1,25 @@
+{% comment %}
+재사용 가능한 포스트 네비게이션 컴포넌트
+사용법: {% include post-navigation.html previous=page.previous next=page.next type="글" %}
+type 기본값: "글"
+{% endcomment %}
+
+{% assign nav_type = include.type | default: "글" %}
+
+<nav class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+    {% if include.previous.url %}
+    <a href="{{ include.previous.url | relative_url }}" class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary no-underline">
+      <div class="text-xs md:text-sm text-muted-foreground mb-1 md:mb-2">← 이전 {{ nav_type }}</div>
+      <div class="text-sm md:text-base font-semibold text-foreground">{{ include.previous.title }}</div>
+    </a>
+    {% endif %}
+
+    {% if include.next.url %}
+    <a href="{{ include.next.url | relative_url }}" class="bg-card rounded-lg border border-border p-4 md:p-6 hover:shadow-lg transition-all hover:border-primary text-right no-underline">
+      <div class="text-xs md:text-sm text-muted-foreground mb-1 md:mb-2">다음 {{ nav_type }} →</div>
+      <div class="text-sm md:text-base font-semibold text-foreground">{{ include.next.title }}</div>
+    </a>
+    {% endif %}
+  </div>
+</nav>

@@ -1,0 +1,11 @@
+{% comment %}
+재사용 가능한 날짜 아이콘 컴포넌트
+사용법: {% include date-icon.html date=post.date %}
+{% endcomment %}
+
+<time datetime="{{ include.date | date_to_xmlschema }}" class="flex items-center gap-1">
+  <svg class="h-3 w-3 md:h-4 md:w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+  </svg>
+  {{ include.date | date: "%Y년 %m월 %d일" }}
+</time>

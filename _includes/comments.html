@@ -1,0 +1,80 @@
+{% comment %}
+재사용 가능한 댓글 컴포넌트
+사용법: {% include comments.html type="utterances" %}
+type: "utterances" 또는 "giscus" (기본값: utterances)
+{% endcomment %}
+
+{% assign comment_type = include.type | default: "utterances" %}
+
+<div class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border">
+  <h2 class="text-lg md:text-xl font-bold mb-4 md:mb-6">💬 댓글</h2>
+
+  {% if comment_type == "giscus" %}
+  <div id="giscus-container"></div>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      const giscusTheme = theme === 'dark' ? 'dark' : 'light';
+
+      const script = document.createElement('script');
+      script.src = 'https://giscus.app/client.js';
+      script.setAttribute('data-repo', '1di0t/1di0t.github.io');
+      script.setAttribute('data-repo-id', 'R_kgDONbLAlQ');
+      script.setAttribute('data-category', 'General');
+      script.setAttribute('data-category-id', 'DIC_kwDONbLAlc4ClQPa');
+      script.setAttribute('data-mapping', 'pathname');
+      script.setAttribute('data-strict', '0');
+      script.setAttribute('data-reactions-enabled', '1');
+      script.setAttribute('data-emit-metadata', '0');
+      script.setAttribute('data-input-position', 'bottom');
+      script.setAttribute('data-theme', giscusTheme);
+      script.setAttribute('data-lang', 'ko');
+      script.setAttribute('crossorigin', 'anonymous');
+      script.async = true;
+
+      document.getElementById('giscus-container').appendChild(script);
+    })();
+  </script>
+  {% else %}
+  <div id="utterances-container"></div>
+  <script>
+    function loadUtterances() {
+      const theme = document.documentElement.classList.contains('dark')
+        ? 'github-dark'
+        : 'github-light';
+
+      const script = document.createElement('script');
+      script.src = 'https://utteranc.es/client.js';
+      script.setAttribute('repo', '1di0t/1di0t.github.io');
+      script.setAttribute('issue-term', 'pathname');
+      script.setAttribute('label', 'comments');
+      script.setAttribute('theme', theme);
+      script.setAttribute('crossorigin', 'anonymous');
+      script.async = true;
+
+      document.getElementById('utterances-container').appendChild(script);
+    }
+
+    loadUtterances();
+
+    const themeToggle = document.querySelector('[data-theme-toggle]');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', function() {
+        setTimeout(() => {
+          const utterances = document.querySelector('.utterances-frame');
+          if (utterances) {
+            const theme = document.documentElement.classList.contains('dark')
+              ? 'github-dark'
+              : 'github-light';
+            const message = {
+              type: 'set-theme',
+              theme: theme
+            };
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+          }
+        }, 100);
+      });
+    }
+  </script>
+  {% endif %}
+</div>
