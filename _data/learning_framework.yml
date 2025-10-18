@@ -1,0 +1,178 @@
+# PACER 학습 프레임워크 정의
+# 2단계 학습 프레임워크: 소비(Consumption) → 소화(Digestion)
+
+stages:
+  - id: consumption
+    name_kr: "소비 단계"
+    name_en: "Consumption"
+    description: "문제 해결을 위한 정보를 적극적으로 수집하는 단계"
+    strategies:
+      - "Color-bath Effect: 문제를 명확히 하여 해결책에 집중"
+      - "Curiosity: 목차를 먼저 보고 궁금증 생성"
+      - "Capture: 유용한 정보를 수집"
+
+  - id: digestion
+    name_kr: "소화 단계"
+    name_en: "Digestion"
+    description: "정보를 PACER 분류에 따라 소화하여 내 지식으로 만드는 단계"
+    strategies:
+      - "각 정보 유형에 맞는 전략으로 학습"
+      - "Practice, Critique, Structuring, Application, Spaced Repetition"
+
+# PACER 정보 분류
+pacer_types:
+  - id: procedural
+    name_kr: "절차형"
+    name_en: "Procedural"
+    symbol: "🔨"
+    color: "#3498DB"
+    description: "무언가를 어떻게 실행하는지 알려주는 기술 정보"
+    examples:
+      - "튜토리얼"
+      - "단계별 가이드"
+      - "명령어 사용법"
+      - "코딩 실습"
+    strategy: "연습 (Practice)"
+    strategy_description: "즉시 실전에 적용해 보는 것이 핵심"
+    keywords:
+      - "방법"
+      - "단계"
+      - "가이드"
+      - "튜토리얼"
+      - "실습"
+      - "사용법"
+      - "how to"
+      - "guide"
+      - "tutorial"
+      - "step"
+
+  - id: analogous
+    name_kr: "유사형"
+    name_en: "Analogous"
+    symbol: "🔗"
+    color: "#9B59B6"
+    description: "이미 알고 있는 지식과 비유적으로 연결되는 정보"
+    examples:
+      - "비유를 통한 설명"
+      - "개념 간 비교"
+      - "A는 B와 같다"
+    strategy: "비판 (Critique)"
+    strategy_description: "비유가 얼마나 적절한지 비판적으로 질문하고 점검"
+    keywords:
+      - "비유"
+      - "비교"
+      - "처럼"
+      - "마치"
+      - "같은"
+      - "유사한"
+      - "like"
+      - "similar"
+      - "compare"
+      - "analogy"
+
+  - id: conceptual
+    name_kr: "개념형"
+    name_en: "Conceptual"
+    symbol: "💡"
+    color: "#F39C12"
+    description: "무엇인가를 다루는 정보 (사실, 이론, 원리)"
+    examples:
+      - "개념 설명"
+      - "정의"
+      - "이론"
+      - "원리"
+    strategy: "구조화 (Structuring)"
+    strategy_description: "얻은 정보들을 배치하고 연결하며 스스로 재구성"
+    keywords:
+      - "개념"
+      - "이란"
+      - "란?"
+      - "정의"
+      - "이론"
+      - "원리"
+      - "무엇"
+      - "what is"
+      - "definition"
+      - "concept"
+      - "theory"
+
+  - id: evidence
+    name_kr: "근거형"
+    name_en: "Evidence"
+    symbol: "📊"
+    color: "#E74C3C"
+    description: "개념을 뒷받침하는 세부적이고 기술적인 내용"
+    examples:
+      - "통계"
+      - "사례 연구"
+      - "프로젝트 경험"
+      - "실제 예시"
+    strategy: "수집 & 반복 (Application)"
+    strategy_description: "유용한 정보를 수집하고 실제로 활용"
+    keywords:
+      - "사례"
+      - "예시"
+      - "프로젝트"
+      - "경험"
+      - "실제"
+      - "사용"
+      - "example"
+      - "case study"
+      - "project"
+      - "experience"
+
+  - id: reference
+    name_kr: "참고형"
+    name_en: "Reference"
+    symbol: "📚"
+    color: "#1ABC9C"
+    description: "아주 구체적이고 세세한 데이터"
+    examples:
+      - "치트시트"
+      - "명령어 모음"
+      - "정확한 수치"
+      - "참고 자료 링크"
+    strategy: "수집 & 간격 반복 (Spaced Repetition)"
+    strategy_description: "필요한 정보를 수집하여 간격을 둔 반복 학습"
+    keywords:
+      - "참고"
+      - "치트시트"
+      - "명령어"
+      - "모음"
+      - "목록"
+      - "reference"
+      - "cheatsheet"
+      - "list"
+      - "commands"
+
+# 자동 분류를 위한 가중치 규칙
+classification_rules:
+  # 코드 블록이 많고 단계별 설명이 있으면 Procedural
+  procedural_indicators:
+    - code_blocks: "high"  # 코드 블록이 많음
+    - step_by_step: true   # 1, 2, 3 또는 단계별 구성
+    - imperative_verbs: true  # "하세요", "설치하세요" 등 명령형
+
+  # 정의와 설명 위주면 Conceptual
+  conceptual_indicators:
+    - definitions: true    # "란?", "이란", "정의"
+    - theory: true         # 이론적 설명
+    - diagrams: true       # 다이어그램, 구조도
+
+  # 트러블슈팅, 프로젝트 경험이면 Evidence
+  evidence_indicators:
+    - troubleshooting: true  # 문제/해결 구조
+    - project_log: true      # 개발 일지
+    - case_study: true       # 실제 사례
+
+  # 짧고 간결한 참고 자료면 Reference
+  reference_indicators:
+    - length: "short"       # 짧은 글
+    - list_format: true     # 목록 형식
+    - cheatsheet: true      # 치트시트
+
+  # 비유와 비교가 많으면 Analogous
+  analogous_indicators:
+    - comparison: true      # A vs B, A와 B의 차이
+    - metaphor: true        # 비유 표현
+    - analogy: true         # "마치 ~처럼"

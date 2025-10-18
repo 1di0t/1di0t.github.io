@@ -1,0 +1,38 @@
+# 상위 카테고리 정의
+# 2단계 학습 프레임워크를 적용한 블로그 계층 구조
+
+parent_categories:
+  - id: study
+    name_kr: "공부"
+    name_en: "Study"
+    icon: "📚"
+    description: "기술 학습 및 지식 습득"
+    color: "#4A90E2"
+
+  - id: hobby
+    name_kr: "취미"
+    name_en: "Hobby"
+    icon: "☕"
+    description: "개인적 관심사와 취미 활동"
+    color: "#E27B4A"
+
+  - id: project
+    name_kr: "프로젝트"
+    name_en: "Project"
+    icon: "🚀"
+    description: "개발 프로젝트 및 포트폴리오"
+    color: "#9B59B6"
+
+  - id: documentation
+    name_kr: "정리"
+    name_en: "Documentation"
+    icon: "📝"
+    description: "용어 정리 및 학습 노트"
+    color: "#2ECC71"
+
+  - id: troubleshooting
+    name_kr: "트러블슈팅"
+    name_en: "Troubleshooting"
+    icon: "🔧"
+    description: "에러 해결 및 문제 해결 기록"
+    color: "#E74C3C"

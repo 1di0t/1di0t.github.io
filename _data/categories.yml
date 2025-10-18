@@ -1,6 +1,8 @@
 # 카테고리 정의 및 자동 매칭 키워드
 # Claude가 이 파일을 참고하여 자동으로 카테고리를 추천합니다
 # 한글 카테고리 이름 지원 (name_kr)
+# parent: 상위 카테고리 (study, hobby, project, documentation, troubleshooting)
+# pacer_tendency: 이 카테고리의 일반적인 PACER 경향
 
 categories:
   - id: ai
@@ -8,6 +10,8 @@ categories:
     name_kr: "인공지능"
     name: "인공지능 (AI)"
     description: "인공지능, 머신러닝, 딥러닝"
+    parent: study
+    pacer_tendency: conceptual
     keywords:
       - ai
       - artificial intelligence
@@ -36,6 +40,8 @@ categories:
     name_kr: "프로그래밍"
     name: "프로그래밍 (Programming)"
     description: "프로그래밍 언어 및 알고리즘"
+    parent: study
+    pacer_tendency: procedural
     keywords:
       - python
       - javascript
@@ -62,6 +68,8 @@ categories:
     name_kr: "웹개발"
     name: "웹개발 (Web)"
     description: "웹 개발, 프론트엔드, 백엔드"
+    parent: study
+    pacer_tendency: procedural
     keywords:
       - html
       - css
@@ -89,6 +97,8 @@ categories:
     name_kr: "데이터베이스"
     name: "데이터베이스 (Database)"
     description: "데이터베이스 관리 및 쿼리"
+    parent: study
+    pacer_tendency: conceptual
     keywords:
       - sql
       - mysql
@@ -111,6 +121,8 @@ categories:
     name_kr: "데이터사이언스"
     name: "데이터사이언스 (Data Science)"
     description: "데이터 사이언스, 분석, 시각화"
+    parent: study
+    pacer_tendency: procedural
     keywords:
       - data science
       - pandas
@@ -133,6 +145,8 @@ categories:
     name_kr: "데이터분석"
     name: "데이터분석 (Data Analysis)"
     description: "데이터 분석 실무"
+    parent: study
+    pacer_tendency: evidence
     keywords:
       - analysis
       - analytics
@@ -151,6 +165,8 @@ categories:
     name_kr: "머신러닝"
     name: "머신러닝 (Machine Learning)"
     description: "머신러닝 모델 및 알고리즘"
+    parent: study
+    pacer_tendency: conceptual
     keywords:
       - supervised learning
       - unsupervised learning
@@ -175,6 +191,8 @@ categories:
     name_kr: "MLOps"
     name: "MLOps"
     description: "ML 운영, 배포, 모니터링"
+    parent: study
+    pacer_tendency: procedural
     keywords:
       - mlops
       - deployment
@@ -195,6 +213,8 @@ categories:
     name_kr: "개발"
     name: "개발 (Development)"
     description: "소프트웨어 개발 전반"
+    parent: study
+    pacer_tendency: procedural
     keywords:
       - development
       - software
@@ -217,6 +237,8 @@ categories:
     name_kr: "Git"
     name: "Git"
     description: "Git 버전 관리"
+    parent: study
+    pacer_tendency: reference
     keywords:
       - git
       - github
@@ -237,6 +259,8 @@ categories:
     name_kr: "모바일"
     name: "모바일 (Mobile)"
     description: "모바일 앱 개발"
+    parent: study
+    pacer_tendency: procedural
     keywords:
       - mobile
       - android
@@ -256,6 +280,8 @@ categories:
     name_kr: "네트워크"
     name: "네트워크 (Network)"
     description: "네트워크 및 통신"
+    parent: study
+    pacer_tendency: conceptual
     keywords:
       - network
       - tcp
@@ -276,6 +302,8 @@ categories:
     name_kr: "C++"
     name: "C++"
     description: "C++ 프로그래밍"
+    parent: study
+    pacer_tendency: procedural
     keywords:
       - cpp
       - c++
@@ -294,6 +322,8 @@ categories:
     name_kr: "프로젝트"
     name: "프로젝트 (Project)"
     description: "프로젝트 소개 및 개발 일지"
+    parent: project
+    pacer_tendency: evidence
     keywords:
       - project
       - portfolio
@@ -310,6 +340,8 @@ categories:
     name_kr: "학습"
     name: "학습 (Study)"
     description: "학습 내용 정리"
+    parent: documentation
+    pacer_tendency: conceptual
     keywords:
       - study
       - learning
@@ -330,6 +362,8 @@ categories:
     name_kr: "용어정리"
     name: "용어정리 (Terms)"
     description: "개발 용어 정리"
+    parent: documentation
+    pacer_tendency: reference
     keywords:
       - term
       - definition
@@ -346,6 +380,8 @@ categories:
     name_kr: "트러블슈팅"
     name: "트러블슈팅 (Troubleshooting)"
     description: "에러 해결 및 디버깅"
+    parent: troubleshooting
+    pacer_tendency: evidence
     keywords:
       - error
       - bug
@@ -361,6 +397,32 @@ categories:
       - 오류
       - 해결
       - 문제
+
+  - id: coffee
+    name_en: "Coffee"
+    name_kr: "커피"
+    name: "커피 (Coffee)"
+    description: "커피 추출, 원두, 바리스타 관련"
+    parent: hobby
+    pacer_tendency: procedural
+    keywords:
+      - coffee
+      - brewing
+      - espresso
+      - handdrip
+      - barista
+      - roasting
+      - bean
+      - extraction
+      - grind
+      - 커피
+      - 추출
+      - 에스프레소
+      - 핸드드립
+      - 바리스타
+      - 로스팅
+      - 원두
+      - 분쇄
 
 # 카테고리 추천 규칙:
 # 1. 포스트 내용에서 키워드 추출
