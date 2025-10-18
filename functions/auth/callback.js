@@ -91,11 +91,38 @@ export async function onRequestGet(context) {
 
     // 7. 에디터 페이지로 리다이렉트 (세션 쿠키 포함)
     console.log('Step 7: Redirecting to /editor...');
-    return new Response(null, {
-      status: 302,
+    const cookieHeader = createSessionCookie(sessionToken);
+    console.log('Set-Cookie header:', cookieHeader);
+
+    // HTML 리다이렉트 사용 (쿠키가 확실히 설정되도록)
+    // HttpOnly 쿠키는 JS에서 접근 불가하므로 서버 측 확인만 로깅
+    const html = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>로그인 중...</title>
+          <script>
+            console.log('✅ OAuth callback successful');
+            console.log('⏳ Redirecting to /editor...');
+            // HttpOnly 쿠키는 document.cookie에 보이지 않음 (보안상 정상)
+            setTimeout(() => {
+              window.location.href = '/editor';
+            }, 100);
+          </script>
+        </head>
+        <body style="font-family: system-ui; text-align: center; padding: 50px;">
+          <h2>✅ 로그인 성공!</h2>
+          <p>에디터로 이동 중...</p>
+        </body>
+      </html>
+    `;
+
+    return new Response(html, {
+      status: 200,
       headers: {
-        'Location': '/editor',
-        'Set-Cookie': createSessionCookie(sessionToken)
+        'Content-Type': 'text/html; charset=utf-8',
+        'Set-Cookie': cookieHeader
       }
     });
 

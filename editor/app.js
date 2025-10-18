@@ -80,17 +80,27 @@ parentCategorySelect.addEventListener('change', (e) => {
 
 // Check if user is logged in
 async function checkAuth() {
-  // Check if session cookie exists
   console.log('Checking auth...');
-  console.log('All cookies:', document.cookie);
-  const hasCookie = document.cookie.includes('session=');
-  console.log('Has session cookie:', hasCookie);
 
-  if (hasCookie) {
-    console.log('✅ User logged in - showing editor');
-    showEditorScreen();
-  } else {
-    console.log('❌ No session - showing login screen');
+  // HttpOnly 쿠키는 document.cookie에서 보이지 않음
+  // 서버에 세션 확인 요청
+  try {
+    const response = await fetch('/api/usage-stats');
+
+    if (response.ok) {
+      console.log('✅ User logged in - showing editor');
+      showEditorScreen();
+    } else if (response.status === 401) {
+      console.log('❌ No valid session - showing login screen');
+      showLoginScreen();
+    } else {
+      // 다른 에러는 일단 에디터 표시하고 나중에 처리
+      console.log('⚠️ Could not verify session, showing editor');
+      showEditorScreen();
+    }
+  } catch (error) {
+    console.error('Auth check failed:', error);
+    // 네트워크 에러 시 로그인 화면 표시
     showLoginScreen();
   }
 }
