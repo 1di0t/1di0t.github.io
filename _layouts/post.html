@@ -73,13 +73,48 @@ layout: default
   {% if page.comments != false %}
   <div class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border">
     <h2 class="text-lg md:text-xl font-bold mb-4 md:mb-6">💬 댓글</h2>
-    <script src="https://utteranc.es/client.js"
-            repo="1di0t/1di0t.github.io"
-            issue-term="pathname"
-            label="comments"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
+    <div id="utterances-container"></div>
+    <script>
+      // 다크모드에 따라 utterances 테마 자동 변경
+      function loadUtterances() {
+        const theme = document.documentElement.classList.contains('dark')
+          ? 'github-dark'
+          : 'github-light';
+
+        const script = document.createElement('script');
+        script.src = 'https://utteranc.es/client.js';
+        script.setAttribute('repo', '1di0t/1di0t.github.io');
+        script.setAttribute('issue-term', 'pathname');
+        script.setAttribute('label', 'comments');
+        script.setAttribute('theme', theme);
+        script.setAttribute('crossorigin', 'anonymous');
+        script.async = true;
+
+        document.getElementById('utterances-container').appendChild(script);
+      }
+
+      // 페이지 로드 시 utterances 로드
+      loadUtterances();
+
+      // 다크모드 토글 시 utterances 테마 변경
+      const themeToggle = document.querySelector('[data-theme-toggle]');
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+          setTimeout(() => {
+            const utterances = document.querySelector('.utterances-frame');
+            if (utterances) {
+              const theme = document.documentElement.classList.contains('dark')
+                ? 'github-dark'
+                : 'github-light';
+              const message = {
+                type: 'set-theme',
+                theme: theme
+              };
+              utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+            }
+          }, 100);
+        });
+      }
     </script>
   </div>
   {% endif %}
