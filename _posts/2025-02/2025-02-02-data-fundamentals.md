@@ -1,9 +1,15 @@
 ---
 layout: post
-title: "데이터란"
-category: data-science
-tags: [data, data-types, structured-data, unstructured-data, dikw, knowledge-management]
-excerpt: "데이터의 특성, 유형, 그리고 지식으로의 변환 과정에 대해 알아봅니다."
+title: 데이터란
+category: 데이터사이언스 (Data Science)
+tags:
+  - data
+  - data-types
+  - structured-data
+  - unstructured-data
+  - dikw
+  - knowledge-management
+excerpt: 데이터의 특성, 유형, 그리고 지식으로의 변환 과정에 대해 알아봅니다.
 ---
 
 ## 데이터의 특성

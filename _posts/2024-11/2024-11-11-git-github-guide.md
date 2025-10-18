@@ -1,9 +1,14 @@
 ---
 layout: post
-title: "git/github"
-category: development
-tags: [git, github, version-control, commit, branch]
-excerpt: "Git 커밋 타입과 브랜치 관리 명령어를 정리합니다."
+title: git/github
+category: 개발 (Development)
+tags:
+  - git
+  - github
+  - version-control
+  - commit
+  - branch
+excerpt: Git 커밋 타입과 브랜치 관리 명령어를 정리합니다.
 ---
 
 ## Commit Types

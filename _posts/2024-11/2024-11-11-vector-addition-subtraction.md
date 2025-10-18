@@ -1,9 +1,13 @@
 ---
 layout: post
-title: "벡터의 덧셈과 뺄셈"
-category: ai
-tags: [vector, mathematics, linear-algebra, machine-learning]
-excerpt: "머신러닝의 기초가 되는 벡터의 개념과 연산 방법을 알아봅니다."
+title: 벡터의 덧셈과 뺄셈
+category: 인공지능 (AI)
+tags:
+  - vector
+  - mathematics
+  - linear-algebra
+  - machine-learning
+excerpt: 머신러닝의 기초가 되는 벡터의 개념과 연산 방법을 알아봅니다.
 ---
 
 ## 벡터 소개

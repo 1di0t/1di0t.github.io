@@ -1,9 +1,16 @@
 ---
 layout: post
-title: "SpamGuardian - 머신러닝 기반 스팸 필터링 프로젝트"
+title: SpamGuardian - 머신러닝 기반 스팸 필터링 프로젝트
 date: 2025-10-07 01:00:00 +0900
-categories: [project, machine-learning]
-tags: [머신러닝, 스팸필터, python, knn, naive-bayes, flask, react]
+tags:
+  - 머신러닝
+  - 스팸필터
+  - python
+  - knn
+  - naive-bayes
+  - flask
+  - react
+category: 프로젝트 (Project)
 ---
 
 ## 데이터 수집

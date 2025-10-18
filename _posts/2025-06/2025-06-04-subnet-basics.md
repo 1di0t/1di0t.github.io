@@ -1,9 +1,15 @@
 ---
 layout: post
 title: "서브넷(Subnet): 네트워크를 효율적으로 분할하는 핵심 기술"
-category: network
-tags: [subnet, network, ip-address, router, broadcast, subnetting]
-excerpt: "네트워크를 작은 단위로 분할하는 서브넷의 개념과 IP 주소 할당 규칙, 서브넷 마스크, 브로드캐스트 주소에 대해 알아봅니다."
+category: 네트워크 (Network)
+tags:
+  - subnet
+  - network
+  - ip-address
+  - router
+  - broadcast
+  - subnetting
+excerpt: 네트워크를 작은 단위로 분할하는 서브넷의 개념과 IP 주소 할당 규칙, 서브넷 마스크, 브로드캐스트 주소에 대해 알아봅니다.
 ---
 
 ## 서브넷이란?

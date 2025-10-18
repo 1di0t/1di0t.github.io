@@ -1,9 +1,16 @@
 ---
 layout: post
-title: "개발 용어 통합 정리"
+title: 개발 용어 통합 정리
 date: 2025-10-07 00:00:00 +0900
-categories: [development, terms]
-tags: [개발용어, 프로그래밍, 기술정리, iterable, cors, restful-api, nosql]
+tags:
+  - 개발용어
+  - 프로그래밍
+  - 기술정리
+  - iterable
+  - cors
+  - restful-api
+  - nosql
+category: 개발 (Development)
 ---
 
 ## Iterable Variable

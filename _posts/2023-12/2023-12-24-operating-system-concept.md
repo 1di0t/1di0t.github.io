@@ -1,8 +1,14 @@
 ---
 layout: post
-title: "1장. 운영체제의 개념"
-category: study
-tags: [operating-system, os, throughput, availability, reliability, certification]
+title: 1장. 운영체제의 개념
+category: 학습 (Study)
+tags:
+  - operating-system
+  - os
+  - throughput
+  - availability
+  - reliability
+  - certification
 excerpt: "정보처리산업기사 시험 대비: 운영체제의 정의와 목적에 대해 알아봅니다."
 ---
 

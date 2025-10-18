@@ -1,9 +1,15 @@
 ---
 layout: post
 title: "쿠키, 세션, 토큰, 캐시: 웹 데이터 저장 방식의 차이점과 활용법"
-category: web
-tags: [cookie, session, token, cache, web-security, authentication]
-excerpt: "웹 개발에서 자주 사용되는 쿠키, 세션, 토큰, 캐시의 차이점과 각각의 특성, 보안 수준, 활용 방법에 대해 알아봅니다."
+category: 웹개발 (Web)
+tags:
+  - cookie
+  - session
+  - token
+  - cache
+  - web-security
+  - authentication
+excerpt: 웹 개발에서 자주 사용되는 쿠키, 세션, 토큰, 캐시의 차이점과 각각의 특성, 보안 수준, 활용 방법에 대해 알아봅니다.
 ---
 
 ## 서론: 왜 다양한 저장 방식이 필요한가?

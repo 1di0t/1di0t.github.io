@@ -1,9 +1,14 @@
 ---
 layout: post
-title: "인공지능 학습 분류"
-category: ai
-tags: [machine-learning, supervised-learning, classification, regression, algorithms]
-excerpt: "지도학습의 분류(Classification)와 회귀(Regression) 기법에 대해 알아봅니다."
+title: 인공지능 학습 분류
+category: 인공지능 (AI)
+tags:
+  - machine-learning
+  - supervised-learning
+  - classification
+  - regression
+  - algorithms
+excerpt: 지도학습의 분류(Classification)와 회귀(Regression) 기법에 대해 알아봅니다.
 ---
 
 ## 학습 분류 개요

@@ -1,9 +1,14 @@
 ---
 layout: post
-title: "임베딩(Embedding)"
-category: ai
-tags: [embedding, nlp, vector, machine-learning, dense-representation]
-excerpt: "텍스트와 같은 이산적 데이터를 고차원 공간의 연속적인 수치 벡터로 변환하는 임베딩의 개념과 특징을 알아봅니다."
+title: 임베딩(Embedding)
+category: 인공지능 (AI)
+tags:
+  - embedding
+  - nlp
+  - vector
+  - machine-learning
+  - dense-representation
+excerpt: 텍스트와 같은 이산적 데이터를 고차원 공간의 연속적인 수치 벡터로 변환하는 임베딩의 개념과 특징을 알아봅니다.
 ---
 
 ## 임베딩의 정의

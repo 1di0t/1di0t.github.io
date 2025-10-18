@@ -1,9 +1,15 @@
 ---
 layout: post
-title: "네트워크 통신 방식"
-category: network
-tags: [network, circuit-switching, packet-switching, message-switching, tcp, communication]
-excerpt: "회선 교환, 메시지 교환, 패킷 교환 등 네트워크 통신 방식의 종류와 특징을 알아봅니다."
+title: 네트워크 통신 방식
+category: 네트워크 (Network)
+tags:
+  - network
+  - circuit-switching
+  - packet-switching
+  - message-switching
+  - tcp
+  - communication
+excerpt: 회선 교환, 메시지 교환, 패킷 교환 등 네트워크 통신 방식의 종류와 특징을 알아봅니다.
 ---
 
 ## 통신 방식 요약

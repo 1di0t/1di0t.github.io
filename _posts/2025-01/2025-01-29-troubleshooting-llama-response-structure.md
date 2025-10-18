@@ -1,9 +1,14 @@
 ---
 layout: post
 title: "TroubleShooting: Llama 답변 구조 문제"
-category: troubleshooting
-tags: [llama, nlp, text-processing, regex, python]
-excerpt: "Llama 모델의 답변에서 필요한 부분만 추출하는 문자열 파싱 함수를 구현합니다."
+category: 트러블슈팅 (Troubleshooting)
+tags:
+  - llama
+  - nlp
+  - text-processing
+  - regex
+  - python
+excerpt: Llama 모델의 답변에서 필요한 부분만 추출하는 문자열 파싱 함수를 구현합니다.
 ---
 
 ## 문제 설명

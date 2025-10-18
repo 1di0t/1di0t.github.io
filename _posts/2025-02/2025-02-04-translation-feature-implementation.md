@@ -1,9 +1,15 @@
 ---
 layout: post
-title: "번역 기능 추가"
-category: development
-tags: [python, translation, nlp, transformers, nllb, facebook]
-excerpt: "Facebook의 NLLB-200-distilled-600M 모델을 사용한 번역 기능 구현 과정과 발생한 문제를 정리합니다."
+title: 번역 기능 추가
+category: 개발 (Development)
+tags:
+  - python
+  - translation
+  - nlp
+  - transformers
+  - nllb
+  - facebook
+excerpt: Facebook의 NLLB-200-distilled-600M 모델을 사용한 번역 기능 구현 과정과 발생한 문제를 정리합니다.
 ---
 
 ## 개요

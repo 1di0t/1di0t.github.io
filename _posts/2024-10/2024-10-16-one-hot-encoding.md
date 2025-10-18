@@ -1,9 +1,14 @@
 ---
 layout: post
-title: "원-핫 인코딩(One-Hot Encoding)"
-category: ai
-tags: [nlp, encoding, tokenization, text-preprocessing, machine-learning]
-excerpt: "자연어 처리에서 문자를 숫자로 변환하는 원-핫 인코딩 기법을 알아봅니다."
+title: 원-핫 인코딩(One-Hot Encoding)
+category: 인공지능 (AI)
+tags:
+  - nlp
+  - encoding
+  - tokenization
+  - text-preprocessing
+  - machine-learning
+excerpt: 자연어 처리에서 문자를 숫자로 변환하는 원-핫 인코딩 기법을 알아봅니다.
 ---
 
 ## 개요

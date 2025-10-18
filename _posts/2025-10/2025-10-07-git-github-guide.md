@@ -1,9 +1,14 @@
 ---
 layout: post
-title: "Git/GitHub 사용 가이드"
+title: Git/GitHub 사용 가이드
 date: 2025-10-07 02:00:00 +0900
-categories: [development, git]
-tags: [git, github, 버전관리, 개발도구, 커밋]
+tags:
+  - git
+  - github
+  - 버전관리
+  - 개발도구
+  - 커밋
+category: 개발 (Development)
 ---
 
 ## Git 커밋 타입

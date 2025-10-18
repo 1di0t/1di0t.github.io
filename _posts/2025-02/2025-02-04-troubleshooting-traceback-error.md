@@ -1,9 +1,14 @@
 ---
 layout: post
 title: "TroubleShooting: Traceback Error"
-category: troubleshooting
-tags: [python, debugging, traceback, server, error-handling]
-excerpt: "서버 실행 중 Traceback error가 발생하여 서버가 멈추는 현상의 해결 방법을 정리합니다."
+category: 트러블슈팅 (Troubleshooting)
+tags:
+  - python
+  - debugging
+  - traceback
+  - server
+  - error-handling
+excerpt: 서버 실행 중 Traceback error가 발생하여 서버가 멈추는 현상의 해결 방법을 정리합니다.
 ---
 
 ## 문제 설명

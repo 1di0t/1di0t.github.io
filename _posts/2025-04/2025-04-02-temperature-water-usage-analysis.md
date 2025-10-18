@@ -1,9 +1,15 @@
 ---
 layout: post
-title: "계절에 따른 기온 변화가 수도 사용량에 미치는 영향 분석"
-category: data-analysis
-tags: [tableau, data-analysis, python, pandas, water-usage, temperature]
-excerpt: "기온 변화와 수도 사용량 간의 상관관계를 데이터 분석을 통해 알아봅니다."
+title: 계절에 따른 기온 변화가 수도 사용량에 미치는 영향 분석
+category: 데이터분석 (Data Analysis)
+tags:
+  - tableau
+  - data-analysis
+  - python
+  - pandas
+  - water-usage
+  - temperature
+excerpt: 기온 변화와 수도 사용량 간의 상관관계를 데이터 분석을 통해 알아봅니다.
 ---
 
 ## 목적

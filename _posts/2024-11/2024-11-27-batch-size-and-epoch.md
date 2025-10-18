@@ -1,9 +1,14 @@
 ---
 layout: post
-title: "배치 사이즈(Batch Size)와 에폭(Epoch)"
-category: ai
-tags: [deep-learning, batch-size, epoch, training, neural-networks]
-excerpt: "딥러닝 학습 과정에서 중요한 개념인 배치 사이즈와 에폭에 대해 알아봅니다."
+title: 배치 사이즈(Batch Size)와 에폭(Epoch)
+category: 인공지능 (AI)
+tags:
+  - deep-learning
+  - batch-size
+  - epoch
+  - training
+  - neural-networks
+excerpt: 딥러닝 학습 과정에서 중요한 개념인 배치 사이즈와 에폭에 대해 알아봅니다.
 ---
 
 ## 배치 사이즈 (Batch Size)

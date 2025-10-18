@@ -1,9 +1,13 @@
 ---
 layout: post
-title: "파이썬-내림"
-category: programming
-tags: [python, algorithm, math, rounding]
-excerpt: "Python에서 math.ceil()을 사용하지 않고 내림 연산을 수행하는 방법을 알아봅니다."
+title: 파이썬-내림
+category: 프로그래밍 (Programming)
+tags:
+  - python
+  - algorithm
+  - math
+  - rounding
+excerpt: Python에서 math.ceil()을 사용하지 않고 내림 연산을 수행하는 방법을 알아봅니다.
 ---
 
 ## 개요

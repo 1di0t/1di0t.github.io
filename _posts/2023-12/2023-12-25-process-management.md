@@ -1,8 +1,12 @@
 ---
 layout: post
-title: "2장. 프로세스 관리"
-category: study
-tags: [operating-system, process, pcb, certification]
+title: 2장. 프로세스 관리
+category: 학습 (Study)
+tags:
+  - operating-system
+  - process
+  - pcb
+  - certification
 excerpt: "정보처리산업기사 시험 대비: 프로세스의 정의와 특징, 상태 전이에 대해 알아봅니다."
 ---
 

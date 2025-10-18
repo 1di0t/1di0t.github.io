@@ -1,9 +1,14 @@
 ---
 layout: post
-title: "Python-그래프"
-category: programming
-tags: [python, matplotlib, numpy, visualization, graph]
-excerpt: "Python에서 Matplotlib을 사용하여 삼각함수 그래프를 그리는 방법을 알아봅니다."
+title: Python-그래프
+category: 프로그래밍 (Programming)
+tags:
+  - python
+  - matplotlib
+  - numpy
+  - visualization
+  - graph
+excerpt: Python에서 Matplotlib을 사용하여 삼각함수 그래프를 그리는 방법을 알아봅니다.
 ---
 
 ## 코드 예제

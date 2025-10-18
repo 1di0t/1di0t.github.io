@@ -1,9 +1,14 @@
 ---
 layout: post
 title: "TroubleShooting: 답변 줄 정리"
-category: troubleshooting
-tags: [react, css, web-development, white-space, text-formatting]
-excerpt: "React 웹앱에서 Llama 답변의 줄바꿈 문자가 표시되지 않는 문제를 해결합니다."
+category: 트러블슈팅 (Troubleshooting)
+tags:
+  - react
+  - css
+  - web-development
+  - white-space
+  - text-formatting
+excerpt: React 웹앱에서 Llama 답변의 줄바꿈 문자가 표시되지 않는 문제를 해결합니다.
 ---
 
 ## 문제 설명

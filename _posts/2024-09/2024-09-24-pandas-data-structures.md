@@ -1,9 +1,14 @@
 ---
 layout: post
-title: "Pandas 의 데이터 구조"
-category: ai
-tags: [pandas, python, data-science, series, dataframe]
-excerpt: "Pandas의 핵심 데이터 구조인 Series와 DataFrame에 대해 알아봅니다."
+title: Pandas 의 데이터 구조
+category: 인공지능 (AI)
+tags:
+  - pandas
+  - python
+  - data-science
+  - series
+  - dataframe
+excerpt: Pandas의 핵심 데이터 구조인 Series와 DataFrame에 대해 알아봅니다.
 ---
 
 ## 핵심 데이터 구조

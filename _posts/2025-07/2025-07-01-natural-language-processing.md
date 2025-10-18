@@ -1,9 +1,14 @@
 ---
 layout: post
 title: "자연어처리(NLP): 언어를 이해하고 생성하는 AI 모델의 핵심 개념"
-category: ai
-tags: [nlp, natural-language-processing, machine-learning, text-classification, deep-learning]
-excerpt: "자연어처리 모델의 기본 개념과 주요 응용 분야인 문서 분류, 개체명 인식, 질의응답, 문장 생성에 대해 알아봅니다."
+category: 인공지능 (AI)
+tags:
+  - nlp
+  - natural-language-processing
+  - machine-learning
+  - text-classification
+  - deep-learning
+excerpt: 자연어처리 모델의 기본 개념과 주요 응용 분야인 문서 분류, 개체명 인식, 질의응답, 문장 생성에 대해 알아봅니다.
 ---
 
 ## 자연어처리란?

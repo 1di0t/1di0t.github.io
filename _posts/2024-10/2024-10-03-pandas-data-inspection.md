@@ -1,9 +1,13 @@
 ---
 layout: post
-title: "Pandas의 데이터 조회 및 검사"
-category: ai
-tags: [pandas, python, data-analysis, data-science]
-excerpt: "Pandas DataFrame의 데이터를 조회하고 검사하는 방법을 알아봅니다."
+title: Pandas의 데이터 조회 및 검사
+category: 인공지능 (AI)
+tags:
+  - pandas
+  - python
+  - data-analysis
+  - data-science
+excerpt: Pandas DataFrame의 데이터를 조회하고 검사하는 방법을 알아봅니다.
 ---
 
 ## 예시 데이터프레임

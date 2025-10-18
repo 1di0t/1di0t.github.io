@@ -1,9 +1,13 @@
 ---
 layout: post
-title: "미분"
-category: ai
-tags: [mathematics, calculus, differentiation, machine-learning]
-excerpt: "머신러닝의 기초가 되는 미분의 개념과 도함수에 대해 알아봅니다."
+title: 미분
+category: 인공지능 (AI)
+tags:
+  - mathematics
+  - calculus
+  - differentiation
+  - machine-learning
+excerpt: 머신러닝의 기초가 되는 미분의 개념과 도함수에 대해 알아봅니다.
 ---
 
 ## 미분 설명

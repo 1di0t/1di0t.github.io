@@ -1,9 +1,16 @@
 ---
 layout: post
 title: "소켓(Socket): 네트워크 통신의 핵심 개념과 TCP/UDP 프로토콜"
-category: network
-tags: [socket, network, tcp, udp, protocol, port, osi-model]
-excerpt: "네트워크 통신의 기본 단위인 소켓의 개념과 TCP/UDP 프로토콜, 포트 번호, OSI 계층 구조에 대해 알아봅니다."
+category: 네트워크 (Network)
+tags:
+  - socket
+  - network
+  - tcp
+  - udp
+  - protocol
+  - port
+  - osi-model
+excerpt: 네트워크 통신의 기본 단위인 소켓의 개념과 TCP/UDP 프로토콜, 포트 번호, OSI 계층 구조에 대해 알아봅니다.
 ---
 
 ## 소켓이란?

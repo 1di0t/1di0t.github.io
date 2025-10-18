@@ -1,9 +1,14 @@
 ---
 layout: post
-title: "numpy.newaxis"
-category: ai
-tags: [numpy, python, array, dimension, data-science]
-excerpt: "NumPy 배열의 차원을 확장하는 newaxis의 사용법을 알아봅니다."
+title: numpy.newaxis
+category: 인공지능 (AI)
+tags:
+  - numpy
+  - python
+  - array
+  - dimension
+  - data-science
+excerpt: NumPy 배열의 차원을 확장하는 newaxis의 사용법을 알아봅니다.
 ---
 
 ## 개요

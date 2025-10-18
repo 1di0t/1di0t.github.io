@@ -1,9 +1,14 @@
 ---
 layout: post
-title: "소멸자-Destructor"
-category: cpp
-tags: [cpp, destructor, memory-management, object-oriented-programming, virtual]
-excerpt: "C++에서 소멸자의 개념과 virtual 키워드의 중요성을 알아봅니다."
+title: 소멸자-Destructor
+category: C++
+tags:
+  - cpp
+  - destructor
+  - memory-management
+  - object-oriented-programming
+  - virtual
+excerpt: C++에서 소멸자의 개념과 virtual 키워드의 중요성을 알아봅니다.
 ---
 
 ## 소멸자 개요

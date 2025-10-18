@@ -1,9 +1,14 @@
 ---
 layout: post
 title: "Trouble Shooting: 'status.code': 4"
-category: troubleshooting
-tags: [google-cloud-build, gcp, gunicorn, deployment, timeout]
-excerpt: "Google Cloud Build 배포 중 발생한 status.code 4 에러의 원인과 해결 방법을 정리합니다."
+category: 트러블슈팅 (Troubleshooting)
+tags:
+  - google-cloud-build
+  - gcp
+  - gunicorn
+  - deployment
+  - timeout
+excerpt: Google Cloud Build 배포 중 발생한 status.code 4 에러의 원인과 해결 방법을 정리합니다.
 ---
 
 ## 문제 설명

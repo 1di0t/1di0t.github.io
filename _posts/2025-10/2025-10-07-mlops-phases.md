@@ -1,9 +1,14 @@
 ---
 layout: post
-title: "MLOps - 머신러닝 운영 프로세스"
+title: MLOps - 머신러닝 운영 프로세스
 date: 2025-10-07 03:00:00 +0900
-categories: [development, mlops]
-tags: [mlops, 머신러닝, devops, ml-pipeline, 모델배포]
+tags:
+  - mlops
+  - 머신러닝
+  - devops
+  - ml-pipeline
+  - 모델배포
+category: 개발 (Development)
 ---
 
 ## MLOps란?

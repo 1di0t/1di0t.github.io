@@ -1,9 +1,14 @@
 ---
 layout: post
-title: "메모리 누수-Memory Leak"
-category: cpp
-tags: [cpp, memory-management, memory-leak, pointer, debugging]
-excerpt: "C++에서 메모리 누수를 방지하는 방법을 알아봅니다."
+title: 메모리 누수-Memory Leak
+category: C++
+tags:
+  - cpp
+  - memory-management
+  - memory-leak
+  - pointer
+  - debugging
+excerpt: C++에서 메모리 누수를 방지하는 방법을 알아봅니다.
 ---
 
 ## 개요

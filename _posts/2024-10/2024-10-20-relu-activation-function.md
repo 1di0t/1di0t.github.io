@@ -1,9 +1,13 @@
 ---
 layout: post
-title: "활성화 함수(Relu)"
-category: ai
-tags: [deep-learning, activation-function, relu, neural-networks]
-excerpt: "딥러닝에서 가장 많이 사용되는 활성화 함수인 ReLU의 개념과 특징을 알아봅니다."
+title: 활성화 함수(Relu)
+category: 인공지능 (AI)
+tags:
+  - deep-learning
+  - activation-function
+  - relu
+  - neural-networks
+excerpt: 딥러닝에서 가장 많이 사용되는 활성화 함수인 ReLU의 개념과 특징을 알아봅니다.
 ---
 
 ## ReLU (Rectified Linear Unit)

@@ -1,9 +1,13 @@
 ---
 layout: post
-title: "데이터베이스 개요"
-category: database
-tags: [database, data-management, information-system, dbms]
-excerpt: "데이터베이스의 특징과 다양한 측면에 대해 알아봅니다."
+title: 데이터베이스 개요
+category: 데이터베이스 (Database)
+tags:
+  - database
+  - data-management
+  - information-system
+  - dbms
+excerpt: 데이터베이스의 특징과 다양한 측면에 대해 알아봅니다.
 ---
 
 ## 데이터베이스의 특징

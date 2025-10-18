@@ -1,9 +1,14 @@
 ---
 layout: post
 title: "TroubleShooting: 번역 텍스트 줄바꿈 없어짐 문제"
-category: troubleshooting
-tags: [python, translation, nlp, text-processing, debugging]
-excerpt: "번역 과정에서 줄바꿈 문자가 사라지는 문제를 해결하는 방법을 정리합니다."
+category: 트러블슈팅 (Troubleshooting)
+tags:
+  - python
+  - translation
+  - nlp
+  - text-processing
+  - debugging
+excerpt: 번역 과정에서 줄바꿈 문자가 사라지는 문제를 해결하는 방법을 정리합니다.
 ---
 
 ## 문제 설명

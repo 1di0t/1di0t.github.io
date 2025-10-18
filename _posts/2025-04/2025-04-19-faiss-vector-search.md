@@ -1,9 +1,14 @@
 ---
 layout: post
-title: "FAISS"
-category: ai
-tags: [faiss, langchain, vector-search, embedding, machine-learning]
-excerpt: "대규모 벡터 연산을 효율적으로 처리하기 위해 설계된 벡터 데이터 검색 라이브러리 FAISS에 대해 알아봅니다."
+title: FAISS
+category: 인공지능 (AI)
+tags:
+  - faiss
+  - langchain
+  - vector-search
+  - embedding
+  - machine-learning
+excerpt: 대규모 벡터 연산을 효율적으로 처리하기 위해 설계된 벡터 데이터 검색 라이브러리 FAISS에 대해 알아봅니다.
 ---
 
 ## 개요
