@@ -1,9 +1,12 @@
 # 카테고리 정의 및 자동 매칭 키워드
 # Claude가 이 파일을 참고하여 자동으로 카테고리를 추천합니다
+# 한글 카테고리 이름 지원 (name_kr)
 
 categories:
   - id: ai
-    name: "AI"
+    name_en: "AI"
+    name_kr: "인공지능"
+    name: "인공지능 (AI)"
     description: "인공지능, 머신러닝, 딥러닝"
     keywords:
       - ai
@@ -20,9 +23,18 @@ categories:
       - natural language
       - computer vision
       - embedding
+      - 인공지능
+      - 머신러닝
+      - 딥러닝
+      - 신경망
+      - 모델
+      - 학습
+      - 추론
 
   - id: programming
-    name: "Programming"
+    name_en: "Programming"
+    name_kr: "프로그래밍"
+    name: "프로그래밍 (Programming)"
     description: "프로그래밍 언어 및 알고리즘"
     keywords:
       - python
@@ -37,9 +49,18 @@ categories:
       - syntax
       - loop
       - conditional
+      - 프로그래밍
+      - 알고리즘
+      - 자료구조
+      - 코딩
+      - 함수
+      - 클래스
+      - 문법
 
   - id: web
-    name: "Web"
+    name_en: "Web"
+    name_kr: "웹개발"
+    name: "웹개발 (Web)"
     description: "웹 개발, 프론트엔드, 백엔드"
     keywords:
       - html
@@ -58,9 +79,15 @@ categories:
       - rest
       - graphql
       - web development
+      - 웹
+      - 웹개발
+      - 프론트엔드
+      - 백엔드
 
   - id: database
-    name: "Database"
+    name_en: "Database"
+    name_kr: "데이터베이스"
+    name: "데이터베이스 (Database)"
     description: "데이터베이스 관리 및 쿼리"
     keywords:
       - sql
@@ -75,9 +102,14 @@ categories:
       - dbms
       - orm
       - transaction
+      - 데이터베이스
+      - 쿼리
+      - 테이블
 
   - id: data-science
-    name: "Data Science"
+    name_en: "Data Science"
+    name_kr: "데이터사이언스"
+    name: "데이터사이언스 (Data Science)"
     description: "데이터 사이언스, 분석, 시각화"
     keywords:
       - data science
@@ -91,9 +123,15 @@ categories:
       - visualization
       - dataframe
       - series
+      - 데이터사이언스
+      - 데이터분석
+      - 시각화
+      - 통계
 
   - id: data-analysis
-    name: "Data Analysis"
+    name_en: "Data Analysis"
+    name_kr: "데이터분석"
+    name: "데이터분석 (Data Analysis)"
     description: "데이터 분석 실무"
     keywords:
       - analysis
@@ -104,9 +142,14 @@ categories:
       - preprocessing
       - cleaning
       - feature engineering
+      - 분석
+      - 전처리
+      - 특성공학
 
   - id: Machine-Learning
-    name: "Machine Learning"
+    name_en: "Machine Learning"
+    name_kr: "머신러닝"
+    name: "머신러닝 (Machine Learning)"
     description: "머신러닝 모델 및 알고리즘"
     keywords:
       - supervised learning
@@ -120,8 +163,16 @@ categories:
       - gradient boosting
       - feature
       - label
+      - 머신러닝
+      - 지도학습
+      - 비지도학습
+      - 분류
+      - 회귀
+      - 군집화
 
   - id: MLOps
+    name_en: "MLOps"
+    name_kr: "MLOps"
     name: "MLOps"
     description: "ML 운영, 배포, 모니터링"
     keywords:
@@ -135,9 +186,14 @@ categories:
       - model serving
       - mlflow
       - kubeflow
+      - 배포
+      - 파이프라인
+      - 모니터링
 
   - id: Development
-    name: "Development"
+    name_en: "Development"
+    name_kr: "개발"
+    name: "개발 (Development)"
     description: "소프트웨어 개발 전반"
     keywords:
       - development
@@ -148,8 +204,17 @@ categories:
       - refactoring
       - testing
       - debugging
+      - 개발
+      - 소프트웨어
+      - 아키텍처
+      - 디자인패턴
+      - 리팩토링
+      - 테스트
+      - 디버깅
 
   - id: Git
+    name_en: "Git"
+    name_kr: "Git"
     name: "Git"
     description: "Git 버전 관리"
     keywords:
@@ -162,9 +227,15 @@ categories:
       - merge
       - pull request
       - repository
+      - 버전관리
+      - 커밋
+      - 브랜치
+      - 병합
 
   - id: Mobile
-    name: "Mobile"
+    name_en: "Mobile"
+    name_kr: "모바일"
+    name: "모바일 (Mobile)"
     description: "모바일 앱 개발"
     keywords:
       - mobile
@@ -175,9 +246,15 @@ categories:
       - react native
       - flutter
       - app
+      - 모바일
+      - 안드로이드
+      - 아이폰
+      - 앱
 
   - id: network
-    name: "Network"
+    name_en: "Network"
+    name_kr: "네트워크"
+    name: "네트워크 (Network)"
     description: "네트워크 및 통신"
     keywords:
       - network
@@ -190,8 +267,13 @@ categories:
       - osi
       - subnet
       - routing
+      - 네트워크
+      - 통신
+      - 프로토콜
 
   - id: cpp
+    name_en: "C++"
+    name_kr: "C++"
     name: "C++"
     description: "C++ 프로그래밍"
     keywords:
@@ -203,9 +285,14 @@ categories:
       - constructor
       - template
       - stl
+      - 포인터
+      - 메모리
+      - 템플릿
 
   - id: Project
-    name: "Project"
+    name_en: "Project"
+    name_kr: "프로젝트"
+    name: "프로젝트 (Project)"
     description: "프로젝트 소개 및 개발 일지"
     keywords:
       - project
@@ -213,9 +300,15 @@ categories:
       - development log
       - case study
       - implementation
+      - 프로젝트
+      - 포트폴리오
+      - 개발일지
+      - 구현
 
   - id: study
-    name: "Study"
+    name_en: "Study"
+    name_kr: "학습"
+    name: "학습 (Study)"
     description: "학습 내용 정리"
     keywords:
       - study
@@ -225,9 +318,17 @@ categories:
       - beginner
       - concept
       - basics
+      - 학습
+      - 공부
+      - 강의
+      - 튜토리얼
+      - 초보
+      - 기초
 
   - id: Terms
-    name: "Terms"
+    name_en: "Terms"
+    name_kr: "용어정리"
+    name: "용어정리 (Terms)"
     description: "개발 용어 정리"
     keywords:
       - term
@@ -236,9 +337,14 @@ categories:
       - concept
       - terminology
       - dictionary
+      - 용어
+      - 정의
+      - 개념
 
   - id: troubleshooting
-    name: "Troubleshooting"
+    name_en: "Troubleshooting"
+    name_kr: "트러블슈팅"
+    name: "트러블슈팅 (Troubleshooting)"
     description: "에러 해결 및 디버깅"
     keywords:
       - error
@@ -250,6 +356,11 @@ categories:
       - solution
       - problem
       - resolve
+      - 에러
+      - 버그
+      - 오류
+      - 해결
+      - 문제
 
 # 카테고리 추천 규칙:
 # 1. 포스트 내용에서 키워드 추출
