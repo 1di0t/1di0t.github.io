@@ -12,15 +12,25 @@ export async function onRequest(context) {
   const url = new URL(request.url);
   const path = url.pathname;
 
-  // 정적 파일 및 에디터 페이지는 제한 제외
+  // 정적 파일 및 페이지는 제한 제외
   if (path.startsWith('/assets/') ||
       path.startsWith('/editor/') ||
+      path.startsWith('/category/') ||
+      path.startsWith('/tags/') ||
       path === '/editor' ||
-      path === '/') {
+      path === '/' ||
+      path.endsWith('.html') ||
+      path.endsWith('.css') ||
+      path.endsWith('.js')) {
     return await next();
   }
 
   // 1. Rate Limiting (IP 기반)
+  // KV가 바인딩되지 않았으면 Rate Limiting 건너뛰기
+  if (!env.KV) {
+    return await next();
+  }
+
   const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
   const today = getToday();
 

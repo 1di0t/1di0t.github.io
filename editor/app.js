@@ -4,6 +4,10 @@
 const loginScreen = document.getElementById('login-screen');
 const editorScreen = document.getElementById('editor-screen');
 const titleInput = document.getElementById('post-title');
+const parentCategorySelect = document.getElementById('parent-category');
+const categorySelect = document.getElementById('category');
+const pacerTypeSelect = document.getElementById('pacer-type');
+const tagsInput = document.getElementById('tags');
 const markdownInput = document.getElementById('markdown-input');
 const markdownPreview = document.getElementById('markdown-preview');
 const saveBtn = document.getElementById('save-btn');
@@ -12,6 +16,37 @@ const logoutBtn = document.getElementById('logout-btn');
 const settingsBtn = document.getElementById('settings-btn');
 const statsBtn = document.getElementById('stats-btn');
 
+// Category Data
+const categoryData = {
+  study: [
+    { id: 'ai', name: '인공지능 (AI)' },
+    { id: 'programming', name: '프로그래밍' },
+    { id: 'web', name: '웹 개발' },
+    { id: 'database', name: '데이터베이스' },
+    { id: 'data-science', name: '데이터 사이언스' },
+    { id: 'data-analysis', name: '데이터 분석' },
+    { id: 'Machine-Learning', name: '머신러닝' },
+    { id: 'MLOps', name: 'MLOps' },
+    { id: 'Development', name: '개발' },
+    { id: 'Git', name: 'Git' },
+    { id: 'Mobile', name: '모바일' },
+    { id: 'network', name: '네트워크' },
+    { id: 'cpp', name: 'C++' }
+  ],
+  hobby: [
+    { id: 'coffee', name: '커피' }
+  ],
+  project: [
+    { id: 'Project', name: '프로젝트' }
+  ],
+  documentation: [
+    { id: 'Terms', name: '용어 정리' }
+  ],
+  troubleshooting: [
+    { id: 'troubleshooting', name: '트러블슈팅' }
+  ]
+};
+
 // Modals
 const imageModal = document.getElementById('image-modal');
 const settingsModal = document.getElementById('settings-modal');
@@ -19,6 +54,29 @@ const statsModal = document.getElementById('stats-modal');
 
 // Initialize
 checkAuth();
+
+// Parent Category Change Handler
+parentCategorySelect.addEventListener('change', (e) => {
+  const parentCat = e.target.value;
+
+  if (!parentCat) {
+    categorySelect.innerHTML = '<option value="">부모 카테고리를 먼저 선택하세요</option>';
+    categorySelect.disabled = true;
+    return;
+  }
+
+  const categories = categoryData[parentCat] || [];
+  categorySelect.innerHTML = '<option value="">선택하세요</option>';
+
+  categories.forEach(cat => {
+    const option = document.createElement('option');
+    option.value = cat.id;
+    option.textContent = cat.name;
+    categorySelect.appendChild(option);
+  });
+
+  categorySelect.disabled = false;
+});
 
 // Check if user is logged in
 async function checkAuth() {
@@ -69,10 +127,30 @@ markdownInput.addEventListener('input', () => {
 // Save Draft
 saveBtn.addEventListener('click', async () => {
   const title = titleInput.value.trim();
+  const parentCategory = parentCategorySelect.value;
+  const category = categorySelect.value;
+  const pacerType = pacerTypeSelect.value;
+  const tags = tagsInput.value.trim();
   const content = markdownInput.value.trim();
 
-  if (!title || !content) {
-    alert('제목과 내용을 입력하세요.');
+  // Validation
+  if (!title) {
+    alert('제목을 입력하세요.');
+    return;
+  }
+
+  if (!parentCategory) {
+    alert('부모 카테고리를 선택하세요.');
+    return;
+  }
+
+  if (!category) {
+    alert('하위 카테고리를 선택하세요.');
+    return;
+  }
+
+  if (!content) {
+    alert('내용을 입력하세요.');
     return;
   }
 
@@ -80,26 +158,55 @@ saveBtn.addEventListener('click', async () => {
   saveBtn.textContent = '저장 중...';
 
   try {
+    // Build frontmatter
+    let frontmatter = '---\n';
+    frontmatter += `layout: post\n`;
+    frontmatter += `title: "${title}"\n`;
+    frontmatter += `parent_category: ${parentCategory}\n`;
+    frontmatter += `category: ${category}\n`;
+
+    if (pacerType) {
+      frontmatter += `learning_framework:\n`;
+      frontmatter += `  pacer_type: ${pacerType}\n`;
+    }
+
+    if (tags) {
+      const tagArray = tags.split(',').map(t => t.trim()).filter(t => t);
+      frontmatter += `tags:\n`;
+      tagArray.forEach(tag => {
+        frontmatter += `  - ${tag}\n`;
+      });
+    }
+
+    frontmatter += '---\n\n';
+
+    const fullContent = frontmatter + content;
+
     const response = await fetch('/api/save-draft', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title, content })
+      body: JSON.stringify({ title, content: fullContent })
     });
 
     const data = await response.json();
 
     if (response.ok) {
-      alert(`저장 완료!\n\nGitHub: ${data.filename}`);
+      alert(`✅ 저장 완료!\n\n파일명: ${data.filename}\n\nGitHub에서 확인하세요.`);
 
       // Clear form
       titleInput.value = '';
+      parentCategorySelect.value = '';
+      categorySelect.innerHTML = '<option value="">부모 카테고리를 먼저 선택하세요</option>';
+      categorySelect.disabled = true;
+      pacerTypeSelect.value = '';
+      tagsInput.value = '';
       markdownInput.value = '';
       markdownPreview.innerHTML = '';
     } else {
-      alert(`저장 실패: ${data.error}`);
+      alert(`❌ 저장 실패: ${data.error}`);
     }
   } catch (error) {
-    alert(`오류: ${error.message}`);
+    alert(`❌ 오류: ${error.message}`);
   } finally {
     saveBtn.disabled = false;
     saveBtn.textContent = '💾 저장';
