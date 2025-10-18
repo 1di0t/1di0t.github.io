@@ -2,7 +2,14 @@
 layout: post
 title: 핸드드립 커피 추출 완벽 가이드
 date: 2025-10-18T00:00:00.000Z
-category: study
+category: coffee
+parent_category: hobby
+learning_framework:
+  stage: digestion
+  pacer_type: procedural
+  pacer_types:
+    - procedural
+    - reference
 tags:
   - coffee
   - brewing
@@ -10,13 +17,6 @@ tags:
   - tips
   - lifestyle
 excerpt: 다크/라이트 로스팅별 물줄기와 분쇄도, 최적 물 온도까지 - 커피 추출의 모든 것
-parent_category: documentation
-learning_framework:
-  stage: digestion
-  pacer_type: reference
-  pacer_types:
-    - reference
-    - procedural
 ---
 
 # 핸드드립 커피 추출 완벽 가이드
