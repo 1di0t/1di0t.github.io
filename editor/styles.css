@@ -235,6 +235,7 @@ body::before {
   gap: 20px;
   padding: 20px;
   overflow: hidden;
+  height: calc(100vh - 68px);
 }
 
 /* Metadata Panel */
@@ -244,9 +245,30 @@ body::before {
   padding: 24px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   overflow-y: auto;
-  height: calc(100vh - 100px);
+  overflow-x: hidden;
+  height: 100%;
   position: relative;
-  z-index: 5;  /* 입력 요소들을 배경 위로 */
+  z-index: 5;
+  /* 스크롤바 스타일링 */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.metadata-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.metadata-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.metadata-panel::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.metadata-panel::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .metadata-section h3 {
@@ -347,7 +369,8 @@ body::before {
   flex-direction: column;
   overflow: hidden;
   position: relative;
-  z-index: 5;  /* 에디터 영역을 배경 위로 */
+  z-index: 5;
+  height: 100%;
 }
 
 /* Split Editor */
@@ -361,6 +384,7 @@ body::before {
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   overflow: hidden;
+  height: 100%;
 }
 
 .editor-pane,
@@ -368,6 +392,7 @@ body::before {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  height: 100%;
 }
 
 .editor-pane h3,
@@ -376,6 +401,7 @@ body::before {
   font-size: 14px;
   color: #666;
   text-transform: uppercase;
+  flex-shrink: 0;
 }
 
 #markdown-input {
@@ -387,6 +413,26 @@ body::before {
   padding: 15px;
   resize: none;
   outline: none;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+#markdown-input::-webkit-scrollbar {
+  width: 8px;
+}
+
+#markdown-input::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+#markdown-input::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+#markdown-input::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
 }
 
 .preview-content {
@@ -395,7 +441,27 @@ body::before {
   border-radius: 4px;
   padding: 15px;
   overflow-y: auto;
+  overflow-x: hidden;
   background: #fafafa;
+  min-height: 0;
+}
+
+.preview-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.preview-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.preview-content::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.preview-content::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
 }
 
 /* Markdown Preview Styles */
@@ -669,19 +735,34 @@ body::before {
 @media (max-width: 1024px) {
   .editor-container {
     grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: auto;
+    overflow-y: auto;
   }
 
   .metadata-panel {
     height: auto;
+    max-height: 60vh;
     margin-bottom: 20px;
   }
 
   .editor-split {
     grid-template-columns: 1fr;
+    height: auto;
+    min-height: 500px;
   }
 
   .preview-pane {
     display: none;
+  }
+
+  .editor-pane {
+    height: auto;
+    min-height: 500px;
+  }
+
+  #markdown-input {
+    min-height: 500px;
   }
 }
 
