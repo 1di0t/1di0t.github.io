@@ -93,6 +93,43 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // Font Size Toggle (Mobile Only)
+  const fontSizeToggle = document.getElementById('font-size-toggle');
+  if (fontSizeToggle) {
+    const fontSizes = ['font-small', 'font-medium', 'font-large', 'font-xlarge'];
+    let currentSizeIndex = parseInt(localStorage.getItem('fontSizeIndex')) || 1; // Default to medium
+
+    // Apply saved font size
+    document.body.classList.remove(...fontSizes);
+    document.body.classList.add(fontSizes[currentSizeIndex]);
+
+    fontSizeToggle.addEventListener('click', function() {
+      // Remove current font size class
+      document.body.classList.remove(fontSizes[currentSizeIndex]);
+
+      // Cycle to next size
+      currentSizeIndex = (currentSizeIndex + 1) % fontSizes.length;
+
+      // Apply new font size
+      document.body.classList.add(fontSizes[currentSizeIndex]);
+
+      // Save to localStorage
+      localStorage.setItem('fontSizeIndex', currentSizeIndex);
+
+      // Visual feedback
+      const sizeNames = ['작게', '보통', '크게', '매우 크게'];
+      const tooltip = document.createElement('div');
+      tooltip.textContent = `폰트: ${sizeNames[currentSizeIndex]}`;
+      tooltip.className = 'fixed top-20 right-4 bg-primary text-white px-4 py-2 rounded-lg shadow-lg z-50 transition-opacity';
+      document.body.appendChild(tooltip);
+
+      setTimeout(() => {
+        tooltip.style.opacity = '0';
+        setTimeout(() => tooltip.remove(), 300);
+      }, 1500);
+    });
+  }
+
   // Generate Table of Contents
   const tocContent = document.getElementById('toc-content');
   if (tocContent) {

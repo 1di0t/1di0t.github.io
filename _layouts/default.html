@@ -51,6 +51,12 @@
             {% endif %}
           </div>
           <div class="flex items-center gap-2">
+            <!-- Font Size Toggle (Mobile Only) -->
+            <button id="font-size-toggle" class="md:hidden p-2.5 glass rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg active:scale-95" aria-label="폰트 크기 조절">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+              </svg>
+            </button>
             <!-- Search Button with Glassmorphism -->
             <button id="search-button" class="p-2.5 glass rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg active:scale-95" aria-label="검색">
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
