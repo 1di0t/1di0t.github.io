@@ -1,16 +1,24 @@
 <!-- 🌟 2025 Sidebar -->
 <aside class="sidebar-width fixed left-0 top-0 h-screen border-r border-border overflow-y-auto -translate-x-full md:translate-x-0 transition-all duration-500 z-40 bg-white dark:bg-gray-900">
   <div class="flex flex-col h-full">
-    <!-- Header with Enhanced Hover -->
+    <!-- Header with Enhanced Hover and Close Button -->
     <div class="px-6 py-5 border-b border-glass-border">
-      <a href="{{ '/' | relative_url }}" class="flex items-center gap-3 group no-underline transition-all duration-300 hover:translate-x-1">
-        <div class="p-2 rounded-xl glass transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
-          <svg class="h-5 w-5 text-primary transition-all duration-300 group-hover:rotate-12 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+      <div class="flex items-center justify-between gap-3 mb-0">
+        <a href="{{ '/' | relative_url }}" class="flex items-center gap-3 group no-underline transition-all duration-300 hover:translate-x-1 flex-1 min-w-0">
+          <div class="p-2 rounded-xl glass transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg flex-shrink-0">
+            <svg class="h-5 w-5 text-primary transition-all duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+          </div>
+          <h1 class="text-base font-bold gradient-text leading-tight truncate">{{ site.title | default: "Tech Blog" }}</h1>
+        </a>
+        <!-- Mobile Close Button -->
+        <button id="sidebar-close-btn" class="md:hidden p-2 hover:bg-muted rounded-xl transition-all duration-300 hover:scale-110 active:scale-95 flex-shrink-0" aria-label="사이드바 닫기">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
-        </div>
-        <h1 class="text-base font-bold gradient-text leading-tight">{{ site.title | default: "Tech Blog" }}</h1>
-      </a>
+        </button>
+      </div>
     </div>
 
     <!-- Navigation Menu with Glassmorphism & Micro-interactions -->

@@ -72,14 +72,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Mobile Menu Toggle
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const sidebarCloseBtn = document.getElementById('sidebar-close-btn');
   const sidebar = document.querySelector('.sidebar-width');
 
+  // Function to open sidebar
+  function openSidebar() {
+    sidebar.classList.remove('-translate-x-full');
+    sidebar.classList.add('translate-x-0');
+  }
+
+  // Function to close sidebar
+  function closeSidebar() {
+    sidebar.classList.remove('translate-x-0');
+    sidebar.classList.add('-translate-x-full');
+  }
+
   if (mobileMenuBtn && sidebar) {
+    // Open sidebar on hamburger button click
     mobileMenuBtn.addEventListener('click', function(e) {
       e.stopPropagation();
-      sidebar.classList.toggle('translate-x-0');
-      sidebar.classList.toggle('-translate-x-full');
+      openSidebar();
     });
+
+    // Close sidebar on close button click
+    if (sidebarCloseBtn) {
+      sidebarCloseBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        closeSidebar();
+      });
+    }
 
     // Close sidebar when clicking outside
     document.addEventListener('click', function(event) {
@@ -87,10 +108,30 @@ document.addEventListener('DOMContentLoaded', function() {
       const isClickOnMenuBtn = mobileMenuBtn.contains(event.target);
 
       if (!isClickInsideSidebar && !isClickOnMenuBtn && sidebar.classList.contains('translate-x-0')) {
-        sidebar.classList.remove('translate-x-0');
-        sidebar.classList.add('-translate-x-full');
+        closeSidebar();
       }
     });
+
+    // Swipe to close sidebar
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    sidebar.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    sidebar.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const swipeDistance = touchEndX - touchStartX;
+      // If swiped left more than 50px, close sidebar
+      if (swipeDistance < -50 && sidebar.classList.contains('translate-x-0')) {
+        closeSidebar();
+      }
+    }
   }
 
   // Font Size Toggle (Mobile Only)
@@ -193,29 +234,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const highlightElement = codeBlock.querySelector('.highlight');
     if (!highlightElement) return;
 
-    // Create copy button
+    // Create copy button with icon
     const copyButton = document.createElement('button');
     copyButton.className = 'copy-code-button';
-    copyButton.textContent = '복사';
+
+    // Create icon and text
+    const copyIcon = `
+      <svg class="h-4 w-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+      </svg>
+    `;
+    const checkIcon = `
+      <svg class="h-4 w-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+      </svg>
+    `;
+
+    copyButton.innerHTML = copyIcon + '<span>복사</span>';
 
     copyButton.addEventListener('click', async () => {
       const code = highlightElement.querySelector('pre').textContent;
 
       try {
         await navigator.clipboard.writeText(code);
-        copyButton.textContent = '✓ 복사됨!';
-        copyButton.classList.add('bg-green-500');
+        copyButton.innerHTML = checkIcon + '<span>복사됨!</span>';
+        copyButton.classList.add('copied');
 
         setTimeout(() => {
-          copyButton.textContent = '복사';
-          copyButton.classList.remove('bg-green-500');
+          copyButton.innerHTML = copyIcon + '<span>복사</span>';
+          copyButton.classList.remove('copied');
         }, 2000);
       } catch (err) {
         console.error('Failed to copy code:', err);
-        copyButton.textContent = '복사 실패';
+        copyButton.innerHTML = copyIcon + '<span>복사 실패</span>';
 
         setTimeout(() => {
-          copyButton.textContent = '복사';
+          copyButton.innerHTML = copyIcon + '<span>복사</span>';
         }, 2000);
       }
     });
