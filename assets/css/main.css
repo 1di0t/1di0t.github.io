@@ -263,6 +263,7 @@
 @layer components {
   /* Layout */
   .sidebar-width {
+    position: fixed !important;
     width: 280px;
     background: var(--background) !important;
     backdrop-filter: none !important;
