@@ -292,40 +292,31 @@
   }
 
   .copy-code-button {
-    @apply absolute top-2 right-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-300 whitespace-nowrap flex items-center;
-    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 2px 8px rgba(217, 119, 87, 0.3);
-  }
+  @apply absolute top-2 right-2 px-2 py-1 rounded-md text-xs transition-colors duration-200;
+  background-color: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
 
-  .copy-code-button:hover {
-    transform: translateY(-1px) scale(1.05);
-    box-shadow: 0 4px 12px rgba(217, 119, 87, 0.4);
-  }
+.copy-code-button:hover {
+  background-color: var(--border-subtle);
+  color: var(--text-primary);
+}
 
-  .copy-code-button:active {
-    transform: translateY(0) scale(0.98);
-  }
+.copy-code-button:active {
+  transform: scale(0.95);
+}
 
-  .copy-code-button.copied {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
-  }
+.copy-code-button.copied {
+  background-color: #10b981; /* Tailwind's green-600 */
+  color: white;
+  border-color: #059669; /* Tailwind's green-700 */
+}
 
-  .dark .copy-code-button {
-    background: linear-gradient(135deg, var(--dark-terracotta) 0%, var(--accent-secondary) 100%);
-    box-shadow: 0 2px 8px rgba(232, 155, 122, 0.4);
-  }
-
-  .dark .copy-code-button:hover {
-    box-shadow: 0 4px 12px rgba(232, 155, 122, 0.5);
-  }
-
-  .dark .copy-code-button.copied {
-    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
-    box-shadow: 0 2px 8px rgba(52, 211, 153, 0.4);
-  }
+.dark .copy-code-button.copied {
+    background-color: #34d399; /* Tailwind's green-400 */
+    border-color: #10b981;
+}
 
   /* Table of Contents */
   .toc {
