@@ -77,14 +77,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Function to open sidebar
   function openSidebar() {
-    sidebar.classList.remove('-translate-x-full');
-    sidebar.classList.add('translate-x-0');
+    if (sidebar) {
+      sidebar.classList.remove('-translate-x-full');
+      sidebar.classList.add('translate-x-0');
+    }
   }
 
   // Function to close sidebar
   function closeSidebar() {
-    sidebar.classList.remove('translate-x-0');
-    sidebar.classList.add('-translate-x-full');
+    if (sidebar) {
+      sidebar.classList.remove('translate-x-0');
+      sidebar.classList.add('-translate-x-full');
+    }
   }
 
   if (mobileMenuBtn && sidebar) {
@@ -92,7 +96,12 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileMenuBtn.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      openSidebar();
+      // Toggle sidebar based on its current state
+      if (sidebar.classList.contains('-translate-x-full')) {
+        openSidebar();
+      } else {
+        closeSidebar();
+      }
     });
 
     // Close sidebar on close button click
@@ -106,16 +115,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close sidebar when clicking outside
     document.addEventListener('click', function(event) {
+      if (!sidebar || !mobileMenuBtn) return;
+      
       const isClickInsideSidebar = sidebar.contains(event.target);
       const isClickOnMenuBtn = mobileMenuBtn.contains(event.target);
-      const isClickOnCloseBtn = sidebarCloseBtn && sidebarCloseBtn.contains(event.target);
 
-      if (!isClickInsideSidebar && !isClickOnMenuBtn && !isClickOnCloseBtn && sidebar.classList.contains('translate-x-0')) {
+      if (!isClickInsideSidebar && !isClickOnMenuBtn && sidebar.classList.contains('translate-x-0')) {
         closeSidebar();
       }
     });
 
-    // Swipe to close sidebar
+    // --- Swipe to close sidebar on mobile ---
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -130,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function handleSwipe() {
       const swipeDistance = touchEndX - touchStartX;
-      // If swiped left more than 50px, close sidebar
+      // If swiped left (negative distance) more than 50px, close sidebar
       if (swipeDistance < -50 && sidebar.classList.contains('translate-x-0')) {
         closeSidebar();
       }
