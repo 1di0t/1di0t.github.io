@@ -286,10 +286,10 @@ document.addEventListener('DOMContentLoaded', function() {
     revealObserver.observe(el);
   });
 
-  // Parallax effect for hero sections
+  // Parallax effect for hero sections (exclude sidebar)
   window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
-    const heroElements = document.querySelectorAll('.glass-strong');
+    const heroElements = document.querySelectorAll('.glass-strong:not(.sidebar-width)');
 
     heroElements.forEach(hero => {
       const rect = hero.getBoundingClientRect();

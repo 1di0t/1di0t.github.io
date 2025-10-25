@@ -1,15 +1,17 @@
 {
   "permissions": {
     "allow": [
-
       "WebSearch",
-      "WebFetch", 
-      "Read",     
-      "Glob",     
-      "Grep",    
+      "WebFetch",
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash",
       "Bash mv ",
       "Bash mkdir",
-      "Bash find"
+      "Bash find",
+      "Bash(git add ",
+      "Bash(git commit "
     ],
     "deny": [],
     "ask": []
