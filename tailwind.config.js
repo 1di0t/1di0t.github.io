@@ -58,6 +58,7 @@ module.exports = {
       },
       fontFamily: {
         'sans': ['MaruBuri', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+        'serif': ['Lora', 'serif'],
         'mono': ['D2Coding', 'JetBrains Mono', 'Consolas', 'ui-monospace', 'monospace'],
       },
       borderRadius: {
