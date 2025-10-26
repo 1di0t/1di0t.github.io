@@ -86,10 +86,13 @@
                       {% assign cat_posts = cat_posts | push: post %}
                     {% endif %}
                   {% endfor %}
-                  <a href="{{ '/category/' | append: child_cat.id | append: '/' | relative_url }}" class="flex items-center justify-between px-3 py-1.5 rounded-md text-xs transition-colors hover:bg-muted/50 hover:text-foreground text-muted-foreground no-underline">
-                    <span>{{ child_cat.name_kr }}</span>
-                    <span class="text-xs">({{ cat_posts | size }})</span>
-                  </a>
+                  {% comment %} 포스트가 0개인 카테고리는 표시하지 않음 {% endcomment %}
+                  {% if cat_posts.size > 0 %}
+                    <a href="{{ '/category/' | append: child_cat.id | append: '/' | relative_url }}" class="flex items-center justify-between px-3 py-1.5 rounded-md text-xs transition-colors hover:bg-muted/50 hover:text-foreground text-muted-foreground no-underline">
+                      <span>{{ child_cat.name_kr }}</span>
+                      <span class="text-xs">({{ cat_posts | size }})</span>
+                    </a>
+                  {% endif %}
                 {% endfor %}
               </div>
             </div>

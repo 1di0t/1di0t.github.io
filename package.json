@@ -7,9 +7,10 @@
     "build:css": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/output.css --minify",
     "watch:css": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/output.css --watch",
     "build": "npm run build:css && bundle exec jekyll build",
+    "sync:categories": "node scripts/sync-categories.js",
     "validate:categories": "node scripts/validate-categories.js",
     "generate:tags": "node scripts/generate-tag-pages.js",
-    "prebuild": "npm run validate:categories && npm run generate:tags"
+    "prebuild": "npm run sync:categories && npm run validate:categories && npm run generate:tags"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
